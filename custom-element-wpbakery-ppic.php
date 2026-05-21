@@ -3,7 +3,7 @@
  * Plugin Name: Custom Element WP Bakery PPIC
  * Plugin URI:  https://ppicurug.ac.id/
  * Description: Plugin modular untuk elemen kustom WPBakery PPI Curug.
- * Version:     1.11.2
+ * Version:     1.7.1
  * Author:      IT Team PPI Curug
  * License:     GPL2
  */
@@ -23,21 +23,17 @@ function ppic_custom_elements_enqueue_styles() {
         'ppic-custom-elements-style', 
         PPIC_WPB_URL . 'assets/style.css', 
         array(), 
-        '1.11.2' 
+        '1.7.1' 
     );
 }
 
 // 2. Memanggil (Include) File Elemen-Elemen Kustom
 // Jika nanti kamu buat elemen baru, cukup tambahkan require_once-nya di sini
 require_once PPIC_WPB_DIR . 'elements/ppic-hero.php';
-require_once PPIC_WPB_DIR . 'elements/ppic-clinic-hero.php';
 require_once PPIC_WPB_DIR . 'elements/ppic-accreditation.php';
 require_once PPIC_WPB_DIR . 'elements/ppic-director-greeting.php';
 require_once PPIC_WPB_DIR . 'elements/ppic-featured-programs.php';
 require_once PPIC_WPB_DIR . 'elements/ppic-instagram-feed.php';
 require_once PPIC_WPB_DIR . 'elements/ppic-stats.php';
 require_once PPIC_WPB_DIR . 'elements/ppic-why.php'; 
-require_once PPIC_WPB_DIR . 'elements/ppic-news-grid.php'; 
-require_once PPIC_WPB_DIR . 'elements/ppic-explore-programs.php'; 
-require_once PPIC_WPB_DIR . 'elements/ppic-rpl-programs.php'; 
 // require_once PPIC_WPB_DIR . 'elements/ppic-testimonial.php';
