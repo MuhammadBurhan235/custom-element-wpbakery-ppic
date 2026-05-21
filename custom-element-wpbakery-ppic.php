@@ -23,13 +23,14 @@ function ppic_custom_elements_enqueue_styles() {
         'ppic-custom-elements-style', 
         PPIC_WPB_URL . 'assets/style.css', 
         array(), 
-        '1.0.8' 
+        '1.0.9' 
     );
 }
 
 // 2. Memanggil (Include) File Elemen-Elemen Kustom
 // Jika nanti kamu buat elemen baru, cukup tambahkan require_once-nya di sini
 require_once PPIC_WPB_DIR . 'elements/ppic-hero.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-clinic-hero.php';
 require_once PPIC_WPB_DIR . 'elements/ppic-accreditation.php';
 require_once PPIC_WPB_DIR . 'elements/ppic-director-greeting.php';
 require_once PPIC_WPB_DIR . 'elements/ppic-featured-programs.php';

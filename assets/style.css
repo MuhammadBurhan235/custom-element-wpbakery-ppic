@@ -3,7 +3,7 @@
    ========================================== */
 /* Container Utama */
 .ppic-hero-section {
-  background-color: red; /* Biru gelap PPI */
+  background-color: #12283a; /* Biru gelap PPI */
   padding: 80px 0;
   width: 100%;
   padding-top: 180px;
@@ -91,7 +91,197 @@
 }
 
 /* ==========================================
-   2. PPIC STATS SECTION
+   2. PPIC CLINIC HERO SECTION
+   ========================================== */
+.ppic-clinic-hero-section {
+  background: linear-gradient(180deg, #f7fbff 0%, #ffffff 100%);
+  padding: 84px 0 88px;
+  width: 100%;
+}
+
+.ppic-clinic-hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 580px);
+  align-items: center;
+  gap: 56px;
+}
+
+.ppic-clinic-hero-title {
+  margin: 0 0 18px;
+  font-size: 64px;
+  line-height: 1.05;
+  font-weight: 800;
+  color: #003b73;
+}
+
+.ppic-clinic-hero-title span {
+  color: #f8b425;
+}
+
+.ppic-clinic-hero-tagline {
+  max-width: 540px;
+  margin-bottom: 22px;
+  font-size: 18px;
+  line-height: 1.55;
+  font-weight: 600;
+  color: #0f4c81;
+}
+
+.ppic-clinic-hero-description {
+  max-width: 620px;
+  margin: 0 0 28px;
+  font-size: 16px;
+  line-height: 1.75;
+  color: #425f7f;
+}
+
+.ppic-clinic-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 30px;
+}
+
+.ppic-clinic-btn-primary,
+.ppic-clinic-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 12px 28px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.ppic-clinic-btn-primary {
+  background-color: #f8b425;
+  color: #0d233a;
+}
+
+.ppic-clinic-btn-primary:hover {
+  background-color: #e0a21f;
+  color: #0d233a;
+  transform: translateY(-2px);
+}
+
+.ppic-clinic-btn-outline {
+  border: 2px solid #0f4c81;
+  color: #0f4c81;
+  background-color: transparent;
+}
+
+.ppic-clinic-btn-outline:hover {
+  background-color: #0f4c81;
+  color: #ffffff;
+}
+
+.ppic-clinic-hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px 22px;
+}
+
+.ppic-clinic-stat-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 24px;
+  border-radius: 999px;
+  background-color: #ffffff;
+  box-shadow: 0 14px 34px rgba(18, 40, 58, 0.08);
+  color: #0d233a;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.ppic-clinic-stat-badge i {
+  color: #f8b425;
+  font-size: 17px;
+}
+
+.ppic-clinic-hero-image-wrap img {
+  display: block;
+  width: 100%;
+  min-height: 420px;
+  object-fit: cover;
+  border-radius: 28px;
+  box-shadow: 0 28px 60px rgba(18, 40, 58, 0.14);
+}
+
+@media (max-width: 991px) {
+  .ppic-clinic-hero-section {
+    padding: 64px 0 68px;
+  }
+
+  .ppic-clinic-hero-container {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .ppic-clinic-hero-content {
+    text-align: center;
+  }
+
+  .ppic-clinic-hero-tagline,
+  .ppic-clinic-hero-description {
+    max-width: 100%;
+  }
+
+  .ppic-clinic-hero-title {
+    font-size: 48px;
+  }
+
+  .ppic-clinic-hero-actions,
+  .ppic-clinic-hero-badges {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 575px) {
+  .ppic-clinic-hero-section {
+    padding: 48px 0 54px;
+  }
+
+  .ppic-clinic-hero-title {
+    font-size: 38px;
+  }
+
+  .ppic-clinic-hero-tagline {
+    font-size: 16px;
+  }
+
+  .ppic-clinic-hero-description {
+    font-size: 15px;
+  }
+
+  .ppic-clinic-hero-actions {
+    flex-direction: column;
+  }
+
+  .ppic-clinic-btn-primary,
+  .ppic-clinic-btn-outline,
+  .ppic-clinic-stat-badge {
+    width: 100%;
+  }
+
+  .ppic-clinic-hero-image-wrap img {
+    min-height: auto;
+  }
+}
+
+/* ==========================================
+   3. PPIC STATS SECTION
    ========================================== */
 .ppic-stats-section {
   background: linear-gradient(180deg, #ffffff 0%, #f4f7fb 100%);
