@@ -1139,3 +1139,81 @@
     height: 200px;
   }
 }
+
+/* =========================================================================
+   9. ELEMENT: PPIC EXPLORE PROGRAMS
+   ========================================================================= */
+
+.ppic-explore-wrapper {
+    background-color: #0D263C; 
+    padding: 80px 20px;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.ppic-explore-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.ppic-explore-title {
+    color: #ffffff;
+    font-size: 46px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+}
+
+.ppic-explore-desc {
+    color: #f8f9fa; 
+    font-size: 16px;
+    line-height: 1.8;
+    margin: 0 auto 35px auto;
+    max-width: 780px;
+}
+
+/* --- Tombol "Kembali ke Beranda" --- */
+.ppic-explore-btn {
+    display: inline-block;
+    background-color: #053b6a; 
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ppic-explore-btn:hover {
+    background-color: #f0a500; /* Warna kuning emas PPI saat di-hover */
+    color: #0D263C; /* Teks berubah jadi gelap biar kontras */
+    border-color: #f0a500;
+    text-decoration: none;
+}
+
+/* =========================================================================
+   RESPONSIVE LAYOUT (Tablet & Mobile)
+   ========================================================================= */
+
+@media (max-width: 768px) {
+    .ppic-explore-wrapper {
+        padding: 60px 15px;
+    }
+    
+    .ppic-explore-title {
+        font-size: 32px;
+    }
+    
+    .ppic-explore-desc {
+        font-size: 14.5px;
+        margin-bottom: 25px;
+    }
+    
+    .ppic-explore-btn {
+        padding: 10px 25px;
+        font-size: 15px;
+    }
+}
