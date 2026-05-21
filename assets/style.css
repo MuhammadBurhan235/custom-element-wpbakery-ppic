@@ -3,7 +3,7 @@
    ========================================== */
 /* Container Utama */
 .ppic-hero-section {
-  background-color: #12283a; /* Biru gelap PPI */
+  background-color: red; /* Biru gelap PPI */
   padding: 80px 0;
   width: 100%;
   padding-top: 180px;
@@ -789,133 +789,135 @@
    ========================================================================= */
 
 .ppic-news-section {
-    padding: 60px 15px; 
-    background-color: #F8F9FC; /* Background abu-abu muda */
-    box-sizing: border-box;
+  padding: 60px 15px;
+  background-color: #f8f9fc; /* Background abu-abu muda */
+  box-sizing: border-box;
 }
 
 /* --- Header & Deskripsi --- */
 .ppic-news-header {
-    text-align: center;
-    margin-bottom: 50px;
+  text-align: center;
+  margin-bottom: 50px;
 }
 
 .ppic-news-main-title {
-    color: #0f2a4a;
-    font-size: 32px;
-    font-weight: 700;
-    margin-bottom: 15px;
+  color: #0f2a4a;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 15px;
 }
 
 .ppic-news-sub-title {
-    color: #6c757d;
-    font-size: 16px;
-    line-height: 1.6;
-    max-width: 750px; 
-    margin: 0 auto;
+  color: #6c757d;
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 750px;
+  margin: 0 auto;
 }
 
 /* --- Row & Columns (Grid Kustom Anti-Bentrok) --- */
 .ppic-news-row {
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: -15px; /* Kompensasi jarak padding kiri-kanan */
-    margin-right: -15px;
-    box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -15px; /* Kompensasi jarak padding kiri-kanan */
+  margin-right: -15px;
+  box-sizing: border-box;
 }
 
 .ppic-news-col {
-    display: flex; /* Wajib biar isinya bisa nyesuain tinggi */
-    width: 33.3333%; /* Paksa 3 kolom di Desktop */
-    padding-left: 15px; 
-    padding-right: 15px;
-    margin-bottom: 30px;
-    box-sizing: border-box;
+  display: flex; /* Wajib biar isinya bisa nyesuain tinggi */
+  width: 33.3333%; /* Paksa 3 kolom di Desktop */
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 30px;
+  box-sizing: border-box;
 }
 
 /* --- Card Container --- */
 .ppic-news-card {
-    background-color: #ffffff;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
-    display: flex;
-    flex-direction: column; /* Bikin elemen numpuk ke bawah */
-    width: 100%;
-    height: 100%; /* Paksa kotak memenuhi tinggi kolom */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column; /* Bikin elemen numpuk ke bawah */
+  width: 100%;
+  height: 100%; /* Paksa kotak memenuhi tinggi kolom */
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .ppic-news-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.12);
+  transform: translateY(-5px);
+  box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.12);
 }
 
 /* --- Image Wrapper --- */
 .ppic-news-img-wrap {
-    width: 100%;
-    height: 220px; /* Tinggi gambar rata semua */
-    flex-shrink: 0; /* Gambar gak boleh mengecil */
-    overflow: hidden;
+  width: 100%;
+  height: 220px; /* Tinggi gambar rata semua */
+  flex-shrink: 0; /* Gambar gak boleh mengecil */
+  overflow: hidden;
 }
 
 .ppic-news-img-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* --- Content & Typography --- */
 .ppic-news-content {
-    display: flex;
-    flex-direction: column;
-    padding: 25px;
-    flex-grow: 1; /* Area konten ini bakal melar ngisi ruang kosong */
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  flex-grow: 1; /* Area konten ini bakal melar ngisi ruang kosong */
 }
 
 .ppic-news-content h4 {
-    font-size: 18px;
-    color: #0f2a4a;
-    font-weight: 700;
-    line-height: 1.4;
-    margin-bottom: 12px;
-    
-    /* JURUS POTONG JUDUL KEPANJANGAN (Maksimal 3 Baris) */
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    line-clamp: 3; /* Standar properti */
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+  font-size: 18px;
+  color: #0f2a4a;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 12px;
+
+  /* JURUS POTONG JUDUL KEPANJANGAN (Maksimal 3 Baris) */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3; /* Standar properti */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .ppic-news-content p {
-    font-size: 14.5px;
-    color: #555555;
-    line-height: 1.6;
-    margin-bottom: 25px;
-    
-    /* JURUS POTONG DESKRIPSI (Maksimal 3 Baris) */
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    line-clamp: 3; /* Standar properti */
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+  font-size: 14.5px;
+  color: #555555;
+  line-height: 1.6;
+  margin-bottom: 25px;
+
+  /* JURUS POTONG DESKRIPSI (Maksimal 3 Baris) */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3; /* Standar properti */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 /* --- Link Selengkapnya --- */
 .ppic-news-readmore {
-    font-size: 15px;
-    font-weight: 700;
-    color: #0f2a4a;
-    text-decoration: none;
-    margin-top: auto; /* Dorong tombol terus ke dasar kotak */
-    align-self: flex-start;
-    transition: color 0.3s ease;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f2a4a;
+  text-decoration: none;
+  margin-top: auto; /* Dorong tombol terus ke dasar kotak */
+  align-self: flex-start;
+  transition: color 0.3s ease;
 }
 
 .ppic-news-readmore:hover {
-    color: #f0a500; /* Warna kuning emas pas di-hover */
-    text-decoration: none;
+  color: #f0a500; /* Warna kuning emas pas di-hover */
+  text-decoration: none;
 }
 
 /* =========================================================================
@@ -924,26 +926,26 @@
 
 /* Untuk Layar Tablet (Lebar max 992px) -> Jadi 2 Kolom */
 @media (max-width: 992px) {
-    .ppic-news-col {
-        width: 50%; 
-    }
+  .ppic-news-col {
+    width: 50%;
+  }
 }
 
 /* Untuk Layar HP (Lebar max 768px) -> Jadi 1 Kolom Full */
 @media (max-width: 768px) {
-    .ppic-news-section {
-        padding: 40px 15px;
-    }
-    
-    .ppic-news-main-title {
-        font-size: 26px;
-    }
-    
-    .ppic-news-col {
-        width: 100%; 
-    }
-    
-    .ppic-news-img-wrap {
-        height: 200px; 
-    }
+  .ppic-news-section {
+    padding: 40px 15px;
+  }
+
+  .ppic-news-main-title {
+    font-size: 26px;
+  }
+
+  .ppic-news-col {
+    width: 100%;
+  }
+
+  .ppic-news-img-wrap {
+    height: 200px;
+  }
 }
