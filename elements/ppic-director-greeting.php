@@ -7,7 +7,7 @@ add_shortcode( 'ppic_director_greeting', 'ppic_director_greeting_render' );
 function ppic_director_greeting_render( $atts ) {
     $atts = shortcode_atts(
         array(
-            'image_url' => 'https://ppicurug.ac.id/wp-content/uploads/2026/02/WhatsApp-Image-2026-02-04-at-10.28.58.jpeg',
+            'image' => '',
             'image_alt' => 'Direktur PPI Curug Capt. Megi H. Helmiadi',
             'title' => 'Sambutan Direktur',
             'quote' => '“Kami berkomitmen mencetak sumber daya manusia unggul yang siap mengawaki industri penerbangan nasional dan global. Dengan fasilitas modern dan instruktur berpengalaman, PPI Curug menjadi rumah bagi calon-calon penerbang profesional.”',
@@ -24,12 +24,20 @@ function ppic_director_greeting_render( $atts ) {
     $cta_title = ! empty( $link['title'] ) ? $link['title'] : $atts['cta_text'];
     $cta_target = ! empty( $link['target'] ) ? ' target="' . trim( $link['target'] ) . '"' : '';
 
+    $image_url = 'https://ppicurug.ac.id/wp-content/uploads/2026/02/WhatsApp-Image-2026-02-04-at-10.28.58.jpeg';
+    if ( ! empty( $atts['image'] ) ) {
+        $image_data = wp_get_attachment_image_src( $atts['image'], 'full' );
+        if ( $image_data ) {
+            $image_url = $image_data[0];
+        }
+    }
+
     ob_start();
     ?>
     <section class="ppic-director-greeting-section">
         <div class="ppic-director-greeting-container">
             <div class="ppic-director-greeting-image">
-                <img src="<?php echo esc_url( $atts['image_url'] ); ?>" alt="<?php echo esc_attr( $atts['image_alt'] ); ?>">
+                <img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $atts['image_alt'] ); ?>">
             </div>
             <div class="ppic-director-greeting-content">
                 <h3><?php echo esc_html( $atts['title'] ); ?></h3>
@@ -65,10 +73,9 @@ function ppic_director_greeting_map() {
             'icon' => 'dashicons dashicons-format-quote',
             'params' => array(
                 array(
-                    'type' => 'textfield',
-                    'heading' => __( 'URL Foto', 'ppic-custom-element' ),
-                    'param_name' => 'image_url',
-                    'value' => 'https://ppicurug.ac.id/wp-content/uploads/2026/02/WhatsApp-Image-2026-02-04-at-10.28.58.jpeg',
+                    'type' => 'attach_image',
+                    'heading' => __( 'Foto Direktur', 'ppic-custom-element' ),
+                    'param_name' => 'image',
                 ),
                 array(
                     'type' => 'textfield',
