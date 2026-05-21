@@ -39,4 +39,5 @@ require_once PPIC_WPB_DIR . 'elements/ppic-stats.php';
 require_once PPIC_WPB_DIR . 'elements/ppic-why.php'; 
 require_once PPIC_WPB_DIR . 'elements/ppic-news-grid.php'; 
 require_once PPIC_WPB_DIR . 'elements/ppic-explore-programs.php'; 
+require_once PPIC_WPB_DIR . 'elements/ppic-rpl-programs.php'; 
 // require_once PPIC_WPB_DIR . 'elements/ppic-testimonial.php';

@@ -1217,3 +1217,99 @@
         font-size: 15px;
     }
 }
+
+/* =========================================================================
+   11. ELEMENT: PPIC RPL PROGRAMS 
+   ========================================================================= */
+
+.ppic-rpl-section {
+    padding: 60px 20px;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.ppic-rpl-header {
+    margin-bottom: 50px;
+}
+
+.ppic-rpl-header h2 {
+    font-size: 32px;
+    color: #0f2a4a;
+    margin-bottom: 15px;
+}
+
+.ppic-rpl-header p {
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Grid Layout */
+.ppic-rpl-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 kolom di desktop */
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.ppic-rpl-card {
+    padding: 20px;
+}
+
+.ppic-rpl-card i {
+    font-size: 40px;
+    color: #f8b400; /* Warna Emas PPI */
+    margin-bottom: 20px;
+    display: block;
+}
+
+.ppic-rpl-card h4 {
+    color: #0f2a4a;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.ppic-rpl-card p {
+    font-size: 14px;
+    color: #444;
+    line-height: 1.6;
+}
+
+/* --- RESPONSIVE SETTINGS --- */
+
+/* Tablet: 2 kolom */
+@media (max-width: 992px) {
+    .ppic-rpl-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile: 1 kolom */
+@media (max-width: 600px) {
+    .ppic-rpl-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .ppic-rpl-header h2 {
+        font-size: 26px;
+    }
+}
+
+/* Tombol */
+.ppic-rpl-btn {
+    display: inline-block;
+    background: #f8b400;
+    color: #0f2a4a;
+    padding: 14px 35px;
+    border-radius: 30px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.ppic-rpl-btn:hover {
+    background: #e0a200;
+    color: #ffffff;
+}
