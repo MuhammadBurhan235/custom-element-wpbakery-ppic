@@ -785,48 +785,49 @@
 }
 
 /* =========================================================================
-   8. ELEMENT: PPIC NEWS GRID (FULL & RESPONSIVE)
+   8. ELEMENT: PPIC NEWS GRID (COMPACT & RESPONSIVE)
    ========================================================================= */
 
 .ppic-news-section {
     padding: 60px 15px; 
-    background-color: #F8F9FC; /* Background abu-abu muda */
+    background-color: #F8F9FC; 
     box-sizing: border-box;
 }
 
 /* --- Header & Deskripsi --- */
 .ppic-news-header {
     text-align: center;
-    margin-bottom: 50px;
+    margin: 0 auto 40px auto;
+    max-width: 1140px; /* Batasi lebar agar rapi di tengah */
 }
 
 .ppic-news-main-title {
     color: #0f2a4a;
-    font-size: 32px;
+    font-size: 30px; /* Dikecilin sedikit */
     font-weight: 700;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .ppic-news-sub-title {
     color: #6c757d;
-    font-size: 16px;
+    font-size: 15px; /* Dikecilin sedikit */
     line-height: 1.6;
     max-width: 750px; 
     margin: 0 auto;
 }
 
-/* --- Row & Columns (Grid Kustom Anti-Bentrok) --- */
+/* --- Row & Columns (Grid Constraint) --- */
 .ppic-news-row {
     display: flex;
     flex-wrap: wrap;
-    margin-left: -15px; /* Kompensasi jarak padding kiri-kanan */
-    margin-right: -15px;
+    max-width: 1140px; /* KUNCI UTAMA: Batasi lebar maksimal grid biar kartu gak raksasa */
+    margin: 0 auto; /* Posisikan grid di tengah layar */
     box-sizing: border-box;
 }
 
 .ppic-news-col {
-    display: flex; /* Wajib biar isinya bisa nyesuain tinggi */
-    width: 33.3333%; /* Paksa 3 kolom di Desktop */
+    display: flex; 
+    width: 33.3333%; 
     padding-left: 15px; 
     padding-right: 15px;
     margin-bottom: 30px;
@@ -838,24 +839,24 @@
     background-color: #ffffff;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05); /* Shadow diperhalus */
     display: flex;
-    flex-direction: column; /* Bikin elemen numpuk ke bawah */
+    flex-direction: column; 
     width: 100%;
-    height: 100%; /* Paksa kotak memenuhi tinggi kolom */
+    height: 100%; 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .ppic-news-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.12);
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 /* --- Image Wrapper --- */
 .ppic-news-img-wrap {
     width: 100%;
-    height: 220px; /* Tinggi gambar rata semua */
-    flex-shrink: 0; /* Gambar gak boleh mengecil */
+    height: 190px; /* KUNCI: Tinggi gambar dikurangi biar proporsional */
+    flex-shrink: 0; 
     overflow: hidden;
 }
 
@@ -869,52 +870,50 @@
 .ppic-news-content {
     display: flex;
     flex-direction: column;
-    padding: 25px;
-    flex-grow: 1; /* Area konten ini bakal melar ngisi ruang kosong */
+    padding: 20px; /* KUNCI: Padding dikurangi dari 25px ke 20px biar compact */
+    flex-grow: 1; 
 }
 
 .ppic-news-content h4 {
-    font-size: 18px;
+    font-size: 17px; /* Font judul disesuaikan */
     color: #0f2a4a;
     font-weight: 700;
     line-height: 1.4;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     
-    /* JURUS POTONG JUDUL KEPANJANGAN (Maksimal 3 Baris) */
     display: -webkit-box;
     -webkit-line-clamp: 3;
-    line-clamp: 3; /* Standar properti */
+    line-clamp: 3; 
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
 
 .ppic-news-content p {
-    font-size: 14.5px;
+    font-size: 14px; /* Font paragraf disesuaikan */
     color: #555555;
     line-height: 1.6;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     
-    /* JURUS POTONG DESKRIPSI (Maksimal 3 Baris) */
     display: -webkit-box;
     -webkit-line-clamp: 3;
-    line-clamp: 3; /* Standar properti */
+    line-clamp: 3; 
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
 
 /* --- Link Selengkapnya --- */
 .ppic-news-readmore {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 700;
     color: #0f2a4a;
     text-decoration: none;
-    margin-top: auto; /* Dorong tombol terus ke dasar kotak */
+    margin-top: auto; 
     align-self: flex-start;
     transition: color 0.3s ease;
 }
 
 .ppic-news-readmore:hover {
-    color: #f0a500; /* Warna kuning emas pas di-hover */
+    color: #f0a500; 
     text-decoration: none;
 }
 
@@ -922,27 +921,28 @@
    RESPONSIVE LAYOUT (Tablet & Mobile)
    ========================================================================= */
 
-/* Untuk Layar Tablet (Lebar max 992px) -> Jadi 2 Kolom */
 @media (max-width: 992px) {
     .ppic-news-col {
         width: 50%; 
     }
+    .ppic-news-row {
+        max-width: 720px;
+    }
 }
 
-/* Untuk Layar HP (Lebar max 768px) -> Jadi 1 Kolom Full */
 @media (max-width: 768px) {
     .ppic-news-section {
         padding: 40px 15px;
     }
-    
     .ppic-news-main-title {
-        font-size: 26px;
+        font-size: 24px;
     }
-    
     .ppic-news-col {
         width: 100%; 
     }
-    
+    .ppic-news-row {
+        max-width: 100%;
+    }
     .ppic-news-img-wrap {
         height: 200px; 
     }
