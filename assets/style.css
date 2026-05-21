@@ -1145,53 +1145,53 @@
    ========================================================================= */
 
 .ppic-explore-wrapper {
-    background-color: #0D263C; 
-    padding: 80px 20px;
-    text-align: center;
-    width: 100%;
-    box-sizing: border-box;
+  background-color: #0d263c;
+  padding: 80px 20px;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .ppic-explore-content {
-    max-width: 900px;
-    margin: 0 auto;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .ppic-explore-title {
-    color: #ffffff;
-    font-size: 46px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    letter-spacing: 0.5px;
+  color: #ffffff;
+  font-size: 46px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
 }
 
 .ppic-explore-desc {
-    color: #f8f9fa; 
-    font-size: 16px;
-    line-height: 1.8;
-    margin: 0 auto 35px auto;
-    max-width: 780px;
+  color: #f8f9fa;
+  font-size: 16px;
+  line-height: 1.8;
+  margin: 0 auto 35px auto;
+  max-width: 780px;
 }
 
 /* --- Tombol "Kembali ke Beranda" --- */
 .ppic-explore-btn {
-    display: inline-block;
-    background-color: #053b6a; 
-    color: #ffffff;
-    font-size: 16px;
-    font-weight: 600;
-    padding: 12px 30px;
-    border-radius: 30px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+  display: inline-block;
+  background-color: #053b6a;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .ppic-explore-btn:hover {
-    background-color: #f0a500; /* Warna kuning emas PPI saat di-hover */
-    color: #0D263C; /* Teks berubah jadi gelap biar kontras */
-    border-color: #f0a500;
-    text-decoration: none;
+  background-color: #f0a500; /* Warna kuning emas PPI saat di-hover */
+  color: #0d263c; /* Teks berubah jadi gelap biar kontras */
+  border-color: #f0a500;
+  text-decoration: none;
 }
 
 /* =========================================================================
@@ -1199,115 +1199,21 @@
    ========================================================================= */
 
 @media (max-width: 768px) {
-    .ppic-explore-wrapper {
-        padding: 60px 15px;
-    }
-    
-    .ppic-explore-title {
-        font-size: 32px;
-    }
-    
-    .ppic-explore-desc {
-        font-size: 14.5px;
-        margin-bottom: 25px;
-    }
-    
-    .ppic-explore-btn {
-        padding: 10px 25px;
-        font-size: 15px;
-    }
-}
+  .ppic-explore-wrapper {
+    padding: 60px 15px;
+  }
 
-/* =========================================================================
-   11. ELEMENT: PPIC RPL PROGRAMS 
-   ========================================================================= */
-
-.ppic-rpl-section {
-    background-color: #F8FAFC !important;
-    background-image: none !important;
-    padding: 80px 20px;
-    text-align: center;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.ppic-rpl-header {
-    max-width: 1200px;
-    margin: 0 auto 50px auto;
-}
-
-.ppic-rpl-header h2 {
+  .ppic-explore-title {
     font-size: 32px;
-    color: #0f2a4a !important;
-    margin-bottom: 15px;
-}
+  }
 
-.ppic-rpl-header p {
-    color: #666 !important;
-    max-width: 600px;
-    margin: 0 auto;
-}
+  .ppic-explore-desc {
+    font-size: 14.5px;
+    margin-bottom: 25px;
+  }
 
-.ppic-rpl-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto 40px auto;
-}
-
-.ppic-rpl-card {
-    padding: 20px;
-}
-
-.ppic-rpl-card i {
-    font-size: 40px;
-    color: #f8b400;
-    margin-bottom: 20px;
-    display: block;
-}
-
-.ppic-rpl-card h4 {
-    color: #0f2a4a !important;
-    font-weight: 700;
-    margin-bottom: 15px;
-}
-
-.ppic-rpl-card p {
-    font-size: 14px;
-    color: #444 !important;
-    line-height: 1.6;
-}
-
-@media (max-width: 992px) {
-    .ppic-rpl-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 600px) {
-    .ppic-rpl-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-    
-    .ppic-rpl-header h2 {
-        font-size: 26px;
-    }
-}
-
-.ppic-rpl-btn {
-    display: inline-block;
-    background: #f8b400;
-    color: #0f2a4a;
-    padding: 14px 35px;
-    border-radius: 30px;
-    font-weight: 700;
-    text-decoration: none;
-    transition: background 0.3s ease;
-}
-
-.ppic-rpl-btn:hover {
-    background: #e0a200;
-    color: #ffffff;
+  .ppic-explore-btn {
+    padding: 10px 25px;
+    font-size: 15px;
+  }
 }
