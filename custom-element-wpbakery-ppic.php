@@ -3,7 +3,7 @@
  * Plugin Name: Custom Element WP Bakery PPIC
  * Plugin URI:  https://ppicurug.ac.id/
  * Description: Plugin modular untuk elemen kustom WPBakery PPI Curug.
- * Version:     1.0.8
+ * Version:     1.0.9
  * Author:      IT Team PPI Curug
  * License:     GPL2
  */
