@@ -1,0 +1,785 @@
+/* ==========================================
+   1. PPIC HERO SECTION
+   ========================================== */
+/* Container Utama */
+.ppic-hero-section {
+  background-color: #12283a; /* Biru gelap PPI */
+  padding: 80px 0;
+  width: 100%;
+  padding-top: 180px;
+}
+
+.ppic-hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+/* Sisi Teks (Kiri) */
+.ppic-hero-text {
+  flex: 1;
+  color: #ffffff;
+}
+
+.ppic-hero-text h2 {
+  font-size: 42px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.ppic-hero-text p {
+  font-size: 16px;
+  color: #e0e0e0;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+/* Tombol */
+.ppic-btn-primary {
+  display: inline-block;
+  background-color: #f8b425; /* Kuning PPI */
+  color: #12283a;
+  font-weight: 700;
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.ppic-btn-primary:hover {
+  background-color: #e09f1d;
+  transform: translateY(-2px);
+  color: #12283a;
+}
+
+/* Sisi Gambar (Kanan) */
+.ppic-hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.ppic-hero-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  object-fit: cover;
+}
+
+/* Responsif untuk HP / Tablet */
+@media (max-width: 991px) {
+  .ppic-hero-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .ppic-hero-text h2 {
+    font-size: 32px;
+  }
+
+  .ppic-hero-image {
+    justify-content: center;
+    margin-top: 20px;
+  }
+}
+
+/* ==========================================
+   2. PPIC STATS SECTION
+   ========================================== */
+.ppic-stats-section {
+  background: linear-gradient(180deg, #ffffff 0%, #f4f7fb 100%);
+  padding: 56px 0;
+  width: 100%;
+}
+
+.ppic-stats-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.ppic-stat-item {
+  text-align: center;
+  padding: 12px 16px;
+}
+
+.ppic-stat-item h3 {
+  margin: 0 0 10px;
+  font-size: 58px;
+  line-height: 1;
+  font-weight: 800;
+  color: #003b73;
+}
+
+.ppic-stat-item p {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: #284b6d;
+}
+
+@media (max-width: 991px) {
+  .ppic-stats-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 20px;
+  }
+
+  .ppic-stat-item h3 {
+    font-size: 44px;
+  }
+}
+
+@media (max-width: 575px) {
+  .ppic-stats-section {
+    padding: 44px 0;
+  }
+
+  .ppic-stats-container {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .ppic-stat-item h3 {
+    font-size: 38px;
+  }
+
+  .ppic-stat-item p {
+    font-size: 16px;
+  }
+}
+
+/* ==========================================
+   3. PPIC ACCREDITATION SECTION
+   ========================================== */
+.ppic-accreditation-section {
+  background-color: #eef3f9;
+  padding: 72px 0 76px;
+  width: 100%;
+}
+
+.ppic-accreditation-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.ppic-accreditation-title {
+  margin: 0;
+  text-align: center;
+  font-size: 52px;
+  line-height: 1.15;
+  font-weight: 800;
+  color: #003b73;
+}
+
+.ppic-accreditation-subtitle {
+  max-width: 680px;
+  margin: 22px auto 48px;
+  text-align: center;
+  font-size: 20px;
+  line-height: 1.6;
+  color: #4d6480;
+}
+
+.ppic-accreditation-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 24px;
+  align-items: start;
+}
+
+.ppic-accreditation-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 18px;
+}
+
+.ppic-accreditation-logo {
+  width: 100%;
+  max-width: 92px;
+  height: 92px;
+  object-fit: contain;
+}
+
+.ppic-accreditation-item span {
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #0d233a;
+}
+
+@media (max-width: 991px) {
+  .ppic-accreditation-title {
+    font-size: 40px;
+  }
+
+  .ppic-accreditation-subtitle {
+    margin-bottom: 36px;
+    font-size: 18px;
+  }
+
+  .ppic-accreditation-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px 20px;
+  }
+}
+
+@media (max-width: 575px) {
+  .ppic-accreditation-section {
+    padding: 56px 0 60px;
+  }
+
+  .ppic-accreditation-title {
+    font-size: 31px;
+  }
+
+  .ppic-accreditation-subtitle {
+    margin: 18px auto 30px;
+    font-size: 16px;
+  }
+
+  .ppic-accreditation-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 16px;
+  }
+
+  .ppic-accreditation-logo {
+    max-width: 78px;
+    height: 78px;
+  }
+
+  .ppic-accreditation-item span {
+    font-size: 14px;
+  }
+}
+
+/* ==========================================
+   4. PPIC DIRECTOR GREETING SECTION
+   ========================================== */
+.ppic-director-greeting-section {
+  background-color: #ffffff;
+  padding: 72px 0 82px;
+  width: 100%;
+}
+
+.ppic-director-greeting-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: minmax(280px, 380px) minmax(0, 1fr);
+  align-items: center;
+  gap: 36px;
+}
+
+.ppic-director-greeting-image img {
+  display: block;
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(13, 35, 58, 0.12);
+}
+
+.ppic-director-greeting-content h3 {
+  margin: 0 0 26px;
+  font-size: 52px;
+  line-height: 1.1;
+  font-weight: 800;
+  color: #003b73;
+}
+
+.ppic-director-greeting-quote {
+  margin: 0 0 28px;
+  font-size: 21px;
+  line-height: 1.72;
+  color: #425f7f;
+}
+
+.ppic-director-greeting-meta {
+  margin: 0 0 34px;
+  font-size: 20px;
+  line-height: 1.6;
+  color: #36516e;
+}
+
+.ppic-director-greeting-meta strong {
+  color: #0d233a;
+}
+
+.ppic-director-greeting-link a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #f8b425;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.ppic-director-greeting-link a:hover {
+  color: #d99718;
+  transform: translateX(2px);
+}
+
+@media (max-width: 991px) {
+  .ppic-director-greeting-section {
+    padding: 60px 0 68px;
+  }
+
+  .ppic-director-greeting-container {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .ppic-director-greeting-image {
+    max-width: 420px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .ppic-director-greeting-content {
+    text-align: center;
+  }
+
+  .ppic-director-greeting-content h3 {
+    font-size: 42px;
+    margin-bottom: 20px;
+  }
+
+  .ppic-director-greeting-quote {
+    font-size: 19px;
+    margin-bottom: 24px;
+  }
+
+  .ppic-director-greeting-meta {
+    font-size: 18px;
+    margin-bottom: 28px;
+  }
+
+  .ppic-director-greeting-link a {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 575px) {
+  .ppic-director-greeting-section {
+    padding: 48px 0 56px;
+  }
+
+  .ppic-director-greeting-image img {
+    height: auto;
+  }
+
+  .ppic-director-greeting-content h3 {
+    font-size: 32px;
+  }
+
+  .ppic-director-greeting-quote {
+    font-size: 17px;
+  }
+
+  .ppic-director-greeting-meta {
+    font-size: 16px;
+  }
+
+  .ppic-director-greeting-link a {
+    font-size: 16px;
+  }
+}
+
+/* ==========================================
+   5. PPIC FEATURED PROGRAMS SECTION
+   ========================================== */
+.ppic-featured-programs-section {
+  background-color: #ffffff;
+  padding: 74px 0 86px;
+  width: 100%;
+}
+
+.ppic-featured-programs-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.ppic-featured-programs-title {
+  margin: 0;
+  text-align: center;
+  font-size: 52px;
+  line-height: 1.12;
+  font-weight: 800;
+  color: #003b73;
+}
+
+.ppic-featured-programs-subtitle {
+  max-width: 760px;
+  margin: 20px auto 52px;
+  text-align: center;
+  font-size: 20px;
+  line-height: 1.6;
+  color: #5a7089;
+}
+
+.ppic-featured-programs-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.ppic-featured-program-card {
+  min-height: 210px;
+  padding: 24px 20px 28px;
+  border: 1px solid #e8edf3;
+  border-radius: 24px;
+  background-color: #ffffff;
+  box-shadow: 0 10px 24px rgba(18, 40, 58, 0.04);
+  text-align: center;
+}
+
+.ppic-featured-program-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 62px;
+  height: 62px;
+  margin-bottom: 18px;
+  border-radius: 50%;
+  background-color: #003b73;
+  color: #ffffff;
+  font-size: 28px;
+}
+
+.ppic-featured-program-card h4 {
+  margin: 0 0 12px;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 800;
+  color: #0d3458;
+}
+
+.ppic-featured-program-card p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.65;
+  color: #61748b;
+}
+
+@media (max-width: 1199px) {
+  .ppic-featured-programs-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 991px) {
+  .ppic-featured-programs-section {
+    padding: 60px 0 70px;
+  }
+
+  .ppic-featured-programs-title {
+    font-size: 42px;
+  }
+
+  .ppic-featured-programs-subtitle {
+    margin-bottom: 40px;
+    font-size: 18px;
+  }
+
+  .ppic-featured-programs-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 575px) {
+  .ppic-featured-programs-section {
+    padding: 48px 0 56px;
+  }
+
+  .ppic-featured-programs-title {
+    font-size: 32px;
+  }
+
+  .ppic-featured-programs-subtitle {
+    margin: 18px auto 30px;
+    font-size: 16px;
+  }
+
+  .ppic-featured-programs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ppic-featured-program-card {
+    min-height: auto;
+    padding: 22px 18px 24px;
+  }
+}
+
+/* ==========================================
+   6. PPIC INSTAGRAM SECTION
+   ========================================== */
+.ppic-instagram-section {
+  background-color: #ffffff;
+  padding: 52px 0 28px;
+  width: 100%;
+}
+
+.ppic-instagram-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.ppic-instagram-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 18px;
+}
+
+.ppic-instagram-header h2 {
+  margin: 0;
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 800;
+  color: #003b73;
+}
+
+.ppic-instagram-header a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border: 1.5px solid #003b73;
+  border-radius: 999px;
+  color: #003b73;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.ppic-instagram-header a:hover {
+  background-color: #003b73;
+  color: #ffffff;
+}
+
+.ppic-instagram-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.ppic-instagram-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  aspect-ratio: 1 / 1;
+  box-shadow: 0 12px 26px rgba(18, 40, 58, 0.1);
+}
+
+.ppic-instagram-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.ppic-instagram-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 59, 115, 0) 40%,
+    rgba(0, 59, 115, 0.38) 100%
+  );
+  pointer-events: none;
+}
+
+.ppic-instagram-card:hover img {
+  transform: scale(1.05);
+}
+
+.ppic-instagram-icon {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  z-index: 1;
+  color: #ffffff;
+  font-size: 22px;
+}
+
+@media (max-width: 991px) {
+  .ppic-instagram-section {
+    padding: 46px 0 24px;
+  }
+
+  .ppic-instagram-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ppic-instagram-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 575px) {
+  .ppic-instagram-header h2 {
+    font-size: 24px;
+  }
+
+  .ppic-instagram-header a {
+    font-size: 13px;
+  }
+
+  .ppic-instagram-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ==========================================
+   7. PPIC WHY SECTION
+   ========================================== */
+.why-ppic {
+  background-color: #fafbfe; /* Warna background abu-abu sangat muda/putih salju */
+  padding: 80px 0;
+  width: 100%;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.ppic-why-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+/* Bagian Gambar Kiri */
+.why-image {
+  flex: 1;
+}
+
+.why-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08); /* Efek melayang */
+  object-fit: cover;
+}
+
+/* Bagian Konten Kanan */
+.why-content {
+  flex: 1.2;
+  color: #333333;
+}
+
+.why-content h2 {
+  font-size: 36px;
+  color: #0d233a; /* Biru PPI */
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+.why-content .punchline {
+  font-size: 20px;
+  color: #f8b425; /* Kuning PPI */
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+.why-content .lead {
+  font-size: 16px;
+  color: #555555;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+/* List Centang */
+.why-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 35px 0;
+}
+
+.why-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 15px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #444444;
+}
+
+.why-list li i {
+  color: #f8b425; /* Warna icon check kuning */
+  font-size: 18px;
+  margin-top: 3px;
+}
+
+.why-list li strong {
+  color: #0d233a; /* Teks tebal biru gelap */
+}
+
+/* Teks Bawah (Micro CTA) */
+.micro-cta {
+  border-left: 4px solid #f8b425;
+  padding-left: 16px;
+  font-size: 15px;
+  color: #333333;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.micro-cta a {
+  color: #0f4c81;
+  font-weight: 700;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.micro-cta a:hover {
+  color: #f8b425;
+}
+
+/* Responsive Mobile & Tablet */
+@media (max-width: 991px) {
+  .ppic-why-container {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .why-content h2 {
+    font-size: 28px;
+  }
+
+  .why-content .punchline {
+    font-size: 18px;
+  }
+}
