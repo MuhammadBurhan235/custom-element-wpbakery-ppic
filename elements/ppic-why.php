@@ -120,7 +120,7 @@ function ppic_why_section_render($atts) {
         'image'       => '',
         'title'       => 'Kenapa PPI Curug?',
         'punchline'   => 'Banyak yang ingin bekerja di industri penerbangan.<br>Sedikit yang siap dibentuk.',
-        'lead_text'   => 'Di PPI Curug, kami tidak sekadar mencetak lulusan...',
+        'lead_text'   => 'Di PPI Curug, kami tidak sekadar mencetak lulusan. Kami membentuk taruna menjadi profesional tangguh yang siap memimpin.',
         'features'    => ppic_why_default_features(),
         'cta_text'    => 'Mereka yang serius tidak perlu berpikir panjang.',
         'cta_link'    => ''
