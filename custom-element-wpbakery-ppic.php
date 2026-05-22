@@ -42,4 +42,5 @@ require_once PPIC_WPB_DIR . 'elements/ppic-rpl-programs.php';
 require_once PPIC_WPB_DIR . 'elements/ppic-about.php'; 
 require_once PPIC_WPB_DIR . 'elements/ppic-timelane.php'; 
 require_once PPIC_WPB_DIR . 'elements/ppic-visi-misi.php'; 
+require_once PPIC_WPB_DIR . 'elements/ppic-exellence.php'; 
 // require_once PPIC_WPB_DIR . 'elements/ppic-testimonial.php';

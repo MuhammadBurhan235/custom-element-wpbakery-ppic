@@ -1448,5 +1448,115 @@
 }
 
 /* =========================================================================
-   14. ELEMENT: PPIC VISI MISI
+   14. ELEMENT: PPIC EXELLENCE
    ========================================================================= */
+/* --- Wrapper & Header --- */
+.ppic-exc-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.ppic-exc-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.ppic-exc-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #00365a;
+    margin-bottom: 12px;
+}
+
+.ppic-exc-title .text-yellow {
+    color: #f7a800; /* Kuning emas PPI */
+}
+
+.ppic-exc-subtitle {
+    font-size: 16px;
+    color: #607080;
+    margin: 0;
+}
+
+/* --- CSS Grid untuk Kotak --- */
+.ppic-exc-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Otomatis 3 kolom sejajar */
+    gap: 20px; /* Jarak antar kotak */
+}
+
+/* --- Styling Kartu --- */
+.exc-card {
+    background-color: #ffffff;
+    border: 1px solid #eaedf1;
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.exc-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* --- Kotak Huruf (Ikon) --- */
+.exc-icon-box {
+    background-color: #00365a; /* Biru pekat */
+    color: #f7a800; /* Kuning teks */
+    font-size: 24px;
+    font-weight: 700;
+    min-width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    flex-shrink: 0; /* Mencegah kotak huruf mengecil */
+}
+
+/* --- Teks Konten --- */
+.exc-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.exc-item-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #001f3f;
+    margin: 0 0 6px 0;
+}
+
+.exc-item-desc {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #4a5568;
+    margin: 0;
+}
+
+/* --- Responsif --- */
+/* Untuk Tablet: Ubah jadi 2 kolom */
+@media screen and (max-width: 992px) {
+    .ppic-exc-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Untuk HP: Ubah jadi 1 kolom */
+@media screen and (max-width: 768px) {
+    .ppic-exc-title {
+        font-size: 26px;
+    }
+    .ppic-exc-grid {
+        grid-template-columns: 1fr;
+    }
+    .exc-card {
+        padding: 20px;
+    }
+}
