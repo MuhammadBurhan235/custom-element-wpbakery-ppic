@@ -1121,3 +1121,332 @@
   background: #e0a200;
   color: #ffffff;
 }
+
+/* =========================================================================
+   11. ELEMENT: PPIC About
+   ========================================================================= */
+/* --- Wrapper Utama --- */
+.ppic-about-wrapper {
+    background-color: #0f2133; /* Warna biru gelap */
+    padding: 80px 20px;
+    text-align: center;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.ppic-about-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* --- Judul --- */
+.ppic-about-title {
+    font-size: 48px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 24px;
+    line-height: 1.2;
+}
+
+.ppic-about-title .text-yellow {
+    color: #e8a81f; /* Warna kuning/emas sesuai gambar */
+}
+
+/* --- Deskripsi --- */
+.ppic-about-desc {
+    font-size: 16px;
+    color: #ffffff;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Tombol --- */
+.ppic-about-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #00365a; /* Biru pekat untuk tombol */
+    color: #ffffff;
+    padding: 12px 28px;
+    border-radius: 50px; /* Bentuk pil bulat */
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.ppic-about-btn .btn-icon {
+    margin-right: 8px;
+    font-weight: bold;
+}
+
+.ppic-about-btn:hover {
+    background-color: #004d80;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* --- Responsif untuk HP --- */
+@media (max-width: 768px) {
+    .ppic-about-title {
+        font-size: 32px;
+    }
+    .ppic-about-desc {
+        font-size: 15px;
+        padding: 0 15px;
+    }
+}
+
+/* =========================================================================
+   12. ELEMENT: PPIC TIMELANE
+   ========================================================================= */
+
+   /* --- Wrapper & Header --- */
+.ppic-timeline-wrapper {
+    background-color: #f4f6f9; /* Warna abu-abu kebiruan sangat terang */
+    padding: 80px 20px;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: #44546a; /* Warna teks kebiruan redup */
+}
+
+.ppic-timeline-header {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 60px auto;
+}
+
+.ppic-timeline-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #00365a;
+    margin-bottom: 16px;
+}
+
+.ppic-timeline-title .text-yellow {
+    color: #f7a800; /* Kuning emas */
+}
+
+.ppic-timeline-subtitle {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #607080;
+}
+
+/* --- Timeline Container --- */
+.ppic-timeline-container {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Garis tengah */
+.ppic-timeline-container::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: #c99321;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1px;
+}
+
+/* --- Timeline Items --- */
+.timeline-item {
+    padding: 15px 40px;
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+/* Penempatan Kiri & Kanan */
+.timeline-item:nth-child(odd) {
+    left: 0;
+}
+.timeline-item:nth-child(even) {
+    left: 50%;
+}
+
+/* --- Konten Kotak --- */
+.timeline-content {
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.timeline-year {
+    font-size: 24px;
+    font-weight: 700;
+    color: #f7a800;
+    margin: 0 0 10px 0;
+}
+
+.timeline-item-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #00365a;
+    margin: 0 0 10px 0;
+}
+
+.timeline-item-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #607080;
+    margin: 0;
+}
+
+/* --- Titik pada Garis --- */
+.timeline-dot {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background-color: #f7a800;
+    border: 4px solid #f4f6f9; /* Simulasi border putih/transparan */
+    border-radius: 50%;
+    top: 45px;
+    z-index: 2;
+    box-shadow: 0 0 0 1px #c99321;
+    box-sizing: content-box !important; /* Kunci ukuran agar tidak terpengaruh tema */
+}
+
+.timeline-item:nth-child(odd) .timeline-dot {
+    right: 0;
+    transform: translateX(50%); 
+}
+
+.timeline-item:nth-child(even) .timeline-dot {
+    left: 0;
+    transform: translateX(-50%); 
+}
+
+/* --- Responsif untuk HP (Max Width 768px) --- */
+@media screen and (max-width: 768px) {
+    /* Geser garis tengah ke kiri */
+    .ppic-timeline-container::after {
+        left: 31px;
+    }
+    
+    /* Lebarkan item ke 100% */
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 15px;
+    }
+    
+    /* Kembalikan posisi yang genap */
+    .timeline-item:nth-child(even) {
+        left: 0;
+    }
+    
+    /* Sesuaikan posisi titik (semuanya di sebelah kiri) */
+    .timeline-item:nth-child(odd) .timeline-dot,
+    .timeline-item:nth-child(even) .timeline-dot {
+        left: 20px;
+        right: auto;
+        transform: none !important; /* Reset transform di tampilan HP */
+    }
+}
+
+/* =========================================================================
+   13. ELEMENT: PPIC VISI MISI
+   ========================================================================= */
+
+/* --- Wrapper Utama --- */
+.ppic-vm-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Jarak antara Visi dan Misi */
+    padding: 20px;
+}
+
+/* --- Styling Kartu --- */
+.ppic-vm-card {
+    background-color: #f8f9fa; /* Abu-abu sangat terang mendekati putih */
+    border-radius: 16px;
+    padding: 35px 40px;
+    border-left: 6px solid #f7a800; /* Garis kuning di sebelah kiri */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); /* Bayangan tipis agar elegan */
+}
+
+/* --- Header Kartu (Ikon & Judul) --- */
+.ppic-vm-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.ppic-vm-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ppic-vm-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #00365a; /* Biru gelap khas PPI */
+    margin: 0;
+}
+
+/* --- Body Kartu (Teks Visi) --- */
+.ppic-vm-body p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #334155; /* Warna teks abu-abu gelap */
+    margin: 0;
+}
+
+/* --- Daftar Misi --- */
+.ppic-misi-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ppic-misi-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #334155;
+}
+
+.ppic-misi-list li:last-child {
+    margin-bottom: 0;
+}
+
+.misi-bullet {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px; /* Penyesuaian agar ikon panah sejajar dengan teks */
+}
+
+/* --- Responsif untuk HP --- */
+@media screen and (max-width: 768px) {
+    .ppic-vm-card {
+        padding: 25px 20px;
+    }
+    
+    .ppic-vm-title {
+        font-size: 22px;
+    }
+    
+    .ppic-vm-body p, 
+    .ppic-misi-list li {
+        font-size: 15px;
+    }
+}
+
+/* =========================================================================
+   14. ELEMENT: PPIC VISI MISI
+   ========================================================================= */
