@@ -54,6 +54,7 @@ $excluded_files = array(
     'percobaan.html',
     'percobaan.css',
     'index.php',
+    '.gitignore',
 );
 
 $excluded_directories = array(
