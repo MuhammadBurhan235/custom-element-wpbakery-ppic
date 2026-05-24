@@ -10,7 +10,18 @@ if ( ! class_exists( 'ZipArchive' ) ) {
 
 $plugin_root = realpath( __DIR__ );
 $plugin_slug = basename( $plugin_root );
-$zip_filename = $plugin_slug . '.zip';
+$plugin_main_file = $plugin_root . DIRECTORY_SEPARATOR . 'custom-element-wpbakery-ppic.php';
+$plugin_version = 'dev';
+
+if ( file_exists( $plugin_main_file ) ) {
+    $plugin_header = file_get_contents( $plugin_main_file );
+
+    if ( false !== $plugin_header && preg_match( '/^\s*\*\s*Version:\s*(.+)$/mi', $plugin_header, $matches ) ) {
+        $plugin_version = trim( $matches[1] );
+    }
+}
+
+$zip_filename = sprintf( '%s-%s.zip', $plugin_slug, $plugin_version );
 $temp_zip = tempnam( sys_get_temp_dir(), 'ppic-plugin-zip-' );
 
 if ( false === $temp_zip ) {
@@ -37,6 +48,11 @@ $excluded_files = array(
     'preview-ppic-hero.php',
     'download-plugin.php',
     'start-preview.cmd',
+    'activehovermegaada.css',
+    'backup.css',
+    'menumobile.html',
+    'percobaan.html',
+    'percobaan.css',
 );
 
 $excluded_directories = array(

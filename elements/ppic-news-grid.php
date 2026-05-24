@@ -9,7 +9,7 @@ function ppic_register_news_grid_element() {
             "name" => __( "PPIC News Grid", "ppic" ),
             "base" => "ppic_news_grid",
             "category" => __( "PPIC Elements", "ppic" ),
-            "icon" => "icon-wpbakery", 
+            "icon" => "dashicons dashicons-grid-view", 
             "params" => array(
                 array(
                     "type" => "textfield",

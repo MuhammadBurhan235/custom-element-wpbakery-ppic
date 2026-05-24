@@ -10,7 +10,7 @@ function ppic_register_excellence_element() {
             "name" => __( "PPIC Excellence Values", "ppic" ),
             "base" => "ppic_excellence_section",
             "category" => __( "PPIC Elements", "ppic" ),
-            "icon" => "icon-wpbakery", 
+            "icon" => "dashicons dashicons-star-filled", 
             "params" => array(
                 array(
                     "type" => "textfield",

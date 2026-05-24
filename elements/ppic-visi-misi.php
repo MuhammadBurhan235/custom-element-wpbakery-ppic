@@ -10,7 +10,7 @@ function ppic_register_visi_misi_element() {
             "name" => __( "PPIC Visi & Misi", "ppic" ),
             "base" => "ppic_visi_misi_section",
             "category" => __( "PPIC Elements", "ppic" ),
-            "icon" => "icon-wpbakery", 
+            "icon" => "dashicons dashicons-visibility", 
             "params" => array(
                 // --- Bagian Visi ---
                 array(

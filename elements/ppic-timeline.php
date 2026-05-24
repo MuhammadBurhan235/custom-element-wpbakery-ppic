@@ -10,7 +10,7 @@ function ppic_register_timeline_element() {
             "name" => __( "PPIC Timeline", "ppic" ),
             "base" => "ppic_timeline_section",
             "category" => __( "PPIC Elements", "ppic" ),
-            "icon" => "icon-wpbakery", 
+            "icon" => "dashicons dashicons-clock", 
             "params" => array(
                 array(
                     "type" => "textfield",

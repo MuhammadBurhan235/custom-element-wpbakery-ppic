@@ -10,7 +10,7 @@ function ppic_register_explore_programs_element() {
             "name" => __( "PPIC Explore Programs", "ppic" ),
             "base" => "ppic_explore_programs",
             "category" => __( "PPIC Elements", "ppic" ),
-            "icon" => "icon-wpbakery", 
+            "icon" => "dashicons dashicons-search", 
             "params" => array(
                 array(
                     "type" => "textfield",

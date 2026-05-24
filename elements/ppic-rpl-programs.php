@@ -7,7 +7,7 @@ function ppic_register_rpl_programs_element() {
             "name" => "PPIC RPL Programs",
             "base" => "ppic_rpl_programs",
             "category" => "PPIC Elements",
-            "icon" => "icon-wpbakery",
+            "icon" => "dashicons dashicons-welcome-write-blog",
             "params" => array(
                 array("type" => "textfield", "heading" => "Judul Utama", "param_name" => "title", "value" => "Program RPL"),
                 array("type" => "textarea", "heading" => "Sub-Judul", "param_name" => "subtitle", "value" => "Rekognisi Pembelajaran Lampau bagi praktisi penerbangan..."),

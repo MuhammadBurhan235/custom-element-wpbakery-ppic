@@ -10,7 +10,7 @@ function ppic_register_about_element() {
             "name" => __( "PPIC About", "ppic" ),
             "base" => "ppic_about_section",
             "category" => __( "PPIC Elements", "ppic" ),
-            "icon" => "icon-wpbakery", 
+            "icon" => "dashicons dashicons-info-outline", 
             "params" => array(
                 array(
                     "type" => "textfield",
