@@ -53,6 +53,7 @@ $excluded_files = array(
     'menumobile.html',
     'percobaan.html',
     'percobaan.css',
+    'index.php',
 );
 
 $excluded_directories = array(
