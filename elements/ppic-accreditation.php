@@ -72,7 +72,7 @@ function ppic_accreditation_section_render( $atts ) {
                     ?>
                     <div class="ppic-accreditation-item">
                         <?php if ( '' !== $image_url ) : ?>
-                            <img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $alt_text ); ?>" class="ppic-accreditation-logo">
+                            <img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $alt_text ); ?>" class="ppic-accreditation-logo" loading="lazy" decoding="async">
                         <?php endif; ?>
                         <span><?php echo esc_html( $label ); ?></span>
                     </div>

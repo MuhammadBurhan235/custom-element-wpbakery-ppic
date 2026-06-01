@@ -11,6 +11,7 @@ function ppic_hero_section_render($atts) {
         'description' => 'Di Politeknik Penerbangan Indonesia Curug, kami tidak hanya mendidik...',
         'btn_text'    => 'Jelajahi Program Kami',
         'btn_link'    => '',
+        'slide_items' => '',
         'images'      => '',
         'el_id'       => '',
         'el_class'    => '',
@@ -22,28 +23,70 @@ function ppic_hero_section_render($atts) {
     $a_href = !empty($link['url']) ? $link['url'] : '#';
     $a_target = !empty($link['target']) ? ' target="'.trim($link['target']).'"' : '';
 
-    // Parsing kumpulan gambar dari Media Library dengan fallback ke field lama.
+    // Parsing slide hero dengan dukungan link per gambar dan fallback ke field lama.
     $default_img_url = 'https://web.ppicurug.ac.id/img/d4-pnb/pnb_pesawat.jpg';
-    $image_urls = array();
+    $slides = array();
+    $slide_items = vc_param_group_parse_atts($atts['slide_items']);
     $image_ids = array_filter(array_map('absint', explode(',', $atts['images'])));
 
-    if (empty($image_ids) && !empty($atts['image'])) {
-        $image_ids[] = absint($atts['image']);
-    }
+    if (!empty($slide_items) && is_array($slide_items)) {
+        foreach ($slide_items as $index => $slide_item) {
+            $image_id = !empty($slide_item['slide_image']) ? absint($slide_item['slide_image']) : 0;
+            $image_url = '';
 
-    foreach ($image_ids as $image_id) {
-        $img_data = wp_get_attachment_image_src($image_id, 'full');
-        if ($img_data && !empty($img_data[0])) {
-            $image_urls[] = $img_data[0];
+            if ($image_id) {
+                $img_data = wp_get_attachment_image_src($image_id, 'full');
+                if ($img_data && !empty($img_data[0])) {
+                    $image_url = $img_data[0];
+                }
+            }
+
+            if (empty($image_url)) {
+                continue;
+            }
+
+            $slide_link = !empty($slide_item['slide_link']) ? vc_build_link($slide_item['slide_link']) : array();
+            $slide_href = !empty($slide_link['url']) ? $slide_link['url'] : '';
+            $slide_target = !empty($slide_link['target']) ? trim($slide_link['target']) : '';
+
+            $slides[] = array(
+                'image_url' => $image_url,
+                'href' => $slide_href,
+                'target' => $slide_target,
+                'label' => !empty($slide_link['title']) ? $slide_link['title'] : sprintf('Hero Image PPI Curug %d', $index + 1),
+            );
         }
     }
 
-    if (empty($image_urls)) {
-        $image_urls[] = $default_img_url;
+    if (empty($slides) && empty($image_ids) && !empty($atts['image'])) {
+        $image_ids[] = absint($atts['image']);
+    }
+
+    if (empty($slides)) {
+        foreach ($image_ids as $index => $image_id) {
+            $img_data = wp_get_attachment_image_src($image_id, 'full');
+            if ($img_data && !empty($img_data[0])) {
+                $slides[] = array(
+                    'image_url' => $img_data[0],
+                    'href' => '',
+                    'target' => '',
+                    'label' => sprintf('Hero Image PPI Curug %d', $index + 1),
+                );
+            }
+        }
+    }
+
+    if (empty($slides)) {
+        $slides[] = array(
+            'image_url' => $default_img_url,
+            'href' => '',
+            'target' => '',
+            'label' => 'Hero Image PPI Curug 1',
+        );
     }
 
     $slider_id = function_exists('wp_unique_id') ? wp_unique_id('ppic-hero-slider-') : uniqid('ppic-hero-slider-');
-    $has_multiple_slides = count($image_urls) > 1;
+    $has_multiple_slides = count($slides) > 1;
     $wrapper_id = !empty($atts['el_id']) ? ' id="' . esc_attr($atts['el_id']) . '"' : '';
     $wrapper_class = 'ppic-hero-section' . ( !empty($atts['el_class']) ? ' ' . esc_attr(trim($atts['el_class'])) : '' );
 
@@ -71,12 +114,25 @@ function ppic_hero_section_render($atts) {
                 >
                     <div class="ppic-hero-slider-viewport">
                         <div class="ppic-hero-slider-track">
-                            <?php foreach ($image_urls as $index => $image_url) : ?>
+                            <?php foreach ($slides as $index => $slide) : ?>
                                 <div class="ppic-hero-slide<?php echo 0 === $index ? ' is-active' : ''; ?>">
+                                    <?php if (!empty($slide['href'])) : ?>
+                                        <a
+                                            href="<?php echo esc_url($slide['href']); ?>"
+                                            <?php echo !empty($slide['target']) ? ' target="' . esc_attr($slide['target']) . '"' : ''; ?>
+                                            aria-label="<?php echo esc_attr($slide['label']); ?>"
+                                        >
+                                    <?php endif; ?>
                                     <img
-                                        src="<?php echo esc_url($image_url); ?>"
-                                        alt="<?php echo esc_attr(sprintf('Hero Image PPI Curug %d', $index + 1)); ?>"
+                                        src="<?php echo esc_url($slide['image_url']); ?>"
+                                        alt="<?php echo esc_attr($slide['label']); ?>"
+                                        loading="<?php echo 0 === $index ? 'eager' : 'lazy'; ?>"
+                                        decoding="async"
+                                        <?php echo 0 === $index ? 'fetchpriority="high"' : ''; ?>
                                     >
+                                    <?php if (!empty($slide['href'])) : ?>
+                                        </a>
+                                    <?php endif; ?>
                                 </div>
                             <?php endforeach; ?>
                         </div>
@@ -91,7 +147,7 @@ function ppic_hero_section_render($atts) {
                         </button>
 
                         <div class="ppic-hero-slider-dots" aria-label="Navigasi slide hero">
-                            <?php foreach ($image_urls as $index => $image_url) : ?>
+                            <?php foreach ($slides as $index => $slide) : ?>
                                 <button
                                     type="button"
                                     class="ppic-hero-slider-dot<?php echo 0 === $index ? ' is-active' : ''; ?>"
@@ -229,10 +285,30 @@ function ppic_hero_section_map() {
                 "description" => __("Pilih halaman tujuan saat tombol diklik.", "my-text-domain"),
             ),
             array(
+                "type" => "param_group",
+                "heading" => __("Slides Hero Dengan Link", "my-text-domain"),
+                "param_name" => "slide_items",
+                "description" => __("Atur gambar dan link berbeda untuk setiap slide hero.", "my-text-domain"),
+                "params" => array(
+                    array(
+                        "type" => "attach_image",
+                        "heading" => __("Gambar Slide", "my-text-domain"),
+                        "param_name" => "slide_image",
+                        "admin_label" => true,
+                    ),
+                    array(
+                        "type" => "vc_link",
+                        "heading" => __("Link Slide", "my-text-domain"),
+                        "param_name" => "slide_link",
+                        "description" => __("Opsional. Jika diisi, gambar slide bisa diklik dan akan redirect ke link ini.", "my-text-domain"),
+                    ),
+                ),
+            ),
+            array(
                 "type" => "attach_images",
-                "heading" => __("Slide Hero", "my-text-domain"),
+                "heading" => __("Slide Hero Lama", "my-text-domain"),
                 "param_name" => "images",
-                "description" => __("Upload beberapa gambar untuk slider di sisi kanan. Semua slide akan memakai ukuran yang sama.", "my-text-domain"),
+                "description" => __("Fallback lama tanpa link per slide. Pakai Slides Hero Dengan Link jika setiap gambar perlu link berbeda.", "my-text-domain"),
             ),
             array(
                 "type" => "el_id",

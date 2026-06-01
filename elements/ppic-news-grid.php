@@ -91,7 +91,7 @@ function ppic_news_grid_render( $atts ) {
                     <div class="col-lg-4 col-md-6 ppic-news-col">
                         <div class="ppic-news-card">
                             <div class="ppic-news-img-wrap">
-                                <img src="<?php echo esc_url( $thumb_url ); ?>" alt="<?php the_title_attribute(); ?>">
+                                <img src="<?php echo esc_url( $thumb_url ); ?>" alt="<?php the_title_attribute(); ?>" loading="lazy" decoding="async">
                             </div>
                             <div class="ppic-news-content">
                                 <h4><?php the_title(); ?></h4>

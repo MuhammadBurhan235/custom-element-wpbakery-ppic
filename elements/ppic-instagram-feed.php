@@ -77,7 +77,7 @@ function ppic_instagram_feed_render( $atts ) {
                     }
                     ?>
                     <div class="ppic-instagram-card">
-                        <img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $alt_text ); ?>">
+                        <img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $alt_text ); ?>" loading="lazy" decoding="async">
                         <i class="fab fa-instagram ppic-instagram-icon" aria-hidden="true"></i>
                     </div>
                 <?php endforeach; ?>
