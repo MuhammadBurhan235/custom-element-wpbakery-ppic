@@ -9,6 +9,8 @@ function ppic_accreditation_section_render( $atts ) {
         array(
             'title' => 'Sertifikasi Lembaga',
             'subtitle' => 'Diakui oleh lembaga terkemuka nasional dan internasional.',
+            'el_id' => '',
+            'el_class' => '',
             'items' => urlencode(
                 wp_json_encode(
                     array(
@@ -45,6 +47,8 @@ function ppic_accreditation_section_render( $atts ) {
     );
 
     $items = vc_param_group_parse_atts( $atts['items'] );
+    $wrapper_id = ! empty( $atts['el_id'] ) ? ' id="' . esc_attr( $atts['el_id'] ) . '"' : '';
+    $wrapper_class = 'ppic-accreditation-section' . ( ! empty( $atts['el_class'] ) ? ' ' . esc_attr( trim( $atts['el_class'] ) ) : '' );
 
     if ( empty( $items ) || ! is_array( $items ) ) {
         return '';
@@ -52,7 +56,7 @@ function ppic_accreditation_section_render( $atts ) {
 
     ob_start();
     ?>
-    <section class="ppic-accreditation-section">
+    <section<?php echo $wrapper_id; ?> class="<?php echo $wrapper_class; ?>">
         <div class="ppic-accreditation-container">
             <h2 class="ppic-accreditation-title"><?php echo esc_html( $atts['title'] ); ?></h2>
             <p class="ppic-accreditation-subtitle"><?php echo esc_html( $atts['subtitle'] ); ?></p>
@@ -105,6 +109,18 @@ function ppic_accreditation_section_map() {
                     'heading' => __( 'Subjudul', 'ppic-custom-element' ),
                     'param_name' => 'subtitle',
                     'value' => 'Diakui oleh lembaga terkemuka nasional dan internasional.',
+                ),
+                array(
+                    'type' => 'el_id',
+                    'heading' => __( 'Element ID', 'js_composer' ),
+                    'param_name' => 'el_id',
+                    'description' => __( 'Enter element ID (Note: make sure it is unique and valid according to w3c specification).', 'js_composer' ),
+                ),
+                array(
+                    'type' => 'textfield',
+                    'heading' => __( 'Extra class name', 'js_composer' ),
+                    'param_name' => 'el_class',
+                    'description' => __( 'Style particular content element differently by adding a class name and referring to it in custom CSS.', 'js_composer' ),
                 ),
                 array(
                     'type' => 'param_group',

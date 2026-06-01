@@ -1384,7 +1384,18 @@
   padding: 30px;
   background-color: #ffffff;
   border-radius: 12px;
+  border: 1px solid rgba(0, 49, 83, 0.06);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.timeline-content:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(0, 49, 83, 0.1);
+  border-color: #f5b01b;
 }
 
 .timeline-year {
@@ -1606,15 +1617,17 @@
   display: flex;
   align-items: flex-start;
   gap: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 8px 20px rgba(0, 49, 83, 0.06);
   transition:
     transform 0.2s ease,
-    box-shadow 0.2s ease;
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .exc-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 14px 30px rgba(0, 49, 83, 0.12);
+  border-color: var(--secondary, #f5b01b);
 }
 
 /* --- Kotak Huruf (Ikon) --- */

@@ -9,6 +9,8 @@ function ppic_featured_programs_render( $atts ) {
         array(
             'title' => 'Program Unggulan',
             'subtitle' => 'Program studi pilihan dengan kurikulum terintegrasi industri dan standar internasional.',
+            'el_id' => '',
+            'el_class' => '',
             'programs' => urlencode(
                 wp_json_encode(
                     array(
@@ -45,6 +47,8 @@ function ppic_featured_programs_render( $atts ) {
     );
 
     $programs = vc_param_group_parse_atts( $atts['programs'] );
+    $wrapper_id = ! empty( $atts['el_id'] ) ? ' id="' . esc_attr( $atts['el_id'] ) . '"' : '';
+    $wrapper_class = 'ppic-featured-programs-section' . ( ! empty( $atts['el_class'] ) ? ' ' . esc_attr( trim( $atts['el_class'] ) ) : '' );
 
     if ( empty( $programs ) || ! is_array( $programs ) ) {
         return '';
@@ -52,7 +56,7 @@ function ppic_featured_programs_render( $atts ) {
 
     ob_start();
     ?>
-    <section class="ppic-featured-programs-section">
+    <section<?php echo $wrapper_id; ?> class="<?php echo $wrapper_class; ?>">
         <div class="ppic-featured-programs-container">
             <h2 class="ppic-featured-programs-title"><?php echo esc_html( $atts['title'] ); ?></h2>
             <p class="ppic-featured-programs-subtitle"><?php echo esc_html( $atts['subtitle'] ); ?></p>
@@ -108,6 +112,18 @@ function ppic_featured_programs_map() {
                     'heading' => __( 'Subjudul', 'ppic-custom-element' ),
                     'param_name' => 'subtitle',
                     'value' => 'Program studi pilihan dengan kurikulum terintegrasi industri dan standar internasional.',
+                ),
+                array(
+                    'type' => 'el_id',
+                    'heading' => __( 'Element ID', 'js_composer' ),
+                    'param_name' => 'el_id',
+                    'description' => __( 'Enter element ID (Note: make sure it is unique and valid according to w3c specification).', 'js_composer' ),
+                ),
+                array(
+                    'type' => 'textfield',
+                    'heading' => __( 'Extra class name', 'js_composer' ),
+                    'param_name' => 'el_class',
+                    'description' => __( 'Style particular content element differently by adding a class name and referring to it in custom CSS.', 'js_composer' ),
                 ),
                 array(
                     'type' => 'param_group',

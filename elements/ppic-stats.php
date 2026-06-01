@@ -7,6 +7,8 @@ add_shortcode( 'ppic_stats_section', 'ppic_stats_section_render' );
 function ppic_stats_section_render( $atts ) {
     $atts = shortcode_atts(
         array(
+            'el_id' => '',
+            'el_class' => '',
             'stats' => urlencode(
                 wp_json_encode(
                     array(
@@ -34,6 +36,8 @@ function ppic_stats_section_render( $atts ) {
     );
 
     $stats = vc_param_group_parse_atts( $atts['stats'] );
+    $wrapper_id = ! empty( $atts['el_id'] ) ? ' id="' . esc_attr( $atts['el_id'] ) . '"' : '';
+    $wrapper_class = 'ppic-stats-section' . ( ! empty( $atts['el_class'] ) ? ' ' . esc_attr( trim( $atts['el_class'] ) ) : '' );
 
     if ( empty( $stats ) || ! is_array( $stats ) ) {
         return '';
@@ -41,7 +45,7 @@ function ppic_stats_section_render( $atts ) {
 
     ob_start();
     ?>
-    <section class="ppic-stats-section">
+    <section<?php echo $wrapper_id; ?> class="<?php echo $wrapper_class; ?>">
         <div class="ppic-stats-container">
             <?php foreach ( $stats as $stat ) :
                 $value = isset( $stat['value'] ) ? trim( $stat['value'] ) : '';
@@ -114,6 +118,18 @@ function ppic_stats_section_map() {
                             'param_name' => 'label',
                         ),
                     ),
+                ),
+                array(
+                    'type' => 'el_id',
+                    'heading' => __( 'Element ID', 'js_composer' ),
+                    'param_name' => 'el_id',
+                    'description' => __( 'Enter element ID (Note: make sure it is unique and valid according to w3c specification).', 'js_composer' ),
+                ),
+                array(
+                    'type' => 'textfield',
+                    'heading' => __( 'Extra class name', 'js_composer' ),
+                    'param_name' => 'el_class',
+                    'description' => __( 'Style particular content element differently by adding a class name and referring to it in custom CSS.', 'js_composer' ),
                 ),
             ),
         )

@@ -84,6 +84,18 @@ function ppic_register_timeline_element() {
                             "param_name" => "item_desc",
                         )
                     )
+                ),
+                array(
+                    "type" => "el_id",
+                    "heading" => __( "Element ID", "js_composer" ),
+                    "param_name" => "el_id",
+                    "description" => __( "Enter element ID (Note: make sure it is unique and valid according to w3c specification).", "js_composer" )
+                ),
+                array(
+                    "type" => "textfield",
+                    "heading" => __( "Extra class name", "js_composer" ),
+                    "param_name" => "el_class",
+                    "description" => __( "Style particular content element differently by adding a class name and referring to it in custom CSS.", "js_composer" )
                 )
             )
         ) );
@@ -97,14 +109,18 @@ function ppic_timeline_section_render( $atts ) {
         'title'          => 'Jejak Perjalanan <span class="text-yellow">PPI Curug</span>',
         'subtitle'       => 'Lebih dari 7 dekade mengukir prestasi dan melahirkan pemimpin aviasi Indonesia. Berikut adalah tonggak sejarah yang membentuk institusi kebanggaan kita.',
         'timeline_items' => '',
+        'el_id'          => '',
+        'el_class'       => '',
     ), $atts );
 
     // Decode param_group
     $timeline_items = vc_param_group_parse_atts( $atts['timeline_items'] );
+    $wrapper_id = ! empty( $atts['el_id'] ) ? ' id="' . esc_attr( $atts['el_id'] ) . '"' : '';
+    $wrapper_class = 'ppic-timeline-wrapper' . ( ! empty( $atts['el_class'] ) ? ' ' . esc_attr( trim( $atts['el_class'] ) ) : '' );
 
     ob_start();
     ?>
-    <div class="ppic-timeline-wrapper">
+    <div<?php echo $wrapper_id; ?> class="<?php echo $wrapper_class; ?>">
         <div class="ppic-timeline-header">
             <h2 class="ppic-timeline-title"><?php echo wp_kses_post( $atts['title'] ); ?></h2>
             <?php if ( ! empty( $atts['subtitle'] ) ) : ?>

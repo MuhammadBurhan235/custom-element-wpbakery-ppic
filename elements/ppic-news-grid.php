@@ -30,6 +30,18 @@ function ppic_register_news_grid_element() {
                     "param_name" => "posts_count",
                     "value" => "3"
                 ),
+                array(
+                    "type" => "el_id",
+                    "heading" => __( "Element ID", "js_composer" ),
+                    "param_name" => "el_id",
+                    "description" => __( "Enter element ID (Note: make sure it is unique and valid according to w3c specification).", "js_composer" )
+                ),
+                array(
+                    "type" => "textfield",
+                    "heading" => __( "Extra class name", "js_composer" ),
+                    "param_name" => "el_class",
+                    "description" => __( "Style particular content element differently by adding a class name and referring to it in custom CSS.", "js_composer" )
+                ),
             )
         ) );
     }
@@ -41,11 +53,16 @@ function ppic_news_grid_render( $atts ) {
         'title'       => 'Kabar Dari Langit Curug',
         'subtitle'    => 'Ikuti perkembangan terbaru, inovasi, dan kontribusi PPI Curug dalam membangun ekosistem penerbangan yang aman, profesional, dan berdaya saing internasional.',
         'posts_count' => '3',
+        'el_id'       => '',
+        'el_class'    => '',
     ), $atts );
+
+    $wrapper_id = ! empty( $atts['el_id'] ) ? ' id="' . esc_attr( $atts['el_id'] ) . '"' : '';
+    $wrapper_class = 'ppic-news-section' . ( ! empty( $atts['el_class'] ) ? ' ' . esc_attr( trim( $atts['el_class'] ) ) : '' );
 
     ob_start();
     ?>
-    <div class="ppic-news-section">
+    <div<?php echo $wrapper_id; ?> class="<?php echo $wrapper_class; ?>">
         <div class="ppic-news-header">
             <h2 class="ppic-news-main-title"><?php echo esc_html( $atts['title'] ); ?></h2>
             <?php if ( ! empty( $atts['subtitle'] ) ) : ?>

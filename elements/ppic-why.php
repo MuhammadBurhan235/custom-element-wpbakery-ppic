@@ -108,6 +108,18 @@ function ppic_why_section_map() {
                     "heading" => __("Link & Teks Navigasi Bawah", "ppic-custom-element"),
                     "param_name" => "cta_link",
                 ),
+                array(
+                    "type" => "el_id",
+                    "heading" => __("Element ID", "js_composer"),
+                    "param_name" => "el_id",
+                    "description" => __("Enter element ID (Note: make sure it is unique and valid according to w3c specification).", "js_composer"),
+                ),
+                array(
+                    "type" => "textfield",
+                    "heading" => __("Extra class name", "js_composer"),
+                    "param_name" => "el_class",
+                    "description" => __("Style particular content element differently by adding a class name and referring to it in custom CSS.", "js_composer"),
+                ),
             )
         ));
     }
@@ -123,7 +135,9 @@ function ppic_why_section_render($atts) {
         'lead_text'   => 'Di PPI Curug, kami tidak sekadar mencetak lulusan. Kami membentuk taruna menjadi profesional tangguh yang siap memimpin.',
         'features'    => ppic_why_default_features(),
         'cta_text'    => 'Mereka yang serius tidak perlu berpikir panjang.',
-        'cta_link'    => ''
+        'cta_link'    => '',
+        'el_id'       => '',
+        'el_class'    => ''
     ), $atts);
 
     // Parsing Gambar
@@ -144,10 +158,12 @@ function ppic_why_section_render($atts) {
 
     // Parsing Repeater (List Poin)
     $features = vc_param_group_parse_atts( $atts['features'] );
+    $wrapper_id = !empty($atts['el_id']) ? ' id="' . esc_attr($atts['el_id']) . '"' : '';
+    $wrapper_class = 'why-ppic' . ( !empty($atts['el_class']) ? ' ' . esc_attr(trim($atts['el_class'])) : '' );
 
     ob_start();
     ?>
-    <section class="why-ppic">
+    <section<?php echo $wrapper_id; ?> class="<?php echo $wrapper_class; ?>">
         <div class="ppic-why-container">
             <div class="why-image">
                 <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($atts['title']); ?>">

@@ -10,6 +10,8 @@ function ppic_instagram_feed_render( $atts ) {
             'title' => 'PPI Curug on Instagram',
             'follow_text' => 'Follow @ppicurug.official',
             'follow_link' => 'url:https%3A%2F%2Finstagram.com%2Fppicurug.official|title:Follow @ppicurug.official|target:_blank',
+            'el_id' => '',
+            'el_class' => '',
             'items' => urlencode(
                 wp_json_encode(
                     array(
@@ -51,9 +53,12 @@ function ppic_instagram_feed_render( $atts ) {
         return '';
     }
 
+    $wrapper_id = ! empty( $atts['el_id'] ) ? ' id="' . esc_attr( $atts['el_id'] ) . '"' : '';
+    $wrapper_class = 'ppic-instagram-section' . ( ! empty( $atts['el_class'] ) ? ' ' . esc_attr( trim( $atts['el_class'] ) ) : '' );
+
     ob_start();
     ?>
-    <section class="ppic-instagram-section">
+    <section<?php echo $wrapper_id; ?> class="<?php echo $wrapper_class; ?>">
         <div class="ppic-instagram-container">
             <div class="ppic-instagram-header">
                 <h2><?php echo esc_html( $atts['title'] ); ?></h2>
@@ -113,6 +118,18 @@ function ppic_instagram_feed_map() {
                     'type' => 'vc_link',
                     'heading' => __( 'Link Follow', 'ppic-custom-element' ),
                     'param_name' => 'follow_link',
+                ),
+                array(
+                    'type' => 'el_id',
+                    'heading' => __( 'Element ID', 'js_composer' ),
+                    'param_name' => 'el_id',
+                    'description' => __( 'Enter element ID (Note: make sure it is unique and valid according to w3c specification).', 'js_composer' ),
+                ),
+                array(
+                    'type' => 'textfield',
+                    'heading' => __( 'Extra class name', 'js_composer' ),
+                    'param_name' => 'el_class',
+                    'description' => __( 'Style particular content element differently by adding a class name and referring to it in custom CSS.', 'js_composer' ),
                 ),
                 array(
                     'type' => 'param_group',

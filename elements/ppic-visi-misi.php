@@ -54,6 +54,18 @@ function ppic_register_visi_misi_element() {
                             "admin_label" => true,
                         )
                     )
+                ),
+                array(
+                    "type" => "el_id",
+                    "heading" => __( "Element ID", "js_composer" ),
+                    "param_name" => "el_id",
+                    "description" => __( "Enter element ID (Note: make sure it is unique and valid according to w3c specification).", "js_composer" )
+                ),
+                array(
+                    "type" => "textfield",
+                    "heading" => __( "Extra class name", "js_composer" ),
+                    "param_name" => "el_class",
+                    "description" => __( "Style particular content element differently by adding a class name and referring to it in custom CSS.", "js_composer" )
                 )
             )
         ) );
@@ -68,9 +80,13 @@ function ppic_visi_misi_section_render( $atts ) {
         'visi_text'  => '"Menjadi pusat unggulan pendidikan vokasi dan profesi penerbangan berstandar internasional, meningkatkan martabat dan kesejahteraan bangsa."',
         'misi_title' => 'Misi',
         'misi_items' => '',
+        'el_id'      => '',
+        'el_class'   => '',
     ), $atts );
 
     $misi_items = vc_param_group_parse_atts( $atts['misi_items'] );
+    $wrapper_id = ! empty( $atts['el_id'] ) ? ' id="' . esc_attr( $atts['el_id'] ) . '"' : '';
+    $wrapper_class = 'ppic-vm-wrapper' . ( ! empty( $atts['el_class'] ) ? ' ' . esc_attr( trim( $atts['el_class'] ) ) : '' );
 
     // Ikon SVG bawaan agar tidak butuh FontAwesome
     $icon_mata = '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00365a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>';
@@ -79,7 +95,7 @@ function ppic_visi_misi_section_render( $atts ) {
 
     ob_start();
     ?>
-    <div class="ppic-vm-wrapper">
+    <div<?php echo $wrapper_id; ?> class="<?php echo $wrapper_class; ?>">
         
         <div class="ppic-vm-card">
             <div class="ppic-vm-header">

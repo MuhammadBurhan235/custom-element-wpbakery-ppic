@@ -38,6 +38,18 @@ function ppic_register_about_element() {
                     "param_name" => "btn_link",
                     "description" => __( "Atur URL tujuan untuk tombol.", "ppic" )
                 ),
+                array(
+                    "type" => "el_id",
+                    "heading" => __( "Element ID", "js_composer" ),
+                    "param_name" => "el_id",
+                    "description" => __( "Enter element ID (Note: make sure it is unique and valid according to w3c specification).", "js_composer" )
+                ),
+                array(
+                    "type" => "textfield",
+                    "heading" => __( "Extra class name", "js_composer" ),
+                    "param_name" => "el_class",
+                    "description" => __( "Style particular content element differently by adding a class name and referring to it in custom CSS.", "js_composer" )
+                ),
             )
         ) );
     }
@@ -51,16 +63,20 @@ function ppic_about_section_render( $atts ) {
         'description' => 'Politeknik Penerbangan Indonesia Curug adalah perguruan tinggi kedinasan di bawah Kementerian Perhubungan yang berkomitmen mencetak sumber daya manusia unggul, profesional, dan berdaya saing global di bidang penerbangan.',
         'btn_text'    => 'Kembali ke Beranda',
         'btn_link'    => '',
+        'el_id'       => '',
+        'el_class'    => '',
     ), $atts );
 
     // Mengurai link dari WPBakery
     $link = vc_build_link( $atts['btn_link'] );
     $a_href = ! empty( $link['url'] ) ? $link['url'] : home_url(); 
     $a_target = ! empty( $link['target'] ) ? $link['target'] : '_self';
+    $wrapper_id = ! empty( $atts['el_id'] ) ? ' id="' . esc_attr( $atts['el_id'] ) . '"' : '';
+    $wrapper_class = 'ppic-about-wrapper' . ( ! empty( $atts['el_class'] ) ? ' ' . esc_attr( trim( $atts['el_class'] ) ) : '' );
 
     ob_start();
     ?>
-    <div class="ppic-about-wrapper">
+    <div<?php echo $wrapper_id; ?> class="<?php echo $wrapper_class; ?>">
         <div class="ppic-about-content">
             <h2 class="ppic-about-title"><?php echo wp_kses_post( $atts['title'] ); ?></h2>
             

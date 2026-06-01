@@ -12,6 +12,8 @@ function ppic_hero_section_render($atts) {
         'btn_text'    => 'Jelajahi Program Kami',
         'btn_link'    => '',
         'images'      => '',
+        'el_id'       => '',
+        'el_class'    => '',
         'image'       => ''
     ), $atts);
 
@@ -42,12 +44,14 @@ function ppic_hero_section_render($atts) {
 
     $slider_id = function_exists('wp_unique_id') ? wp_unique_id('ppic-hero-slider-') : uniqid('ppic-hero-slider-');
     $has_multiple_slides = count($image_urls) > 1;
+    $wrapper_id = !empty($atts['el_id']) ? ' id="' . esc_attr($atts['el_id']) . '"' : '';
+    $wrapper_class = 'ppic-hero-section' . ( !empty($atts['el_class']) ? ' ' . esc_attr(trim($atts['el_class'])) : '' );
 
     static $script_printed = false;
 
     ob_start();
     ?>
-    <section class="ppic-hero-section">
+    <section<?php echo $wrapper_id; ?> class="<?php echo $wrapper_class; ?>">
         <div class="ppic-hero-container">
             <div class="ppic-hero-text">
                 <h2><?php echo esc_html($atts['title']); ?></h2>
@@ -229,6 +233,18 @@ function ppic_hero_section_map() {
                 "heading" => __("Slide Hero", "my-text-domain"),
                 "param_name" => "images",
                 "description" => __("Upload beberapa gambar untuk slider di sisi kanan. Semua slide akan memakai ukuran yang sama.", "my-text-domain"),
+            ),
+            array(
+                "type" => "el_id",
+                "heading" => __("Element ID", "js_composer"),
+                "param_name" => "el_id",
+                "description" => __("Enter element ID (Note: make sure it is unique and valid according to w3c specification).", "js_composer"),
+            ),
+            array(
+                "type" => "textfield",
+                "heading" => __("Extra class name", "js_composer"),
+                "param_name" => "el_class",
+                "description" => __("Style particular content element differently by adding a class name and referring to it in custom CSS.", "js_composer"),
             ),
         )
     ));
