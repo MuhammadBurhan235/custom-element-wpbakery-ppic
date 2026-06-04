@@ -12,6 +12,9 @@ function ppic_hero_section_render($atts) {
         'btn_text'    => 'Jelajahi Program Kami',
         'btn_link'    => '',
         'slide_items' => '',
+        'autoplay'    => 'true',
+        'autoloop'    => 'true',
+        'autoplay_interval' => '4500',
         'images'      => '',
         'el_id'       => '',
         'el_class'    => '',
@@ -87,6 +90,9 @@ function ppic_hero_section_render($atts) {
 
     $slider_id = function_exists('wp_unique_id') ? wp_unique_id('ppic-hero-slider-') : uniqid('ppic-hero-slider-');
     $has_multiple_slides = count($slides) > 1;
+    $autoplay_enabled = $has_multiple_slides && 'true' === strtolower( trim( (string) $atts['autoplay'] ) );
+    $autoloop_enabled = 'true' === strtolower( trim( (string) $atts['autoloop'] ) );
+    $autoplay_interval = max( 1000, (int) $atts['autoplay_interval'] );
     $wrapper_id = !empty($atts['el_id']) ? ' id="' . esc_attr($atts['el_id']) . '"' : '';
     $wrapper_class = 'ppic-hero-section' . ( !empty($atts['el_class']) ? ' ' . esc_attr(trim($atts['el_class'])) : '' );
 
@@ -110,7 +116,9 @@ function ppic_hero_section_render($atts) {
                     id="<?php echo esc_attr($slider_id); ?>"
                     class="ppic-hero-slider<?php echo $has_multiple_slides ? ' is-ready' : ' is-single'; ?>"
                     data-slider
-                    data-autoplay="<?php echo $has_multiple_slides ? 'true' : 'false'; ?>"
+                    data-autoplay="<?php echo $autoplay_enabled ? 'true' : 'false'; ?>"
+                    data-loop="<?php echo $autoloop_enabled ? 'true' : 'false'; ?>"
+                    data-interval="<?php echo esc_attr( $autoplay_interval ); ?>"
                 >
                     <div class="ppic-hero-slider-viewport">
                         <div class="ppic-hero-slider-track">
@@ -126,9 +134,6 @@ function ppic_hero_section_render($atts) {
                                     <img
                                         src="<?php echo esc_url($slide['image_url']); ?>"
                                         alt="<?php echo esc_attr($slide['label']); ?>"
-                                        loading="<?php echo 0 === $index ? 'eager' : 'lazy'; ?>"
-                                        decoding="async"
-                                        <?php echo 0 === $index ? 'fetchpriority="high"' : ''; ?>
                                     >
                                     <?php if (!empty($slide['href'])) : ?>
                                         </a>
@@ -178,13 +183,31 @@ function ppic_hero_section_render($atts) {
                     var nextButton = slider.querySelector('[data-slide="next"]');
                     var currentIndex = 0;
                     var autoplayId = null;
+                    var isLoop = slider.dataset.loop === 'true';
+                    var autoplayInterval = parseInt(slider.dataset.interval, 10) || 4500;
 
                     if (!track || slides.length <= 1) {
                         return;
                     }
 
+                    var normalizeIndex = function (index) {
+                        if (isLoop) {
+                            return (index + slides.length) % slides.length;
+                        }
+
+                        if (index < 0) {
+                            return 0;
+                        }
+
+                        if (index >= slides.length) {
+                            return slides.length - 1;
+                        }
+
+                        return index;
+                    };
+
                     var setActiveSlide = function (index) {
-                        currentIndex = (index + slides.length) % slides.length;
+                        currentIndex = normalizeIndex(index);
                         track.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
 
                         slides.forEach(function (slide, slideIndex) {
@@ -210,12 +233,21 @@ function ppic_hero_section_render($atts) {
 
                         stopAutoplay();
                         autoplayId = window.setInterval(function () {
+                            if (!isLoop && currentIndex >= slides.length - 1) {
+                                stopAutoplay();
+                                return;
+                            }
+
                             setActiveSlide(currentIndex + 1);
-                        }, 4500);
+                        }, autoplayInterval);
                     };
 
                     if (prevButton) {
                         prevButton.addEventListener('click', function () {
+                            if (!isLoop && currentIndex <= 0) {
+                                return;
+                            }
+
                             setActiveSlide(currentIndex - 1);
                             startAutoplay();
                         });
@@ -223,6 +255,10 @@ function ppic_hero_section_render($atts) {
 
                     if (nextButton) {
                         nextButton.addEventListener('click', function () {
+                            if (!isLoop && currentIndex >= slides.length - 1) {
+                                return;
+                            }
+
                             setActiveSlide(currentIndex + 1);
                             startAutoplay();
                         });
@@ -288,7 +324,7 @@ function ppic_hero_section_map() {
                 "type" => "param_group",
                 "heading" => __("Slides Hero Dengan Link", "my-text-domain"),
                 "param_name" => "slide_items",
-                "description" => __("Atur gambar dan link berbeda untuk setiap slide hero.", "my-text-domain"),
+                "description" => __("Atur gambar dan link berbeda untuk setiap slide hero. Slider akan memakai data ini sebagai sumber utama.", "my-text-domain"),
                 "params" => array(
                     array(
                         "type" => "attach_image",
@@ -305,10 +341,33 @@ function ppic_hero_section_map() {
                 ),
             ),
             array(
-                "type" => "attach_images",
-                "heading" => __("Slide Hero Lama", "my-text-domain"),
-                "param_name" => "images",
-                "description" => __("Fallback lama tanpa link per slide. Pakai Slides Hero Dengan Link jika setiap gambar perlu link berbeda.", "my-text-domain"),
+                "type" => "dropdown",
+                "heading" => __("Autoplay Slider", "my-text-domain"),
+                "param_name" => "autoplay",
+                "value" => array(
+                    __("Aktif", "my-text-domain") => "true",
+                    __("Nonaktif", "my-text-domain") => "false",
+                ),
+                "std" => "true",
+                "description" => __("Jalankan slide secara otomatis saat ada lebih dari satu gambar.", "my-text-domain"),
+            ),
+            array(
+                "type" => "dropdown",
+                "heading" => __("Auto Loop", "my-text-domain"),
+                "param_name" => "autoloop",
+                "value" => array(
+                    __("Aktif", "my-text-domain") => "true",
+                    __("Nonaktif", "my-text-domain") => "false",
+                ),
+                "std" => "true",
+                "description" => __("Jika nonaktif, slider akan berhenti di slide terakhir dan tombol tidak berputar ke awal/akhir.", "my-text-domain"),
+            ),
+            array(
+                "type" => "textfield",
+                "heading" => __("Durasi Autoplay (ms)", "my-text-domain"),
+                "param_name" => "autoplay_interval",
+                "value" => "4500",
+                "description" => __("Masukkan jeda autoplay dalam milidetik. Contoh: 4500 = 4.5 detik.", "my-text-domain"),
             ),
             array(
                 "type" => "el_id",

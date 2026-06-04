@@ -166,7 +166,7 @@ function ppic_why_section_render($atts) {
     <section<?php echo $wrapper_id; ?> class="<?php echo $wrapper_class; ?>">
         <div class="ppic-why-container">
             <div class="why-image">
-                <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($atts['title']); ?>" loading="lazy" decoding="async">
+                <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($atts['title']); ?>">
             </div>
             <div class="why-content">
                 <h2><?php echo esc_html($atts['title']); ?></h2>

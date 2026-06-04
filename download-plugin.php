@@ -54,6 +54,10 @@ $excluded_files = array(
     'percobaan.html',
     'percobaan.css',
     'index.php',
+    'header.css',
+    'headerdekstop.html',
+    'headermobile.html',
+    'profil-dosen.html',
     '.gitignore',
 );
 

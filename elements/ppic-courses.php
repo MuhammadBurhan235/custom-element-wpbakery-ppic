@@ -12,6 +12,10 @@ function ppic_courses_render( $atts ) {
 			'button_text' => 'View All Courses',
 			'button_link' => 'url:https%3A%2F%2Fppicurug.ac.id%2Fshortcourse%2F|title:View All Courses',
 			'label_text' => 'Diklat Pendek',
+			'image_size' => 'medium',
+			'autoplay' => 'true',
+			'autoloop' => 'true',
+			'autoplay_interval' => '4500',
 			'post_type' => 'course',
 			'posts_count' => '6',
 			'order' => 'DESC',
@@ -29,6 +33,11 @@ function ppic_courses_render( $atts ) {
 	$button_rel = '_blank' === $button_target ? 'noopener noreferrer' : '';
 	$post_type = preg_replace( '/[^a-z0-9_-]/i', '', (string) $atts['post_type'] );
 	$orderby = preg_replace( '/[^a-z_]/i', '', (string) $atts['orderby'] );
+	$allowed_image_sizes = array( 'thumbnail', 'medium', 'medium_large', 'large', 'full' );
+	$image_size = in_array( $atts['image_size'], $allowed_image_sizes, true ) ? $atts['image_size'] : 'medium';
+	$autoplay_enabled = 'true' === strtolower( trim( (string) $atts['autoplay'] ) );
+	$autoloop_enabled = 'true' === strtolower( trim( (string) $atts['autoloop'] ) );
+	$autoplay_interval = max( 1000, (int) $atts['autoplay_interval'] );
 
 	$wrapper_id = ! empty( $atts['el_id'] ) ? ' id="' . esc_attr( $atts['el_id'] ) . '"' : '';
 	$wrapper_class = 'ppic-courses-section' . ( ! empty( $atts['el_class'] ) ? ' ' . esc_attr( trim( $atts['el_class'] ) ) : '' );
@@ -42,6 +51,41 @@ function ppic_courses_render( $atts ) {
 			'post_status' => 'publish',
 		)
 	);
+
+	$course_items = array();
+
+	if ( $query->have_posts() ) {
+		while ( $query->have_posts() ) {
+			$query->the_post();
+
+			$post_id = get_the_ID();
+			$thumbnail = '';
+			$thumbnail_id = get_post_thumbnail_id( $post_id );
+
+			if ( $thumbnail_id ) {
+				$thumbnail_data = wp_get_attachment_image_src( $thumbnail_id, $image_size );
+
+				if ( ! empty( $thumbnail_data[0] ) ) {
+					$thumbnail = $thumbnail_data[0];
+				}
+			}
+
+			if ( empty( $thumbnail ) ) {
+				$thumbnail = 'https://web.ppicurug.ac.id/img/d4-pnb/pnb_pesawat.jpg';
+			}
+
+			$course_items[] = array(
+				'permalink' => get_permalink( $post_id ),
+				'thumbnail' => $thumbnail,
+				'title' => get_the_title( $post_id ),
+				'excerpt' => wp_trim_words( get_the_excerpt(), max( 6, intval( $atts['excerpt_length'] ) ), '...' ),
+			);
+		}
+		wp_reset_postdata();
+	}
+
+	$slider_id = function_exists( 'wp_unique_id' ) ? wp_unique_id( 'ppic-courses-slider-' ) : uniqid( 'ppic-courses-slider-' );
+	$has_multiple_slides = count( $course_items ) > 1;
 
 	ob_start();
 	?>
@@ -66,40 +110,49 @@ function ppic_courses_render( $atts ) {
 				<?php endif; ?>
 			</div>
 
-			<?php if ( $query->have_posts() ) : ?>
-				<div class="ppic-courses-grid">
-					<?php
-					while ( $query->have_posts() ) :
-						$query->the_post();
+			<?php if ( ! empty( $course_items ) ) : ?>
+				<div
+					id="<?php echo esc_attr( $slider_id ); ?>"
+					class="ppic-courses-slider<?php echo $has_multiple_slides ? ' is-ready' : ' is-single'; ?>"
+					data-courses-slider
+					data-autoplay="<?php echo $has_multiple_slides && $autoplay_enabled ? 'true' : 'false'; ?>"
+					data-loop="<?php echo $autoloop_enabled ? 'true' : 'false'; ?>"
+					data-interval="<?php echo esc_attr( $autoplay_interval ); ?>"
+				>
+					<div class="ppic-courses-slider__viewport">
+						<div class="ppic-courses-slider__track">
+							<?php foreach ( $course_items as $index => $course_item ) : ?>
+								<article class="ppic-course-card<?php echo 0 === $index ? ' is-active' : ''; ?>">
+									<a class="ppic-course-card__link" href="<?php echo esc_url( $course_item['permalink'] ); ?>">
+										<div class="ppic-course-card__image-wrap">
+											<img
+												class="ppic-course-card__image"
+												src="<?php echo esc_url( $course_item['thumbnail'] ); ?>"
+												alt="<?php echo esc_attr( $course_item['title'] ); ?>"
+											>
+										</div>
+										<div class="ppic-course-card__body">
+											<?php if ( ! empty( $atts['label_text'] ) ) : ?>
+												<span class="ppic-course-card__label"><?php echo esc_html( $atts['label_text'] ); ?></span>
+											<?php endif; ?>
+											<h3 class="ppic-course-card__title"><?php echo esc_html( $course_item['title'] ); ?></h3>
+											<p class="ppic-course-card__excerpt"><?php echo esc_html( $course_item['excerpt'] ); ?></p>
+										</div>
+									</a>
+								</article>
+							<?php endforeach; ?>
+						</div>
+					</div>
 
-						$post_id = get_the_ID();
-						$thumbnail = get_the_post_thumbnail_url( $post_id, 'large' );
-
-						if ( empty( $thumbnail ) ) {
-							$thumbnail = 'https://web.ppicurug.ac.id/img/d4-pnb/pnb_pesawat.jpg';
-						}
-						?>
-						<article class="ppic-course-card">
-							<a class="ppic-course-card__link" href="<?php echo esc_url( get_permalink( $post_id ) ); ?>">
-								<div class="ppic-course-card__image-wrap">
-									<img
-										class="ppic-course-card__image"
-										src="<?php echo esc_url( $thumbnail ); ?>"
-										alt="<?php echo esc_attr( get_the_title( $post_id ) ); ?>"
-										loading="lazy"
-										decoding="async"
-									>
-								</div>
-								<div class="ppic-course-card__body">
-									<?php if ( ! empty( $atts['label_text'] ) ) : ?>
-										<span class="ppic-course-card__label"><?php echo esc_html( $atts['label_text'] ); ?></span>
-									<?php endif; ?>
-									<h3 class="ppic-course-card__title"><?php echo esc_html( get_the_title( $post_id ) ); ?></h3>
-									<p class="ppic-course-card__excerpt"><?php echo esc_html( wp_trim_words( get_the_excerpt(), max( 6, intval( $atts['excerpt_length'] ) ), '...' ) ); ?></p>
-								</div>
-							</a>
-						</article>
-					<?php endwhile; ?>
+					<?php if ( $has_multiple_slides ) : ?>
+						<button type="button" class="ppic-courses-slider__arrow is-prev" data-slide="prev" aria-label="Slide course sebelumnya">
+							<span aria-hidden="true">&#10094;</span>
+						</button>
+						<button type="button" class="ppic-courses-slider__arrow is-next" data-slide="next" aria-label="Slide course berikutnya">
+							<span aria-hidden="true">&#10095;</span>
+						</button>
+						<div class="ppic-courses-slider__dots" aria-label="Navigasi slider course"></div>
+					<?php endif; ?>
 				</div>
 			<?php else : ?>
 				<div class="ppic-courses-empty">
@@ -109,7 +162,201 @@ function ppic_courses_render( $atts ) {
 		</div>
 	</section>
 	<?php
-	wp_reset_postdata();
+
+	static $script_printed = false;
+
+	if ( ! $script_printed ) {
+		$script_printed = true;
+		?>
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+				var sliders = document.querySelectorAll('[data-courses-slider]');
+
+				sliders.forEach(function (slider) {
+					var viewport = slider.querySelector('.ppic-courses-slider__viewport');
+					var track = slider.querySelector('.ppic-courses-slider__track');
+					var slides = slider.querySelectorAll('.ppic-course-card');
+					var dotsWrap = slider.querySelector('.ppic-courses-slider__dots');
+					var dots = [];
+					var prevButton = slider.querySelector('[data-slide="prev"]');
+					var nextButton = slider.querySelector('[data-slide="next"]');
+					var currentIndex = 0;
+					var autoplayId = null;
+					var resizeFrame = null;
+					var slideOffsets = [];
+					var maxTranslate = 0;
+					var isLoop = slider.dataset.loop === 'true';
+					var autoplayInterval = parseInt(slider.dataset.interval, 10) || 4500;
+
+					if (!viewport || !track || slides.length <= 1) {
+						return;
+					}
+
+					var getVisibleSlides = function () {
+						if (window.innerWidth <= 575) {
+							return 1;
+						}
+
+						if (window.innerWidth <= 991) {
+							return 3;
+						}
+
+						return 5;
+					};
+
+					var getMaxIndex = function () {
+						return Math.max(0, slides.length - getVisibleSlides());
+					};
+
+					var measureSlides = function () {
+						slideOffsets = Array.prototype.map.call(slides, function (slide) {
+							return slide.offsetLeft;
+						});
+						maxTranslate = Math.max(0, track.scrollWidth - viewport.clientWidth);
+					};
+
+					var normalizeIndex = function (index) {
+						var maxIndex = getMaxIndex();
+
+						if (isLoop) {
+							if (maxIndex <= 0) {
+								return 0;
+							}
+
+							if (index < 0) {
+								return maxIndex;
+							}
+
+							if (index > maxIndex) {
+								return 0;
+							}
+
+							return index;
+						}
+
+						if (index < 0) {
+							return 0;
+						}
+
+						if (index > maxIndex) {
+							return maxIndex;
+						}
+
+						return index;
+					};
+
+					var renderDots = function () {
+						if (!dotsWrap) {
+							return;
+						}
+
+						var dotCount = getMaxIndex() + 1;
+						dotsWrap.innerHTML = '';
+						dots = [];
+
+						if (dotCount <= 1) {
+							dotsWrap.style.display = 'none';
+							return;
+						}
+
+						dotsWrap.style.display = '';
+
+						for (var dotIndex = 0; dotIndex < dotCount; dotIndex++) {
+							var dot = document.createElement('button');
+							dot.type = 'button';
+							dot.className = 'ppic-courses-slider__dot';
+							dot.setAttribute('aria-label', 'Tampilkan slide course ' + (dotIndex + 1));
+							dot.setAttribute('data-slide-to', String(dotIndex));
+							dot.addEventListener('click', function () {
+								setActiveSlide(parseInt(this.getAttribute('data-slide-to'), 10) || 0);
+								startAutoplay();
+							});
+							dotsWrap.appendChild(dot);
+							dots.push(dot);
+						}
+					};
+
+					var setActiveSlide = function (index) {
+						currentIndex = normalizeIndex(index);
+						var translateValue = slideOffsets[currentIndex] ? Math.min(slideOffsets[currentIndex], maxTranslate) : 0;
+						track.style.transform = 'translateX(-' + translateValue + 'px)';
+
+						dots.forEach(function (dot, dotIndex) {
+							dot.classList.toggle('is-active', dotIndex === currentIndex);
+						});
+
+						if (prevButton) {
+							prevButton.disabled = !isLoop && currentIndex <= 0;
+						}
+
+						if (nextButton) {
+							nextButton.disabled = !isLoop && currentIndex >= getMaxIndex();
+						}
+					};
+
+					var stopAutoplay = function () {
+						if (autoplayId) {
+							window.clearInterval(autoplayId);
+							autoplayId = null;
+						}
+					};
+
+					var startAutoplay = function () {
+						if (slider.dataset.autoplay !== 'true') {
+							return;
+						}
+
+						stopAutoplay();
+						autoplayId = window.setInterval(function () {
+							if (!isLoop && currentIndex >= getMaxIndex()) {
+								stopAutoplay();
+								return;
+							}
+
+							setActiveSlide(currentIndex + 1);
+						}, autoplayInterval);
+					};
+
+					if (prevButton) {
+						prevButton.addEventListener('click', function () {
+							setActiveSlide(currentIndex - 1);
+							startAutoplay();
+						});
+					}
+
+					if (nextButton) {
+						nextButton.addEventListener('click', function () {
+							setActiveSlide(currentIndex + 1);
+							startAutoplay();
+						});
+					}
+
+					slider.addEventListener('mouseenter', stopAutoplay);
+					slider.addEventListener('mouseleave', startAutoplay);
+					slider.addEventListener('focusin', stopAutoplay);
+					slider.addEventListener('focusout', startAutoplay);
+
+					window.addEventListener('resize', function () {
+						if (resizeFrame) {
+							window.cancelAnimationFrame(resizeFrame);
+						}
+
+						resizeFrame = window.requestAnimationFrame(function () {
+							measureSlides();
+							renderDots();
+							setActiveSlide(currentIndex);
+						});
+					});
+
+					measureSlides();
+					renderDots();
+					setActiveSlide(0);
+					startAutoplay();
+				});
+			});
+		</script>
+		<?php
+	}
 
 	return ob_get_clean();
 }
@@ -159,6 +406,47 @@ function ppic_courses_map() {
 					'description' => __( 'Teks kecil di atas judul tiap card.', 'ppic-custom-element' ),
 				),
 				array(
+					'type' => 'dropdown',
+					'heading' => __( 'Ukuran Gambar Card', 'ppic-custom-element' ),
+					'param_name' => 'image_size',
+					'value' => array(
+						__( 'Thumbnail (paling ringan)', 'ppic-custom-element' ) => 'thumbnail',
+						__( 'Medium', 'ppic-custom-element' ) => 'medium',
+						__( 'Medium Large', 'ppic-custom-element' ) => 'medium_large',
+						__( 'Large', 'ppic-custom-element' ) => 'large',
+						__( 'Full (paling berat)', 'ppic-custom-element' ) => 'full',
+					),
+					'std' => 'medium',
+					'description' => __( 'Gunakan Medium atau Thumbnail agar slider lebih ringan saat memuat banyak card.', 'ppic-custom-element' ),
+				),
+				array(
+					'type' => 'dropdown',
+					'heading' => __( 'Autoplay Slider', 'ppic-custom-element' ),
+					'param_name' => 'autoplay',
+					'value' => array(
+						__( 'Aktif', 'ppic-custom-element' ) => 'true',
+						__( 'Nonaktif', 'ppic-custom-element' ) => 'false',
+					),
+					'std' => 'true',
+				),
+				array(
+					'type' => 'dropdown',
+					'heading' => __( 'Auto Loop', 'ppic-custom-element' ),
+					'param_name' => 'autoloop',
+					'value' => array(
+						__( 'Aktif', 'ppic-custom-element' ) => 'true',
+						__( 'Nonaktif', 'ppic-custom-element' ) => 'false',
+					),
+					'std' => 'true',
+				),
+				array(
+					'type' => 'textfield',
+					'heading' => __( 'Durasi Autoplay (ms)', 'ppic-custom-element' ),
+					'param_name' => 'autoplay_interval',
+					'value' => '4500',
+					'description' => __( 'Contoh: 4500 = 4.5 detik.', 'ppic-custom-element' ),
+				),
+				array(
 					'type' => 'textfield',
 					'heading' => __( 'Post Type', 'ppic-custom-element' ),
 					'param_name' => 'post_type',
@@ -167,9 +455,10 @@ function ppic_courses_map() {
 				),
 				array(
 					'type' => 'textfield',
-					'heading' => __( 'Number of Post You want show.', 'ppic-custom-element' ),
+					'heading' => __( 'Jumlah Course yang Ditampilkan', 'ppic-custom-element' ),
 					'param_name' => 'posts_count',
-					'value' => '6',
+					'value' => '10',
+					'description' => __( 'Default 10 agar slider desktop bisa menampilkan 5 card per layar.', 'ppic-custom-element' ),
 				),
 				array(
 					'type' => 'dropdown',

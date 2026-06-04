@@ -42,7 +42,7 @@ function ppic_director_greeting_render( $atts ) {
     <section<?php echo $wrapper_id; ?> class="<?php echo $wrapper_class; ?>">
         <div class="ppic-director-greeting-container">
             <div class="ppic-director-greeting-image">
-                <img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $atts['image_alt'] ); ?>" loading="lazy" decoding="async">
+                <img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $atts['image_alt'] ); ?>">
             </div>
             <div class="ppic-director-greeting-content">
                 <h3><?php echo esc_html( $atts['title'] ); ?></h3>
