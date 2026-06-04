@@ -3,6 +3,29 @@ require_once __DIR__ . '/preview-bootstrap.php';
 
 $sections = array(
     array(
+        'id' => 'dosen-hero',
+        'title' => 'PPIC Dosen Hero',
+        'html' => ppic_dosen_hero_render(
+            array(
+                'title_prefix' => 'Profil',
+                'title_highlight' => 'Dosen & Instruktur',
+                'description' => 'Preview lokal untuk elemen hero halaman dosen, agar layout dan copy bisa dicek tanpa WordPress penuh.',
+                'button_text' => 'Kembali ke Beranda',
+                'button_link' => 'url:https%3A%2F%2Fppicurug.ac.id%2F|title:Kembali%20ke%20Beranda',
+            )
+        ),
+    ),
+    array(
+        'id' => 'dosen-directory',
+        'title' => 'PPIC Dosen Directory',
+        'html' => ppic_dosen_directory_render(
+            array(
+                'data_source' => 'spreadsheet',
+                'spreadsheet_file' => '9001',
+            )
+        ),
+    ),
+    array(
         'id' => 'hero',
         'title' => 'PPIC Hero',
         'html' => ppic_hero_section_render(
@@ -343,7 +366,7 @@ $sections = array(
             <div class="preview-header-inner">
                 <div class="preview-title">
                     <h1>Preview Semua Elemen PPIC</h1>
-                    <p>Halaman ini merender semua elemen plugin tanpa WordPress penuh, memakai data contoh dan stub fungsi minimum.</p>
+                    <p>Halaman ini merender semua elemen plugin tanpa WordPress penuh, termasuk preview elemen dosen dengan sumber data CSV lokal.</p>
                 </div>
                 <div class="preview-actions">
                     <a class="preview-download" href="download-plugin.php">

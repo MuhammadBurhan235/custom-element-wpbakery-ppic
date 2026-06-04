@@ -38,16 +38,268 @@ function ppic_dosen_directory_prepare_email_href( $value ) {
     return sanitize_email( $value ) ? 'mailto:' . sanitize_email( $value ) : '';
 }
 
+function ppic_dosen_directory_decode_spreadsheet_input( $value ) {
+    $value = trim( (string) $value );
+
+    if ( '' === $value ) {
+        return '';
+    }
+
+    $decoded = rawurldecode( $value );
+    $base64_value = base64_decode( $decoded, true );
+
+    if ( false !== $base64_value && '' !== trim( $base64_value ) ) {
+        return $base64_value;
+    }
+
+    return $decoded;
+}
+
+function ppic_dosen_directory_normalize_spreadsheet_text( $value ) {
+    $value = ppic_dosen_directory_decode_spreadsheet_input( $value );
+
+    if ( '' === $value ) {
+        return '';
+    }
+
+    $value = html_entity_decode( $value, ENT_QUOTES, 'UTF-8' );
+    $value = str_replace( array( "\r\n", "\r" ), "\n", $value );
+    $value = preg_replace( '/<br\s*\/?>/i', "\n", $value );
+    $value = preg_replace( '/<\/p>\s*<p[^>]*>/i', "\n", $value );
+    $value = preg_replace( '/<\/div>\s*<div[^>]*>/i', "\n", $value );
+    $value = preg_replace( '/<\/li>\s*<li[^>]*>/i', "\n", $value );
+    $value = wp_strip_all_tags( $value );
+    $value = str_replace( array( "\xC2\xA0", '&nbsp;' ), ' ', $value );
+    $value = preg_replace( "/\n{3,}/", "\n\n", $value );
+
+    return trim( $value );
+}
+
+function ppic_dosen_directory_detect_delimiter( $line ) {
+    $delimiters = array(
+        "\t" => substr_count( $line, "\t" ),
+        ';' => substr_count( $line, ';' ),
+        ',' => substr_count( $line, ',' ),
+    );
+
+    arsort( $delimiters );
+    $delimiter = key( $delimiters );
+
+    return ( is_string( $delimiter ) && $delimiters[ $delimiter ] > 0 ) ? $delimiter : ',';
+}
+
+function ppic_dosen_directory_parse_csv_line( $line, $preferred_delimiter = ',' ) {
+    $candidates = array_values( array_unique( array( $preferred_delimiter, ',', ';', "\t" ) ) );
+    $best_columns = array( $line );
+
+    foreach ( $candidates as $candidate ) {
+        $columns = str_getcsv( $line, $candidate );
+
+        if ( count( $columns ) > count( $best_columns ) ) {
+            $best_columns = $columns;
+        }
+    }
+
+    if ( 1 === count( $best_columns ) ) {
+        $nested_line = trim( (string) $best_columns[0] );
+
+        if ( $nested_line !== $line && preg_match( '/[,;\t]/', $nested_line ) ) {
+            $nested_columns = ppic_dosen_directory_parse_csv_line( $nested_line, $preferred_delimiter );
+
+            if ( count( $nested_columns ) > 1 ) {
+                return $nested_columns;
+            }
+        }
+    }
+
+    return $best_columns;
+}
+
+function ppic_dosen_directory_map_header( $header ) {
+    $header = wp_strip_all_tags( (string) $header );
+    $header = preg_replace( '/^\xEF\xBB\xBF/', '', $header );
+    $header = strtolower( trim( $header ) );
+    $header = preg_replace( '/[^a-z0-9]+/', '_', $header );
+    $header = trim( $header, '_' );
+
+    $aliases = array(
+        'name' => 'name',
+        'nama' => 'name',
+        'nama_lengkap' => 'name',
+        'full_name' => 'name',
+        'jabatan' => 'jabatan',
+        'jabatan_fungsional' => 'jabatan',
+        'prodi' => 'prodi',
+        'program_studi' => 'prodi',
+        'program' => 'prodi',
+        'bio' => 'bio',
+        'bio_singkat' => 'bio',
+        'deskripsi' => 'bio',
+        'profil_singkat' => 'bio',
+        'lama_mengajar' => 'lama_mengajar',
+        'pengalaman_mengajar' => 'lama_mengajar',
+        'masa_mengajar' => 'lama_mengajar',
+        'pendidikan' => 'pendidikan',
+        'education' => 'pendidikan',
+        'kepakaran' => 'kepakaran',
+        'keahlian' => 'kepakaran',
+        'expertise' => 'kepakaran',
+        'scholar_url' => 'scholar_url',
+        'google_scholar' => 'scholar_url',
+        'google_scholar_url' => 'scholar_url',
+        'scholar' => 'scholar_url',
+        'sinta' => 'sinta_id',
+        'sinta_id' => 'sinta_id',
+        'linkedin' => 'linkedin_url',
+        'linkedin_url' => 'linkedin_url',
+        'email' => 'email',
+        'email_address' => 'email',
+        'sertifikasi' => 'sertifikasi',
+        'sertifikasi_pendidik' => 'sertifikasi',
+        'photo' => 'photo',
+        'photo_id' => 'photo',
+        'foto_id' => 'photo',
+        'photo_url' => 'photo',
+        'foto' => 'photo',
+        'foto_url' => 'photo',
+        'image_url' => 'photo',
+    );
+
+    return isset( $aliases[ $header ] ) ? $aliases[ $header ] : '';
+}
+
+function ppic_dosen_directory_parse_spreadsheet( $raw_value ) {
+    $raw_value = ppic_dosen_directory_normalize_spreadsheet_text( $raw_value );
+
+    if ( '' === $raw_value ) {
+        return array();
+    }
+
+    $raw_value = preg_replace( '/^\xEF\xBB\xBF/', '', $raw_value );
+    $lines = preg_split( '/\r\n|\r|\n/', $raw_value );
+    $lines = array_values(
+        array_filter(
+            array_map( 'trim', $lines ),
+            static function ( $line ) {
+                return '' !== $line;
+            }
+        )
+    );
+
+    if ( count( $lines ) < 2 ) {
+        return array();
+    }
+
+    $delimiter = ppic_dosen_directory_detect_delimiter( $lines[0] );
+    $headers = ppic_dosen_directory_parse_csv_line( $lines[0], $delimiter );
+    $mapped_headers = array_map( 'ppic_dosen_directory_map_header', $headers );
+
+    if ( ! in_array( 'name', $mapped_headers, true ) ) {
+        return array();
+    }
+
+    $rows = array();
+
+    foreach ( array_slice( $lines, 1 ) as $line ) {
+        $columns = ppic_dosen_directory_parse_csv_line( $line, $delimiter );
+
+        if ( empty( array_filter( $columns, 'strlen' ) ) ) {
+            continue;
+        }
+
+        $row = array();
+
+        foreach ( $mapped_headers as $index => $field ) {
+            if ( '' === $field ) {
+                continue;
+            }
+
+            $row[ $field ] = isset( $columns[ $index ] ) ? trim( wp_unslash( $columns[ $index ] ) ) : '';
+        }
+
+        if ( ! empty( $row['name'] ) ) {
+            $rows[] = $row;
+        }
+    }
+
+    return $rows;
+}
+
+function ppic_dosen_directory_get_csv_attachment_contents( $attachment_id ) {
+    $attachment_id = absint( $attachment_id );
+
+    if ( ! $attachment_id || ! function_exists( 'get_attached_file' ) ) {
+        return '';
+    }
+
+    $file_path = get_attached_file( $attachment_id );
+
+    if ( ! $file_path || ! file_exists( $file_path ) || ! is_readable( $file_path ) ) {
+        return '';
+    }
+
+    $extension = strtolower( pathinfo( $file_path, PATHINFO_EXTENSION ) );
+
+    if ( 'csv' !== $extension && 'txt' !== $extension ) {
+        return '';
+    }
+
+    $contents = file_get_contents( $file_path );
+
+    return false !== $contents ? $contents : '';
+}
+
+function ppic_dosen_directory_register_csv_param() {
+    if ( ! function_exists( 'vc_add_shortcode_param' ) ) {
+        return;
+    }
+
+    vc_add_shortcode_param( 'ppic_csv_upload', 'ppic_dosen_directory_csv_upload_field' );
+}
+add_action( 'init', 'ppic_dosen_directory_register_csv_param', 20 );
+
+function ppic_dosen_directory_csv_upload_field( $settings, $value ) {
+    $param_name = isset( $settings['param_name'] ) ? $settings['param_name'] : '';
+    $attachment_id = absint( $value );
+    $file_label = '';
+    $field_id = 'ppic-csv-upload-' . wp_rand( 1000, 999999 );
+
+    if ( $attachment_id ) {
+        $file_path = function_exists( 'get_attached_file' ) ? get_attached_file( $attachment_id ) : '';
+
+        if ( $file_path ) {
+            $file_label = basename( $file_path );
+        }
+    }
+
+    $output = '<div id="' . esc_attr( $field_id ) . '" class="ppic-csv-upload-field">';
+    $output .= '<input type="hidden" class="wpb_vc_param_value wpb-textinput ' . esc_attr( $param_name ) . ' ' . esc_attr( $settings['type'] ) . '_field" name="' . esc_attr( $param_name ) . '" value="' . esc_attr( $attachment_id ) . '">';
+    $output .= '<input type="text" class="ppic-csv-upload-field__label" value="' . esc_attr( $file_label ) . '" placeholder="Belum ada file dipilih" readonly style="width:100%;margin-bottom:8px;">';
+    $output .= '<button type="button" class="button button-secondary ppic-csv-upload-field__select">Pilih File CSV/TXT</button> ';
+    $output .= '<button type="button" class="button ppic-csv-upload-field__clear"' . ( $attachment_id ? '' : ' style="display:none;"' ) . '>Hapus File</button>';
+    $output .= '<script>(function(){var root=document.getElementById(' . wp_json_encode( $field_id ) . ');if(!root||root.dataset.ppicCsvReady){return;}root.dataset.ppicCsvReady="1";var selectButton=root.querySelector(".ppic-csv-upload-field__select");var clearButton=root.querySelector(".ppic-csv-upload-field__clear");var hiddenInput=root.querySelector(".wpb_vc_param_value");var labelInput=root.querySelector(".ppic-csv-upload-field__label");if(selectButton){selectButton.addEventListener("click",function(event){event.preventDefault();if(typeof window.wp==="undefined"||typeof window.wp.media==="undefined"){window.alert("Media Library WordPress belum siap dimuat. Refresh halaman editor lalu coba lagi.");return;}var fileFrame=window.wp.media({title:"Pilih File CSV/TXT",button:{text:"Gunakan file ini"},multiple:false});fileFrame.on("select",function(){var attachment=fileFrame.state().get("selection").first().toJSON();if(hiddenInput){hiddenInput.value=attachment.id;hiddenInput.dispatchEvent(new Event("change",{bubbles:true}));}if(labelInput){labelInput.value=attachment.filename||attachment.url||"";}if(clearButton){clearButton.style.display="";}});fileFrame.open();});}if(clearButton){clearButton.addEventListener("click",function(event){event.preventDefault();if(hiddenInput){hiddenInput.value="";hiddenInput.dispatchEvent(new Event("change",{bubbles:true}));}if(labelInput){labelInput.value="";}clearButton.style.display="none";});}}());</script>';
+    $output .= '</div>';
+
+    return $output;
+}
+
+function ppic_dosen_directory_enqueue_admin_media( $hook ) {
+    wp_enqueue_media();
+}
+add_action( 'admin_enqueue_scripts', 'ppic_dosen_directory_enqueue_admin_media' );
+
 add_shortcode( 'ppic_dosen_directory', 'ppic_dosen_directory_render' );
 function ppic_dosen_directory_render( $atts ) {
     $atts = shortcode_atts(
         array(
+            'data_source' => 'manual',
             'search_placeholder' => 'Cari nama / keahlian...',
             'sort_label' => 'Urutkan:',
             'filter_prodi_label' => 'Program Studi',
             'filter_jabatan_label' => 'Jabatan Fungsional',
             'filter_sertifikasi_label' => 'Sertifikasi Pendidik',
             'no_results_text' => 'Tidak ada dosen yang cocok dengan filter saat ini.',
+            'spreadsheet_file' => '',
             'lecturers' => urlencode(
                 wp_json_encode(
                     array(
@@ -88,7 +340,15 @@ function ppic_dosen_directory_render( $atts ) {
         $atts
     );
 
-    $lecturers = vc_param_group_parse_atts( $atts['lecturers'] );
+    $lecturers = array();
+
+    if ( 'spreadsheet' === $atts['data_source'] ) {
+        if ( ! empty( $atts['spreadsheet_file'] ) ) {
+            $lecturers = ppic_dosen_directory_parse_spreadsheet( ppic_dosen_directory_get_csv_attachment_contents( $atts['spreadsheet_file'] ) );
+        }
+    } elseif ( empty( $lecturers ) ) {
+        $lecturers = vc_param_group_parse_atts( $atts['lecturers'] );
+    }
 
     if ( empty( $lecturers ) || ! is_array( $lecturers ) ) {
         return '';
@@ -118,7 +378,8 @@ function ppic_dosen_directory_render( $atts ) {
         $email = isset( $lecturer['email'] ) ? trim( $lecturer['email'] ) : '';
         $email_href = ppic_dosen_directory_prepare_email_href( $email );
         $sertifikasi = isset( $lecturer['sertifikasi'] ) && 'Tidak' === trim( $lecturer['sertifikasi'] ) ? 'Tidak' : 'Ya';
-        $photo_id = ! empty( $lecturer['photo'] ) ? absint( $lecturer['photo'] ) : 0;
+        $photo_source = isset( $lecturer['photo'] ) ? trim( (string) $lecturer['photo'] ) : '';
+        $photo_id = ctype_digit( $photo_source ) ? absint( $photo_source ) : 0;
         $photo_url = '';
 
         if ( $photo_id ) {
@@ -127,6 +388,8 @@ function ppic_dosen_directory_render( $atts ) {
             if ( ! empty( $photo_data[0] ) ) {
                 $photo_url = $photo_data[0];
             }
+        } elseif ( '' !== $photo_source ) {
+            $photo_url = esc_url( $photo_source );
         }
 
         if ( '' !== $prodi ) {
@@ -467,6 +730,16 @@ function ppic_dosen_directory_map() {
             'icon' => 'dashicons dashicons-groups',
             'params' => array(
                 array(
+                    'type' => 'dropdown',
+                    'heading' => __( 'Sumber Data', 'ppic-custom-element' ),
+                    'param_name' => 'data_source',
+                    'value' => array(
+                        __( 'Input Manual', 'ppic-custom-element' ) => 'manual',
+                        __( 'Import CSV / Excel', 'ppic-custom-element' ) => 'spreadsheet',
+                    ),
+                    'std' => 'manual',
+                ),
+                array(
                     'type' => 'textfield',
                     'heading' => __( 'Placeholder Pencarian', 'ppic-custom-element' ),
                     'param_name' => 'search_placeholder',
@@ -503,9 +776,23 @@ function ppic_dosen_directory_map() {
                     'value' => 'Tidak ada dosen yang cocok dengan filter saat ini.',
                 ),
                 array(
+                    'type' => 'ppic_csv_upload',
+                    'heading' => __( 'File CSV/TXT', 'ppic-custom-element' ),
+                    'param_name' => 'spreadsheet_file',
+                    'dependency' => array(
+                        'element' => 'data_source',
+                        'value' => array( 'spreadsheet' ),
+                    ),
+                    'description' => __( 'Upload file CSV atau TXT hasil export dari Excel. Header yang didukung: name, jabatan, prodi, bio, lama_mengajar, pendidikan, kepakaran, scholar_url, sinta_id, linkedin_url, email, sertifikasi, photo atau photo_url. File .xlsx belum diparse langsung.', 'ppic-custom-element' ),
+                ),
+                array(
                     'type' => 'param_group',
                     'heading' => __( 'Daftar Dosen', 'ppic-custom-element' ),
                     'param_name' => 'lecturers',
+                    'dependency' => array(
+                        'element' => 'data_source',
+                        'value' => array( 'manual' ),
+                    ),
                     'params' => array(
                         array(
                             'type' => 'attach_image',

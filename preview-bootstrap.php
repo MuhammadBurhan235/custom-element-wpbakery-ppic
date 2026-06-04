@@ -11,6 +11,10 @@ $GLOBALS['ppic_preview_attachment_map'] = array(
     5 => 'https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=1200&q=80',
 );
 
+$GLOBALS['ppic_preview_attachment_files'] = array(
+    9001 => __DIR__ . '/preview-data/dosen-sample.csv',
+);
+
 $GLOBALS['ppic_preview_posts'] = array(
     array(
         'ID' => 101,
@@ -169,6 +173,12 @@ if ( ! function_exists( 'wp_kses_post' ) ) {
     }
 }
 
+if ( ! function_exists( 'wp_strip_all_tags' ) ) {
+    function wp_strip_all_tags( $text ) {
+        return trim( strip_tags( (string) $text ) );
+    }
+}
+
 if ( ! function_exists( 'esc_html' ) ) {
     function esc_html( $text ) {
         return htmlspecialchars( (string) $text, ENT_QUOTES, 'UTF-8' );
@@ -184,6 +194,40 @@ if ( ! function_exists( 'esc_attr' ) ) {
 if ( ! function_exists( 'esc_url' ) ) {
     function esc_url( $url ) {
         return filter_var( (string) $url, FILTER_SANITIZE_URL );
+    }
+}
+
+if ( ! function_exists( 'sanitize_email' ) ) {
+    function sanitize_email( $email ) {
+        $email = filter_var( (string) $email, FILTER_SANITIZE_EMAIL );
+        return filter_var( $email, FILTER_VALIDATE_EMAIL ) ? $email : '';
+    }
+}
+
+if ( ! function_exists( 'wp_unslash' ) ) {
+    function wp_unslash( $value ) {
+        return is_string( $value ) ? stripslashes( $value ) : $value;
+    }
+}
+
+if ( ! function_exists( 'wp_rand' ) ) {
+    function wp_rand( $min = 0, $max = 0 ) {
+        return mt_rand( (int) $min, (int) $max );
+    }
+}
+
+if ( ! function_exists( 'get_attached_file' ) ) {
+    function get_attached_file( $attachment_id ) {
+        $map = isset( $GLOBALS['ppic_preview_attachment_files'] ) ? $GLOBALS['ppic_preview_attachment_files'] : array();
+        $attachment_id = absint( $attachment_id );
+
+        return isset( $map[ $attachment_id ] ) ? $map[ $attachment_id ] : '';
+    }
+}
+
+if ( ! function_exists( 'wp_enqueue_media' ) ) {
+    function wp_enqueue_media() {
+        return null;
     }
 }
 
