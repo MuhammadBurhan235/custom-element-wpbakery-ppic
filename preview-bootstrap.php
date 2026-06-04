@@ -13,6 +13,7 @@ $GLOBALS['ppic_preview_attachment_map'] = array(
 
 $GLOBALS['ppic_preview_attachment_files'] = array(
     9001 => __DIR__ . '/preview-data/dosen-sample.csv',
+    9002 => __DIR__ . '/preview-data/training-catalog-sample.csv',
 );
 
 $GLOBALS['ppic_preview_posts'] = array(

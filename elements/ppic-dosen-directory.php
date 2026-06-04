@@ -95,7 +95,7 @@ function ppic_dosen_directory_parse_csv_line( $line, $preferred_delimiter = ',' 
     foreach ( $candidates as $candidate ) {
         $columns = str_getcsv( $line, $candidate );
 
-        if ( count( $columns ) > count( $best_columns ) ) {
+        if ( count( $columns ) > count( $best_columns ) || ( count( $columns ) === count( $best_columns ) && $columns !== $best_columns ) ) {
             $best_columns = $columns;
         }
     }

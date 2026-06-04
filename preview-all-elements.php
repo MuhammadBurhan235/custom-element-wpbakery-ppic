@@ -3,6 +3,26 @@ require_once __DIR__ . '/preview-bootstrap.php';
 
 $sections = array(
     array(
+        'id' => 'training-catalog-hero',
+        'title' => 'PPIC Training Catalog Hero',
+        'html' => ppic_training_catalog_hero_render(
+            array(
+                'title' => 'Katalog Pelatihan Penerbangan',
+                'description' => 'Preview lokal elemen hero katalog pelatihan dengan arah visual yang mengikuti desain referensi.',
+            )
+        ),
+    ),
+    array(
+        'id' => 'training-catalog',
+        'title' => 'PPIC Training Catalog',
+        'html' => ppic_training_catalog_render(
+            array(
+                'data_source' => 'spreadsheet',
+                'spreadsheet_file' => '9002',
+            )
+        ),
+    ),
+    array(
         'id' => 'dosen-hero',
         'title' => 'PPIC Dosen Hero',
         'html' => ppic_dosen_hero_render(
@@ -366,7 +386,7 @@ $sections = array(
             <div class="preview-header-inner">
                 <div class="preview-title">
                     <h1>Preview Semua Elemen PPIC</h1>
-                    <p>Halaman ini merender semua elemen plugin tanpa WordPress penuh, termasuk preview elemen dosen dengan sumber data CSV lokal.</p>
+                    <p>Halaman ini merender semua elemen plugin tanpa WordPress penuh, termasuk preview elemen dosen dan katalog pelatihan dengan sumber data CSV lokal.</p>
                 </div>
                 <div class="preview-actions">
                     <a class="preview-download" href="download-plugin.php">

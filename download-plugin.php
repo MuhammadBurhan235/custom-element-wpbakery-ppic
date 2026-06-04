@@ -59,6 +59,8 @@ $excluded_files = array(
     'headermobile.html',
     'profil-dosen.html',
     '.gitignore',
+    'katalog-pelatihan.html',
+    'klinik.html'
 );
 
 $excluded_directories = array(
