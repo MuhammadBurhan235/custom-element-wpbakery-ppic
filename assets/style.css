@@ -1433,8 +1433,8 @@ h5 {
    ========================================================================= */
 /* --- Wrapper Utama --- */
 .ppic-about-wrapper {
+  padding: 180px 20px 80px; /* Atas 180px, Kiri-Kanan 20px, Bawah 80px */
   background-color: #0f2133; /* Warna biru gelap */
-  padding: 80px 20px;
   text-align: center;
   font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
@@ -1511,8 +1511,8 @@ h5 {
 
 /* --- Wrapper & Header --- */
 .ppic-timeline-wrapper {
+  padding: 180px 20px 80px; /* Atas 180px, Kiri-Kanan 20px, Bawah 80px */
   background-color: #f4f6f9; /* Warna abu-abu kebiruan sangat terang */
-  padding: 80px 20px;
   font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   color: #44546a; /* Warna teks kebiruan redup */
 }
@@ -1675,11 +1675,11 @@ h5 {
 .ppic-vm-wrapper {
   max-width: 900px;
   margin: 0 auto;
+  padding: 180px 20px 20px; /* Atas 180px, Kiri-Kanan 20px, Bawah 20px */
   font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   display: flex;
   flex-direction: column;
   gap: 30px; /* Jarak antara Visi dan Misi */
-  padding: 20px;
 }
 
 /* --- Styling Kartu --- */
@@ -1771,7 +1771,7 @@ h5 {
 .ppic-exc-wrapper {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 60px 20px;
+  padding: 180px 20px 60px; /* Atas 180px, Kiri-Kanan 20px, Bawah 60px */
   font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
@@ -3587,7 +3587,7 @@ h5 {
    23. ELEMENT: PPIC KEPEMIMPINAN & STRUKTUR
 ======================================================= */
 .ppic-leadership-section {
-  padding: 60px 0 80px;
+  padding: 180px 0 80px;
   background-color: #f4f7f9; /* Background luar abu-abu sangat muda/kebiruan */
 }
 
@@ -3608,26 +3608,6 @@ h5 {
 .ppic-gallery-hero-section,
 .ppic-sipencatar-hero {
   padding-top: 180px;
-}
-
-@media (max-width: 991px) {
-  .ppic-hero-section,
-  .ppic-dosen-hero-section,
-  .ppic-training-hero-section,
-  .ppic-gallery-hero-section,
-  .ppic-sipencatar-hero {
-    padding-top: 180px;
-  }
-}
-
-@media (max-width: 575px) {
-  .ppic-hero-section,
-  .ppic-dosen-hero-section,
-  .ppic-training-hero-section,
-  .ppic-gallery-hero-section,
-  .ppic-sipencatar-hero {
-    padding-top: 180px;
-  }
 }
 
 /* Tambahkan baris ini untuk mewarnai teks "Struktur Organisasi" */
@@ -3887,7 +3867,7 @@ h5 {
    24. ELEMEN: PPIC FUNGSI UTAMA / MAIN FUNCTIONS
 ======================================================= */
 .tugasfungsi-section {
-  padding: 60px 0 80px;
+  padding: 180px 0 80px;
   background-color: #ffffff;
 }
 
@@ -3996,9 +3976,8 @@ h5 {
    25. ELEMEN: PPIC RAIH MASA DEPAN (KEUNGGULAN)
 ======================================================= */
 .raih-masa-depan-section {
-  padding: 60px 0 80px;
+  padding: 180px 0 80px; /* Atas 180px, Kiri-Kanan 0, Bawah 80px */
   background: linear-gradient(105deg, #ffffff 0%, #fef7e8 100%);
-  padding: 70px 0;
   border-top: 2px solid rgba(245, 176, 27, 0.2);
   border-bottom: 2px solid rgba(245, 176, 27, 0.2);
 }
@@ -4287,7 +4266,7 @@ h5 {
    27. ELEMEN: PPIC JALUR SIPENCATAR
 ======================================================= */
 .ppic-jalur-section {
-  padding: 80px 0;
+  padding: 180px 0 120px;
   background-color: #ffffff; /* Sesuai mockup, background putih */
 }
 
@@ -4420,7 +4399,7 @@ h5 {
    28. ELEMEN: PPIC PERSYARATAN UMUM SIPENCATAR
 ======================================================= */
 .ppic-persyaratan-section {
-  padding: 80px 0;
+  padding: 180px 0 120px;
   background-color: #f4f7f9; /* Background luar abu-abu sangat muda (seragam dengan section lain) */
 }
 
@@ -4552,7 +4531,7 @@ h5 {
    29. ELEMEN: PPIC CARA PENDAFTARAN SIPENCATAR
 ======================================================= */
 .ppic-pendaftaran-section {
-  padding: 80px 0;
+  padding: 180px 0 120px;
   background-color: #ffffff; /* Sesuai mockup, background putih bersih */
 }
 
@@ -4677,7 +4656,7 @@ h5 {
    30. ELEMEN: PPIC BIAYA PENDIDIKAN SIPENCATAR
 ======================================================= */
 .ppic-biaya-section {
-  padding: 80px 0;
+  padding: 180px 0 120px;
   background-color: #f4f7f9; /* Background abu-abu muda (f9fafc di mockup) */
 }
 
@@ -4807,7 +4786,7 @@ h5 {
    31. ELEMEN: PPIC FAQ SIPENCATAR
 ======================================================= */
 .ppic-faq-section {
-  padding: 80px 0;
+  padding: 180px 0 120px;
   background-color: #ffffff; /* Background putih sesuai mockup */
 }
 
