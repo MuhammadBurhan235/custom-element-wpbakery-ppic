@@ -396,11 +396,11 @@ function ppic_training_catalog_render( $atts ) {
                     <?php endforeach; ?>
                 </div>
 
-                <div class="ppic-training-catalog__empty" hidden>
+                <div class="contact-missing">
                     <h3><?php echo esc_html( $atts['empty_title'] ); ?></h3>
                     <p><?php echo esc_html( $atts['empty_description'] ); ?></p>
                     <?php if ( ! empty( $empty_button_url ) ) : ?>
-                        <a href="<?php echo esc_url( $empty_button_url ); ?>" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i><?php echo esc_html( $atts['empty_button_text'] ); ?></a>
+                        <a href="<?php echo esc_url( $empty_button_url ); ?>" target="_blank" rel="noopener noreferrer" class="btn-contact"><i class="fab fa-whatsapp" aria-hidden="true"></i> <?php echo esc_html( $atts['empty_button_text'] ); ?></a>
                     <?php endif; ?>
                 </div>
             </div>
@@ -419,7 +419,6 @@ function ppic_training_catalog_render( $atts ) {
                     var searchInput = catalog.querySelector('.ppic-training-catalog__search-input');
                     var categoryInputs = catalog.querySelectorAll('.ppic-training-catalog__categories input[type="radio"]');
                     var stats = catalog.querySelector('.ppic-training-catalog__stats');
-                    var emptyState = catalog.querySelector('.ppic-training-catalog__empty');
                     var cards = Array.prototype.slice.call(catalog.querySelectorAll('.ppic-training-card'));
                     var totalItems = cards.length;
 
@@ -457,10 +456,6 @@ function ppic_training_catalog_render( $atts ) {
 
                         if (stats) {
                             stats.textContent = 'Menampilkan ' + visibleCount + ' dari ' + totalItems + ' pelatihan';
-                        }
-
-                        if (emptyState) {
-                            emptyState.hidden = visibleCount > 0;
                         }
                     };
 

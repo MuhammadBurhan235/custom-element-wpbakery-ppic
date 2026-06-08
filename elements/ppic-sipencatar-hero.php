@@ -13,7 +13,7 @@ function ppic_sipencatar_hero_render( $atts ) {
             'title_highlight' => 'PPI Curug',
             'description'     => 'Sistem Penerimaan Calon Taruna (SIPENCATAR) Politeknik Penerbangan Indonesia Curug membuka kesempatan bagi putra-putri terbaik bangsa untuk mengikuti pendidikan vokasi penerbangan berstandar internasional. Pilih jalur yang sesuai dengan prestasi dan latar belakang Anda.',
             'btn1_text'       => 'Kembali ke Beranda',
-            'btn1_link'       => 'url:home.html|||',
+            'btn1_link'       => '',
             'btn1_icon'       => 'fas fa-arrow-left',
             'btn2_text'       => 'Daftar Sekarang',
             'btn2_link'       => 'url:%23pendaftaran|||',
@@ -25,8 +25,8 @@ function ppic_sipencatar_hero_render( $atts ) {
     );
 
     // Parsing Link Tombol 1
-    $link1   = function_exists( 'vc_build_link' ) ? vc_build_link( $atts['btn1_link'] ) : array( 'url' => '#', 'target' => '_self' );
-    $href1   = ! empty( $link1['url'] ) ? $link1['url'] : '#';
+    $link1   = function_exists( 'vc_build_link' ) ? vc_build_link( $atts['btn1_link'] ) : array( 'url' => home_url(), 'target' => '_self' );
+    $href1   = ! empty( $link1['url'] ) ? $link1['url'] : home_url();
     $target1 = ! empty( $link1['target'] ) ? $link1['target'] : '_self';
 
     // Parsing Link Tombol 2
@@ -126,8 +126,9 @@ function ppic_sipencatar_hero_map() {
                 ),
                 array(
                     'type'       => 'vc_link',
-                    'heading'    => __( 'Link Tombol 1', 'ppic-custom-element' ),
+                    'heading'    => __( 'Link Tombol 1 (opsional, defaultnya mengarah ke home_url())', 'ppic-custom-element' ),
                     'param_name' => 'btn1_link',
+                    'description'=> __( 'Jika dikosongkan, tombol akan mengarah ke halaman beranda situs.', 'ppic-custom-element' ),
                     'group'      => 'Tombol 1',
                 ),
                 array(

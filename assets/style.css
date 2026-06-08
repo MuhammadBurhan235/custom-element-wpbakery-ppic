@@ -23,7 +23,9 @@ h5 {
   width: 100%;
   padding-top: 180px;
 }
-
+/* =========================================================================
+   GLOBAL HERO TOP SPACING
+   ========================================================================= */
 .ppic-hero-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -41,6 +43,7 @@ h5 {
 }
 
 .ppic-hero-text h2 {
+  color: #ffffff;
   font-size: clamp(2.2rem, 5vw, 3.8rem);
   font-weight: 800;
   line-height: 1.2;
@@ -197,7 +200,7 @@ h5 {
 
 @media (max-width: 575px) {
   .ppic-hero-section {
-    padding-top: 150px;
+    padding-top: 140px;
   }
 
   .ppic-hero-slider-arrow {
@@ -3167,6 +3170,9 @@ h5 {
 
 .ppic-training-catalog__content {
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .ppic-training-catalog__grid {
@@ -3263,50 +3269,66 @@ h5 {
   transform: translateX(3px);
 }
 
-.ppic-training-catalog__empty {
-  margin-top: 24px;
-  padding: 28px 24px;
-  border-radius: 24px;
-  background: #ffffff;
-  border: 1px solid #e7edf3;
-  box-shadow: 0 10px 28px rgba(14, 38, 60, 0.05);
+.contact-missing {
+  padding: 44px 32px 38px;
+  border-radius: 34px;
+  background: linear-gradient(180deg, #f6f9fd 0%, #f3f7fc 100%);
+  border: 1px solid #e3ebf3;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  text-align: center;
 }
 
-.ppic-training-catalog__empty h3 {
+.contact-missing h3 {
   margin: 0;
-  color: #123a61;
+  color: #0f2748;
   font-size: 26px;
   line-height: 1.2;
   font-weight: 900;
 }
 
-.ppic-training-catalog__empty p {
-  margin: 12px 0 0;
-  color: #5c6f82;
-  font-size: 16px;
-  line-height: 1.7;
+.contact-missing p {
+  max-width: 900px;
+  margin: 14px auto 0;
+  color: #1f3b5a;
+  font-size: 17px;
+  line-height: 1.65;
 }
 
-.ppic-training-catalog__empty a {
+.contact-missing .btn-contact {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  margin-top: 18px;
-  min-height: 48px;
-  padding: 12px 18px;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 24px;
+  min-height: 58px;
+  min-width: min(100%, 448px);
+  padding: 14px 28px;
   border-radius: 999px;
-  background: #0f5ea9;
-  color: #ffffff;
-  font-size: 15px;
-  font-weight: 800;
+  background: #ffb517;
+  color: #003b73;
+  font-size: 18px;
+  line-height: 1.3;
+  font-weight: 900;
   text-decoration: none;
+  box-shadow: 0 12px 22px rgba(255, 181, 23, 0.28);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
-.ppic-training-catalog__empty a:hover,
-.ppic-training-catalog__empty a:focus-visible {
-  color: #ffffff;
+.contact-missing .btn-contact i {
+  font-size: 23px;
+}
+
+.contact-missing .btn-contact:hover,
+.contact-missing .btn-contact:focus-visible {
+  color: #003b73;
   text-decoration: none;
-  background: #0c4c87;
+  background: #f2ac14;
+  transform: translateY(-1px);
+  box-shadow: 0 14px 26px rgba(255, 181, 23, 0.34);
 }
 
 @media (max-width: 1199px) {
@@ -3348,7 +3370,7 @@ h5 {
 
   .ppic-training-card,
   .ppic-training-catalog__sidebar,
-  .ppic-training-catalog__empty {
+  .contact-missing {
     border-radius: 20px;
   }
 
@@ -3359,14 +3381,25 @@ h5 {
   .ppic-training-card__desc,
   .ppic-training-card__cert,
   .ppic-training-card__link,
-  .ppic-training-catalog__empty p,
+  .contact-missing p,
   .ppic-training-catalog__stats,
   .ppic-training-catalog__categories label {
     font-size: 14px;
   }
 
-  .ppic-training-catalog__empty h3 {
+  .contact-missing {
+    padding: 30px 20px;
+  }
+
+  .contact-missing h3 {
     font-size: 22px;
+  }
+
+  .contact-missing .btn-contact {
+    width: 100%;
+    min-width: 0;
+    font-size: 16px;
+    padding: 14px 20px;
   }
 }
 
@@ -3564,6 +3597,37 @@ h5 {
   font-weight: 800;
   color: #0b1f38; /* Biru gelap PPI */
   margin-bottom: 8px;
+}
+
+/* =========================================================================
+   GLOBAL HERO TOP SPACING
+   ========================================================================= */
+.ppic-hero-section,
+.ppic-dosen-hero-section,
+.ppic-training-hero-section,
+.ppic-gallery-hero-section,
+.ppic-sipencatar-hero {
+  padding-top: 180px;
+}
+
+@media (max-width: 991px) {
+  .ppic-hero-section,
+  .ppic-dosen-hero-section,
+  .ppic-training-hero-section,
+  .ppic-gallery-hero-section,
+  .ppic-sipencatar-hero {
+    padding-top: 180px;
+  }
+}
+
+@media (max-width: 575px) {
+  .ppic-hero-section,
+  .ppic-dosen-hero-section,
+  .ppic-training-hero-section,
+  .ppic-gallery-hero-section,
+  .ppic-sipencatar-hero {
+    padding-top: 180px;
+  }
 }
 
 /* Tambahkan baris ini untuk mewarnai teks "Struktur Organisasi" */
@@ -4105,7 +4169,7 @@ h5 {
 ======================================================= */
 .ppic-sipencatar-hero {
   position: relative;
-  padding: 140px 0 120px;
+  padding: 180px 0 120px;
   background-color: #0b1f38; /* Warna fallback biru gelap PPI */
   background-size: cover;
   background-position: center;
@@ -4198,7 +4262,7 @@ h5 {
 /* Responsiveness Mobile & Tablet */
 @media (max-width: 768px) {
   .ppic-sipencatar-hero {
-    padding: 100px 0 80px;
+    padding: 140px 0 80px;
   }
   .ppic-sipencatar-hero h1 {
     font-size: 2.2rem;
@@ -4606,5 +4670,239 @@ h5 {
   }
   .ppic-pendaftaran-section .info-card {
     padding: 30px 24px;
+  }
+}
+
+/* =======================================================
+   30. ELEMEN: PPIC BIAYA PENDIDIKAN SIPENCATAR
+======================================================= */
+.ppic-biaya-section {
+  padding: 80px 0;
+  background-color: #f4f7f9; /* Background abu-abu muda (f9fafc di mockup) */
+}
+
+.ppic-biaya-section .section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #0b1f38; /* Biru gelap PPI */
+  margin-bottom: 12px;
+}
+
+.ppic-biaya-section .section-sub {
+  text-align: center;
+  font-size: 1.05rem;
+  color: #6c757d;
+  max-width: 800px;
+  margin: 0 auto 50px;
+  line-height: 1.6;
+}
+
+/* Grid Pembagi 2 */
+.ppic-biaya-section .grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Kotak Card */
+.ppic-biaya-section .info-card {
+  background: #ffffff;
+  border: 1px solid #eef2f6;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(11, 31, 56, 0.04);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Card yang di Highlight (Garis Oranye seperti di mockup) */
+.ppic-biaya-section .info-card.highlight {
+  border-color: #f2ae17;
+  box-shadow: 0 15px 40px rgba(242, 174, 23, 0.08);
+}
+
+.ppic-biaya-section .info-card:hover {
+  transform: translateY(-5px);
+  border-color: #f2ae17;
+}
+
+/* Ikon dengan Box Kuning Soft */
+.ppic-biaya-section .card-icon {
+  width: 60px;
+  height: 60px;
+  background: rgba(242, 174, 23, 0.15); /* Soft yellow/orange */
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.ppic-biaya-section .card-icon i {
+  font-size: 1.6rem;
+  color: #f2ae17;
+}
+
+/* Typografi Dalam Kotak */
+.ppic-biaya-section .info-card h3 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0b1f38;
+  margin-bottom: 20px;
+}
+
+/* Daftar Rincian (Bullet points) */
+.ppic-biaya-section .info-list {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 0 0 32px 0;
+  flex-grow: 1; /* Mendorong badge agar selalu berada di bawah */
+}
+
+.ppic-biaya-section .info-list li {
+  font-size: 0.95rem;
+  color: #6c757d;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.ppic-biaya-section .info-list li strong {
+  color: #0b1f38; /* Membuat teks tebal lebih dominan */
+}
+
+/* Badge Catatan di Bawah */
+.ppic-biaya-section .badge-wrapper {
+  margin-top: auto;
+}
+
+.ppic-biaya-section .badge-info {
+  display: inline-block;
+  background: #fff8e1; /* Very soft yellow background */
+  color: #0b1f38;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+/* Responsiveness Mobile */
+@media (max-width: 768px) {
+  .ppic-biaya-section .section-title {
+    font-size: 1.8rem;
+  }
+  .ppic-biaya-section .grid-2 {
+    grid-template-columns: 1fr;
+    padding: 0 16px;
+  }
+  .ppic-biaya-section .info-card {
+    padding: 30px 24px;
+  }
+}
+
+/* =======================================================
+   31. ELEMEN: PPIC FAQ SIPENCATAR
+======================================================= */
+.ppic-faq-section {
+  padding: 80px 0;
+  background-color: #ffffff; /* Background putih sesuai mockup */
+}
+
+.ppic-faq-section .section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #0b1f38; /* Biru gelap PPI */
+  margin-bottom: 12px;
+}
+
+.ppic-faq-section .section-sub {
+  text-align: center;
+  font-size: 1.05rem;
+  color: #6c757d;
+  max-width: 800px;
+  margin: 0 auto 50px;
+  line-height: 1.6;
+}
+
+/* Grid Pembagi 2 (Lebih rapat) */
+.ppic-faq-section .grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Kotak Card FAQ */
+.ppic-faq-section .faq-card {
+  background: #ffffff;
+  border: 1px solid #eef2f6;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(11, 31, 56, 0.02);
+  transition: all 0.3s ease;
+}
+
+.ppic-faq-section .faq-card:hover {
+  border-color: #f2ae17; /* Garis tepi kuning saat hover */
+  box-shadow: 0 8px 25px rgba(242, 174, 23, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Typografi Pertanyaan (H3) */
+.ppic-faq-section .faq-card h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0b1f38;
+  margin-bottom: 14px;
+  line-height: 1.4;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+/* Ikon Pertanyaan (Oranye/Kuning) */
+.ppic-faq-section .faq-card h3 i {
+  color: #f2ae17;
+  font-size: 1.25rem;
+  margin-top: 3px; /* Penyesuaian sejajar dengan teks baris pertama */
+}
+
+/* Teks Jawaban (Sejajar dengan teks judul, padding-left ditambah) */
+.ppic-faq-section .faq-card p {
+  font-size: 0.95rem;
+  color: #555b61;
+  line-height: 1.7;
+  margin: 0;
+  padding-left: 32px; /* Diberi ruang sebesar ikon agar sejajar dengan huruf pertama judul */
+}
+
+/* Jika admin memakai tag HTML bold/strong di editor */
+.ppic-faq-section .faq-card p strong {
+  color: #0b1f38;
+}
+
+/* Responsiveness Mobile */
+@media (max-width: 991px) {
+  .ppic-faq-section .grid-2 {
+    gap: 16px;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ppic-faq-section .section-title {
+    font-size: 1.8rem;
+  }
+  .ppic-faq-section .grid-2 {
+    grid-template-columns: 1fr;
+    padding: 0 16px;
+  }
+  .ppic-faq-section .faq-card {
+    padding: 24px;
   }
 }

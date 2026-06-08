@@ -97,8 +97,9 @@ function ppic_dosen_hero_map() {
                 ),
                 array(
                     'type' => 'vc_link',
-                    'heading' => __( 'Link Tombol', 'ppic-custom-element' ),
+                    'heading' => __( 'Link Tombol (opsional, defaultnya mengarah ke home_url())', 'ppic-custom-element' ),
                     'param_name' => 'button_link',
+                    'description' => __( 'Jika dikosongkan, tombol akan mengarah ke halaman beranda situs.', 'ppic-custom-element' ),
                 ),
                 array(
                     'type' => 'el_id',

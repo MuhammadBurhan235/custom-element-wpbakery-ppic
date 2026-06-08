@@ -34,9 +34,9 @@ function ppic_register_about_element() {
                 ),
                 array(
                     "type" => "vc_link",
-                    "heading" => __( "Link Tombol", "ppic" ),
+                    "heading" => __( "Link Tombol (opsional, defaultnya mengarah ke home_url())", "ppic" ),
                     "param_name" => "btn_link",
-                    "description" => __( "Atur URL tujuan untuk tombol.", "ppic" )
+                    "description" => __( "Jika dikosongkan, tombol akan mengarah ke halaman beranda situs.", "ppic" )
                 ),
                 array(
                     "type" => "el_id",

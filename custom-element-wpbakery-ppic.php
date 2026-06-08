@@ -3,7 +3,7 @@
  * Plugin Name: Custom Element WP Bakery PPIC
  * Plugin URI:  https://ppicurug.ac.id/
  * Description: Plugin modular untuk elemen kustom WPBakery PPI Curug.
- * Version:     1.29.1
+ * Version:     1.31.8
  * Author:      IT Team PPI Curug
  * License:     GPL2
  */
@@ -30,7 +30,7 @@ function ppic_custom_elements_enqueue_styles() {
         'ppic-custom-elements-style', 
         PPIC_WPB_URL . 'assets/style.css', 
         array(), 
-        '1.29.1' 
+        '1.31.8' 
     );
 }
 
@@ -65,4 +65,6 @@ require_once PPIC_WPB_DIR . 'elements/ppic-sipencatar-hero.php';
 require_once PPIC_WPB_DIR . 'elements/ppic-jalur-sipencatar.php';
 require_once PPIC_WPB_DIR . 'elements/ppic-persyaratan-sipencatar.php';
 require_once PPIC_WPB_DIR . 'elements/ppic-pendaftaran-sipencatar.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-biaya-sipencatar.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-faq-sipencatar.php';
 // require_once PPIC_WPB_DIR . 'elements/ppic-testimonial.php';

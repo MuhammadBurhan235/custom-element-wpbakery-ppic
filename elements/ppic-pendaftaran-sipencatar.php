@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 add_shortcode( 'ppic_pendaftaran_sipencatar', 'ppic_pendaftaran_sipencatar_render' );
 function ppic_pendaftaran_sipencatar_render( $atts ) {
     
-    // Data Default 3 Langkah Pendaftaran
+    // Data Default 3 Langkah Pendaftaran (menggunakan tag <strong> agar tetap tebal walau pakai textarea biasa)
     $default_items = urlencode( wp_json_encode( array(
         array( 
             'icon_class' => 'fas fa-globe', 
@@ -78,6 +78,7 @@ function ppic_pendaftaran_sipencatar_render( $atts ) {
                             </div>
                             <h3><?php echo esc_html( $title ); ?></h3>
                             <?php if ( ! empty( $desc ) ) : ?>
+                                <!-- Tetap pakai wp_kses_post agar <strong> berfungsi -->
                                 <p><?php echo wp_kses_post( $desc ); ?></p>
                             <?php endif; ?>
                             
@@ -163,9 +164,10 @@ function ppic_pendaftaran_sipencatar_map() {
                             'admin_label' => true,
                         ),
                         array(
-                            'type'       => 'textarea_html', /* Menggunakan textarea_html agar user bisa menebalkan teks link */
+                            'type'       => 'textarea', /* INI YANG MEMPERBAIKI BUG: Berubah jadi textarea biasa */
                             'heading'    => __( 'Deskripsi', 'ppic-custom-element' ),
                             'param_name' => 'item_desc',
+                            'description'=> __( 'Gunakan tag HTML &lt;strong&gt;Teks&lt;/strong&gt; jika ingin menebalkan huruf.', 'ppic-custom-element' ),
                         ),
                         array(
                             'type'       => 'textfield',
