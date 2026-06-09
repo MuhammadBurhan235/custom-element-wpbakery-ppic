@@ -24,6 +24,42 @@ function ppic_gallery_get_csv_attachment_contents( $attachment_id ) {
     return false !== $contents ? $contents : '';
 }
 
+function ppic_gallery_extract_google_drive_file_id( $url ) {
+    $url = trim( (string) $url );
+
+    if ( '' === $url ) {
+        return '';
+    }
+
+    // Pola regex universal yang lebih aman untuk menangkap karakter Alfanumerik ID Google Drive
+    if ( preg_match( '/\/d\/([a-zA-Z0-9-_]+)/', $url, $matches ) ) {
+        return isset( $matches[1] ) ? trim( (string) $matches[1] ) : '';
+    }
+    
+    if ( preg_match( '/id=([a-zA-Z0-9-_]+)/', $url, $matches ) ) {
+        return isset( $matches[1] ) ? trim( (string) $matches[1] ) : '';
+    }
+
+    return '';
+}
+
+function ppic_gallery_normalize_image_url( $url ) {
+    $url = trim( (string) $url );
+
+    if ( '' === $url ) {
+        return '';
+    }
+
+    $drive_file_id = ppic_gallery_extract_google_drive_file_id( $url );
+
+    if ( '' !== $drive_file_id ) {
+        // Mengembalikan URL langsung yang dapat dirender oleh browser
+        return 'https://lh3.googleusercontent.com/d/' . rawurlencode( $drive_file_id );
+    }
+
+    return $url;
+}
+
 // 2. Helper function untuk mem-parsing data CSV Galeri
 function ppic_gallery_parse_spreadsheet( $raw_value ) {
     if ( empty( $raw_value ) ) {
@@ -107,9 +143,9 @@ function ppic_gallery_csv_upload_field( $settings, $value ) {
     $output = '<div id="' . esc_attr( $field_id ) . '" class="ppic-csv-upload-field">';
     $output .= '<input type="hidden" class="wpb_vc_param_value wpb-textinput ' . esc_attr( $param_name ) . ' ' . esc_attr( $settings['type'] ) . '_field" name="' . esc_attr( $param_name ) . '" value="' . esc_attr( $attachment_id ) . '">';
     $output .= '<input type="text" class="ppic-csv-upload-field__label" value="' . esc_attr( $file_label ) . '" placeholder="Belum ada file dipilih" readonly style="width:100%;margin-bottom:8px;">';
-    $output .= '<button type="button" class="button button-secondary ppic-csv-upload-field__select">Pilih File CSV/TXT</button> ';
+    $output .= '<button type="button" class="button button-secondary ppic-csv-upload-field__select">Pilih File CSV</button> ';
     $output .= '<button type="button" class="button ppic-csv-upload-field__clear"' . ( $attachment_id ? '' : ' style="display:none;"' ) . '>Hapus File</button>';
-    $output .= '<script>(function(){var root=document.getElementById(' . wp_json_encode( $field_id ) . ');if(!root||root.dataset.ppicCsvReady){return;}root.dataset.ppicCsvReady="1";var selectButton=root.querySelector(".ppic-csv-upload-field__select");var clearButton=root.querySelector(".ppic-csv-upload-field__clear");var hiddenInput=root.querySelector(".wpb_vc_param_value");var labelInput=root.querySelector(".ppic-csv-upload-field__label");if(selectButton){selectButton.addEventListener("click",function(event){event.preventDefault();if(typeof window.wp==="undefined"||typeof window.wp.media==="undefined"){window.alert("Media Library WordPress belum siap dimuat. Refresh halaman editor lalu coba lagi.");return;}var fileFrame=window.wp.media({title:"Pilih File CSV/TXT",button:{text:"Gunakan file ini"},multiple:false});fileFrame.on("select",function(){var attachment=fileFrame.state().get("selection").first().toJSON();if(hiddenInput){hiddenInput.value=attachment.id;hiddenInput.dispatchEvent(new Event("change",{bubbles:true}));}if(labelInput){labelInput.value=attachment.filename||attachment.url||"";}if(clearButton){clearButton.style.display="";}});fileFrame.open();});}if(clearButton){clearButton.addEventListener("click",function(event){event.preventDefault();if(hiddenInput){hiddenInput.value="";hiddenInput.dispatchEvent(new Event("change",{bubbles:true}));}if(labelInput){labelInput.value="";}clearButton.style.display="none";});}}());</script>';
+    $output .= '<script>(function(){var root=document.getElementById(' . wp_json_encode( $field_id ) . ');if(!root||root.dataset.ppicCsvReady){return;}root.dataset.ppicCsvReady="1";var selectButton=root.querySelector(".ppic-csv-upload-field__select");var clearButton=root.querySelector(".ppic-csv-upload-field__clear");var hiddenInput=root.querySelector(".wpb_vc_param_value");var labelInput=root.querySelector(".ppic-csv-upload-field__label");if(selectButton){selectButton.addEventListener("click",function(event){event.preventDefault();if(typeof window.wp==="undefined"||typeof window.wp.media==="undefined"){window.alert("Media Library WordPress belum siap dimuat. Refresh halaman editor lalu coba lagi.");return;}var fileFrame=window.wp.media({title:"Pilih File CSV",button:{text:"Gunakan file ini"},multiple:false});fileFrame.on("select",function(){var attachment=fileFrame.state().get("selection").first().toJSON();if(hiddenInput){hiddenInput.value=attachment.id;hiddenInput.dispatchEvent(new Event("change",{bubbles:true}));}if(labelInput){labelInput.value=attachment.filename||attachment.url||"";}if(clearButton){clearButton.style.display="";}});fileFrame.open();});}if(clearButton){clearButton.addEventListener("click",function(event){event.preventDefault();if(hiddenInput){hiddenInput.value="";hiddenInput.dispatchEvent(new Event("change",{bubbles:true}));}if(labelInput){labelInput.value="";}clearButton.style.display="none";});}}());</script>';
     $output .= '</div>';
 
     return $output;
@@ -171,8 +207,8 @@ function ppic_gallery_main_render( $atts ) {
                     $img_url = $img_data[0];
                 }
             } else {
-                // Jika dari CSV akan berupa URL string
-                $img_url = $image_val;
+                // Jika dari CSV akan berupa URL string, termasuk share link Google Drive publik.
+                $img_url = ppic_gallery_normalize_image_url( $image_val );
             }
         }
 
@@ -292,19 +328,19 @@ function ppic_gallery_main_map() {
                     'param_name' => 'data_source',
                     'value'      => array(
                         __( 'Input Manual', 'ppic-custom-element' )       => 'manual',
-                        __( 'Import CSV / Excel', 'ppic-custom-element' ) => 'spreadsheet',
+                        __( 'Import CSV', 'ppic-custom-element' ) => 'spreadsheet',
                     ),
                     'std'        => 'manual',
                 ),
                 array(
                     'type'        => 'ppic_gallery_csv_upload',
-                    'heading'     => __( 'File CSV/TXT', 'ppic-custom-element' ),
+                    'heading'     => __( 'File CSV', 'ppic-custom-element' ),
                     'param_name'  => 'spreadsheet_file',
                     'dependency'  => array(
                         'element' => 'data_source',
                         'value'   => array( 'spreadsheet' ),
                     ),
-                    'description' => __( 'Upload file CSV dari Media Library WordPress. Header kolom yang didukung: kategori, image_url, title, desc.', 'ppic-custom-element' ),
+                    'description' => __( 'Upload file CSV dari Media Library WordPress. Header kolom yang didukung: kategori, image_url, title, desc. image_url bisa memakai URL gambar langsung atau link Google Drive publik.', 'ppic-custom-element' ),
                 ),
                 array(
                     'type'       => 'param_group',

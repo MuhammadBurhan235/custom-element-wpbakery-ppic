@@ -496,7 +496,7 @@ function ppic_training_catalog_map() {
                     'param_name' => 'data_source',
                     'value' => array(
                         __( 'Input Manual', 'ppic-custom-element' ) => 'manual',
-                        __( 'Import CSV / Excel', 'ppic-custom-element' ) => 'spreadsheet',
+                        __( 'Import CSV', 'ppic-custom-element' ) => 'spreadsheet',
                     ),
                     'std' => 'manual',
                 ),
@@ -557,7 +557,7 @@ function ppic_training_catalog_map() {
                 ),
                 array(
                     'type' => 'ppic_csv_upload',
-                    'heading' => __( 'File CSV/TXT', 'ppic-custom-element' ),
+                    'heading' => __( 'File CSV', 'ppic-custom-element' ),
                     'param_name' => 'spreadsheet_file',
                     'dependency' => array(
                         'element' => 'data_source',

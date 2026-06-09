@@ -8,7 +8,6 @@ add_shortcode( 'ppic_sipencatar_hero', 'ppic_sipencatar_hero_render' );
 function ppic_sipencatar_hero_render( $atts ) {
     $atts = shortcode_atts(
         array(
-            'bg_image'        => '',
             'title'           => 'Sipencatar',
             'title_highlight' => 'PPI Curug',
             'description'     => 'Sistem Penerimaan Calon Taruna (SIPENCATAR) Politeknik Penerbangan Indonesia Curug membuka kesempatan bagi putra-putri terbaik bangsa untuk mengikuti pendidikan vokasi penerbangan berstandar internasional. Pilih jalur yang sesuai dengan prestasi dan latar belakang Anda.',
@@ -34,22 +33,12 @@ function ppic_sipencatar_hero_render( $atts ) {
     $href2   = ! empty( $link2['url'] ) ? $link2['url'] : '#';
     $target2 = ! empty( $link2['target'] ) ? $link2['target'] : '_self';
 
-    // Set Background Image dengan Overlay Gelap
-    $bg_css = '';
-    if ( ! empty( $atts['bg_image'] ) ) {
-        $img_data = wp_get_attachment_image_src( $atts['bg_image'], 'full' );
-        if ( $img_data ) {
-            // Menambahkan linear gradient warna biru gelap PPI sebagai overlay agar teks putih tetap terbaca
-            $bg_css = 'background-image: linear-gradient(rgba(11, 31, 56, 0.8), rgba(11, 31, 56, 0.8)), url(' . esc_url( $img_data[0] ) . ');';
-        }
-    }
-
     $wrapper_id = ! empty( $atts['el_id'] ) ? ' id="' . esc_attr( $atts['el_id'] ) . '"' : '';
     $wrapper_class = 'ppic-sipencatar-hero hero-page ' . esc_attr( $atts['el_class'] );
 
     ob_start();
     ?>
-    <section<?php echo $wrapper_id; ?> class="<?php echo $wrapper_class; ?>" style="<?php echo $bg_css; ?>">
+    <section<?php echo $wrapper_id; ?> class="<?php echo $wrapper_class; ?>">
         <div class="container">
             <h1><?php echo esc_html( $atts['title'] ); ?> <span><?php echo esc_html( $atts['title_highlight'] ); ?></span></h1>
             <p><?php echo esc_html( $atts['description'] ); ?></p>
@@ -92,11 +81,6 @@ function ppic_sipencatar_hero_map() {
             'category' => __( 'PPIC Elements', 'ppic-custom-element' ),
             'icon'     => 'dashicons dashicons-cover-image',
             'params'   => array(
-                array(
-                    'type'       => 'attach_image',
-                    'heading'    => __( 'Gambar Latar Belakang (Background)', 'ppic-custom-element' ),
-                    'param_name' => 'bg_image',
-                ),
                 array(
                     'type'       => 'textfield',
                     'heading'    => __( 'Judul Utama (Teks Putih)', 'ppic-custom-element' ),
