@@ -4,11 +4,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // 1. Daftarkan Elemen ke WPBakery
-function ppic_register_explore_programs_element() {
+function ppic_register_explore_programs_hero_element() {
     if ( function_exists( 'vc_map' ) ) {
         vc_map( array(
-            "name" => __( "PPIC Explore Programs", "ppic" ),
-            "base" => "ppic_explore_programs",
+            "name" => __( "PPIC Explore Programs Hero", "ppic" ),
+            "base" => "ppic_explore_programs_hero",
             "category" => __( "PPIC Elements", "ppic" ),
             "icon" => "dashicons dashicons-search", 
             "params" => array(
@@ -53,10 +53,10 @@ function ppic_register_explore_programs_element() {
         ) );
     }
 }
-add_action( 'vc_before_init', 'ppic_register_explore_programs_element' );
+add_action( 'vc_before_init', 'ppic_register_explore_programs_hero_element' );
 
 // 2. Render Output ke Frontend
-function ppic_explore_programs_render( $atts ) {
+function ppic_explore_programs_hero_render( $atts ) {
     $atts = shortcode_atts( array(
         'title'       => 'Explore Our Programs',
         'description' => 'Kurikulum berbasis kompetensi dan standar internasional ICAO, didukung fasilitas mutakhir, instruktur ahli, serta sertifikasi Kementerian Perhubungan. Lulusan memperoleh Ijazah + Sertifikat Kompetensi (Serkom) + Lisensi Profesi.',
@@ -91,4 +91,4 @@ function ppic_explore_programs_render( $atts ) {
     <?php
     return ob_get_clean();
 }
-add_shortcode( 'ppic_explore_programs', 'ppic_explore_programs_render' );
+add_shortcode( 'ppic_explore_programs_hero', 'ppic_explore_programs_hero_render' );

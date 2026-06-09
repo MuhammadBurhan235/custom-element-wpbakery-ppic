@@ -41,7 +41,7 @@ add_action('vc_before_init', 'ppic_why_section_map');
 function ppic_why_section_map() {
     if ( function_exists('vc_map') ) {
         vc_map(array(
-            "name" => __("PPIC Why Section", "ppic-custom-element"),
+            "name" => __("PPIC Why Home Section", "ppic-custom-element"),
             "base" => "ppic_why_section",
             "category" => __("PPIC Elements", "ppic-custom-element"),
             "icon" => "dashicons dashicons-yes-alt", // Ikon checklist
@@ -149,7 +149,7 @@ function ppic_why_section_render($atts) {
 
     // Parsing Link CTA
     $link = vc_build_link($atts['cta_link']);
-    $a_href = !empty($link['url']) ? $link['url'] : '#';
+    $a_href = !empty($link['url']) ? $link['url'] : '/kenapa-ppic';
     $a_title = !empty($link['title']) ? $link['title'] : 'Belum yakin? jelajahi kami lebih dalam.';
     $a_target = !empty($link['target']) ? ' target="'.trim($link['target']).'"' : '';
 
@@ -159,22 +159,22 @@ function ppic_why_section_render($atts) {
     // Parsing Repeater (List Poin)
     $features = vc_param_group_parse_atts( $atts['features'] );
     $wrapper_id = !empty($atts['el_id']) ? ' id="' . esc_attr($atts['el_id']) . '"' : '';
-    $wrapper_class = 'why-ppic' . ( !empty($atts['el_class']) ? ' ' . esc_attr(trim($atts['el_class'])) : '' );
+    $wrapper_class = 'why-home-ppic' . ( !empty($atts['el_class']) ? ' ' . esc_attr(trim($atts['el_class'])) : '' );
 
     ob_start();
     ?>
     <section<?php echo $wrapper_id; ?> class="<?php echo $wrapper_class; ?>">
-        <div class="ppic-why-container">
-            <div class="why-image">
+        <div class="ppic-why-home-container">
+            <div class="why-home-image">
                 <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($atts['title']); ?>">
             </div>
-            <div class="why-content">
+            <div class="why-home-content">
                 <h2><?php echo esc_html($atts['title']); ?></h2>
                 <div class="punchline"><?php echo $punchline_html; ?></div>
                 <p class="lead"><?php echo esc_html($atts['lead_text']); ?></p>
                 
                 <?php if ( !empty($features) && is_array($features) ) : ?>
-                <ul class="why-list">
+                <ul class="why-home-list">
                     <?php foreach ( $features as $feature ) : 
                         $bold = isset($feature['bold_text']) ? $feature['bold_text'] : '';
                         $normal = isset($feature['normal_text']) ? $feature['normal_text'] : '';
@@ -187,7 +187,7 @@ function ppic_why_section_render($atts) {
                 </ul>
                 <?php endif; ?>
 
-                <div class="micro-cta">
+                <div class="micro-cta-home">
                     <?php echo esc_html($atts['cta_text']); ?><br> 
                     <a href="<?php echo esc_url($a_href); ?>" <?php echo $a_target; ?>><?php echo esc_html($a_title); ?></a>
                 </div>

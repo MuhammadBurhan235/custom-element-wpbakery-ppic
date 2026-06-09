@@ -102,7 +102,7 @@ $sections = array(
     array(
         'id' => 'explore-programs',
         'title' => 'PPIC Explore Programs',
-        'html' => ppic_explore_programs_render(
+        'html' => ppic_explore_programs_hero_render(
             array(
                 'btn_link' => 'url:https%3A%2F%2Fppicurug.ac.id%2F|title:Kembali%20ke%20Beranda',
             )
@@ -111,7 +111,7 @@ $sections = array(
     array(
         'id' => 'rpl-programs',
         'title' => 'PPIC RPL Programs',
-        'html' => ppic_rpl_programs_render(
+        'html' => ppic_explore_rpl_programs_render(
             array(
                 'btn_link' => 'url:https%3A%2F%2Fppicurug.ac.id%2Frpl%2F|title:Daftar%20RPL',
             )

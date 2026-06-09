@@ -3,7 +3,7 @@
  * Plugin Name: Custom Element WP Bakery PPIC
  * Plugin URI:  https://ppicurug.ac.id/
  * Description: Plugin modular untuk elemen kustom WPBakery PPI Curug.
- * Version:     1.31.14
+ * Version:     1.40.4
  * Author:      IT Team PPI Curug
  * License:     GPL2
  */
@@ -30,7 +30,7 @@ function ppic_custom_elements_enqueue_styles() {
         'ppic-custom-elements-style', 
         PPIC_WPB_URL . 'assets/style.css', 
         array(), 
-        '1.31.14' 
+        '1.40.4' 
     );
 }
 
@@ -42,10 +42,10 @@ require_once PPIC_WPB_DIR . 'elements/ppic-director-greeting.php';
 require_once PPIC_WPB_DIR . 'elements/ppic-featured-programs.php';
 require_once PPIC_WPB_DIR . 'elements/ppic-instagram-feed.php';
 require_once PPIC_WPB_DIR . 'elements/ppic-stats.php';
-require_once PPIC_WPB_DIR . 'elements/ppic-why.php'; 
+require_once PPIC_WPB_DIR . 'elements/ppic-why-home.php'; 
 require_once PPIC_WPB_DIR . 'elements/ppic-news-grid.php'; 
-require_once PPIC_WPB_DIR . 'elements/ppic-explore-programs.php'; 
-require_once PPIC_WPB_DIR . 'elements/ppic-rpl-programs.php'; 
+require_once PPIC_WPB_DIR . 'elements/ppic-explore-programs-hero.php'; 
+require_once PPIC_WPB_DIR . 'elements/ppic-explore-rpl-programs.php'; 
 require_once PPIC_WPB_DIR . 'elements/ppic-about.php'; 
 require_once PPIC_WPB_DIR . 'elements/ppic-timeline.php'; 
 require_once PPIC_WPB_DIR . 'elements/ppic-visi-misi.php'; 
@@ -67,4 +67,12 @@ require_once PPIC_WPB_DIR . 'elements/ppic-persyaratan-sipencatar.php';
 require_once PPIC_WPB_DIR . 'elements/ppic-pendaftaran-sipencatar.php';
 require_once PPIC_WPB_DIR . 'elements/ppic-biaya-sipencatar.php';
 require_once PPIC_WPB_DIR . 'elements/ppic-faq-sipencatar.php';
-// require_once PPIC_WPB_DIR . 'elements/ppic-testimonial.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-explore-study-programs.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-explore-global-training.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-ppid-hero.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-ppid-mengenal.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-ppid-layanan-informasi.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-ppid-daftar-informasi.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-ppid-akuntabilitas-pelaporan.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-ppid-transparansi-responsif.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-ppid-butuh-informasi.php';
