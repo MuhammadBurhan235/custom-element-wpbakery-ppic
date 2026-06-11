@@ -8852,3 +8852,383 @@ h5 {
     padding: 30px 24px;
   }
 }
+
+/* =========================================================================
+   57. PPIC PENELITIAN - E-REPOSITORY SECTION
+   ========================================================================= */
+.ppic-erepo-section {
+  padding: 100px 0;
+  background-color: #ffffff; /* Latar belakang putih bersih */
+  font-family: "Inter", sans-serif;
+}
+
+.ppic-erepo-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dua kolom sejajar */
+  gap: 60px;
+  align-items: center;
+}
+
+/* ================== KOLOM KIRI (TEKS) ================== */
+.ppic-erepo-content {
+  width: 100%;
+}
+
+.ppic-erepo-title {
+  color: #00305b; /* Biru gelap PPI */
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1.3;
+  margin: 0 0 25px;
+  border-left: 5px solid #fdbb11; /* Garis vertikal kuning di sisi kiri */
+  padding-left: 20px;
+}
+
+/* Tipografi Paragraf */
+.ppic-erepo-desc p {
+  color: #4a5b6d;
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 0 0 20px;
+  text-align: justify;
+}
+
+.ppic-erepo-desc strong {
+  color: #00305b;
+  font-weight: 800;
+}
+
+/* Tipografi List (Bullet Points) */
+.ppic-erepo-list {
+  padding-left: 20px; /* Jarak indentasi */
+  margin: 0 0 35px;
+  color: #4a5b6d;
+}
+
+.ppic-erepo-list li {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.ppic-erepo-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* ================== TAUTAN (LINK) BAWAH ================== */
+.ppic-erepo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #00305b; /* Teks biru gelap */
+  font-size: 16px;
+  font-weight: 800;
+  text-decoration: none;
+  padding-bottom: 4px;
+  border-bottom: 2px solid #fdbb11; /* Garis kuning di bawah teks */
+  transition: all 0.3s ease;
+}
+
+.ppic-erepo-link i {
+  font-size: 16px;
+  transition: transform 0.3s ease; /* Transisi untuk panah */
+}
+
+/* Efek Hover Link */
+.ppic-erepo-link:hover {
+  color: #fdbb11; /* Teks berubah menjadi kuning */
+  border-bottom-color: #00305b; /* Garis bawah berubah menjadi biru gelap */
+  text-decoration: none;
+}
+
+.ppic-erepo-link:hover i {
+  transform: translateX(4px); /* Panah bergerak ke kanan sedikit saat hover */
+}
+
+/* ================== KOLOM KANAN (GAMBAR) ================== */
+.ppic-erepo-image {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 48, 91, 0.08); /* Bayangan lembut */
+}
+
+.ppic-erepo-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Agar gambar tidak gepeng */
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.ppic-erepo-image:hover img {
+  transform: scale(1.03); /* Animasi membesar tipis saat gambar dihover */
+}
+
+/* ================== MEDIA QUERIES (RESPONSIVE) ================== */
+@media (max-width: 991px) {
+  .ppic-erepo-container {
+    grid-template-columns: 1fr; /* Berubah menjadi satu kolom (atas bawah) */
+    gap: 40px;
+  }
+
+  .ppic-erepo-image {
+    min-height: 350px;
+  }
+}
+
+@media (max-width: 575px) {
+  .ppic-erepo-section {
+    padding: 60px 0;
+  }
+
+  .ppic-erepo-title {
+    font-size: 28px;
+    padding-left: 16px;
+  }
+
+  .ppic-erepo-desc p {
+    font-size: 15px;
+    text-align: left; /* Rata kiri untuk kemudahan baca di HP */
+  }
+
+  .ppic-erepo-image {
+    min-height: 250px;
+    border-radius: 16px;
+  }
+}
+
+/* =========================================================================
+   58. PPIC PENELITIAN - E-LIBRARY SECTION
+   ========================================================================= */
+.ppic-elibrary-section {
+  padding: 100px 0;
+  background-color: #f9fafc; /* Latar belakang abu-abu / biru sangat muda */
+  font-family: "Inter", sans-serif;
+}
+
+.ppic-elibrary-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dua kolom sejajar */
+  gap: 60px;
+  align-items: center;
+}
+
+/* ================== KOLOM KIRI (TEKS) ================== */
+.ppic-elibrary-content {
+  width: 100%;
+}
+
+.ppic-elibrary-title {
+  color: #00305b; /* Biru gelap PPI */
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1.3;
+  margin: 0 0 25px;
+  border-left: 5px solid #fdbb11; /* Garis vertikal kuning di sisi kiri */
+  padding-left: 20px;
+}
+
+/* Tipografi Paragraf */
+.ppic-elibrary-desc p {
+  color: #4a5b6d;
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 0 0 20px;
+  text-align: justify;
+}
+
+.ppic-elibrary-desc strong {
+  color: #00305b;
+  font-weight: 800;
+}
+
+/* Tipografi List (Bullet Points) */
+.ppic-elibrary-list {
+  padding-left: 20px; /* Jarak indentasi */
+  margin: 0 0 35px;
+  color: #4a5b6d;
+}
+
+.ppic-elibrary-list li {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.ppic-elibrary-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* ================== TAUTAN (LINK) BAWAH ================== */
+.ppic-elibrary-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #00305b; /* Teks biru gelap */
+  font-size: 16px;
+  font-weight: 800;
+  text-decoration: none;
+  padding-bottom: 4px;
+  border-bottom: 2px solid #fdbb11; /* Garis kuning di bawah teks */
+  transition: all 0.3s ease;
+}
+
+.ppic-elibrary-link i {
+  font-size: 16px;
+  transition: transform 0.3s ease; /* Transisi untuk panah */
+}
+
+/* Efek Hover Link */
+.ppic-elibrary-link:hover {
+  color: #fdbb11; /* Teks berubah menjadi kuning */
+  border-bottom-color: #00305b; /* Garis bawah berubah menjadi biru gelap */
+  text-decoration: none;
+}
+
+.ppic-elibrary-link:hover i {
+  transform: translateX(4px); /* Panah bergerak ke kanan sedikit saat hover */
+}
+
+/* ================== KOLOM KANAN (GAMBAR) ================== */
+.ppic-elibrary-image {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 48, 91, 0.08); /* Bayangan lembut */
+}
+
+.ppic-elibrary-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Agar gambar tidak gepeng */
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.ppic-elibrary-image:hover img {
+  transform: scale(1.03); /* Animasi membesar tipis saat gambar dihover */
+}
+
+/* ================== MEDIA QUERIES (RESPONSIVE) ================== */
+@media (max-width: 991px) {
+  .ppic-elibrary-container {
+    grid-template-columns: 1fr; /* Berubah menjadi satu kolom (atas bawah) */
+    gap: 40px;
+  }
+
+  .ppic-elibrary-image {
+    min-height: 350px;
+  }
+}
+
+@media (max-width: 575px) {
+  .ppic-elibrary-section {
+    padding: 60px 0;
+  }
+
+  .ppic-elibrary-title {
+    font-size: 28px;
+    padding-left: 16px;
+  }
+
+  .ppic-elibrary-desc p {
+    font-size: 15px;
+    text-align: left; /* Rata kiri untuk kemudahan baca di HP */
+  }
+
+  .ppic-elibrary-image {
+    min-height: 250px;
+    border-radius: 16px;
+  }
+}
+
+/* =========================================================================
+   59. PPIC PENELITIAN - STATISTIK SECTION
+   ========================================================================= */
+.ppic-research-stats-section {
+  padding: 60px 0;
+  background-color: #f4f7fb; /* Warna biru-abu sangat muda sesuai mockup */
+  font-family: "Inter", sans-serif;
+}
+
+.ppic-research-stats-container {
+  max-width: 1000px; /* Dibatasi agar tidak terlalu melebar ke samping */
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: center; /* Memusatkan semua stat item */
+  align-items: center;
+  flex-wrap: wrap; /* Agar responsif jika layar mengecil */
+  gap: 80px; /* Jarak yang lebar antar item seperti di mockup */
+}
+
+/* ================== STAT ITEM ================== */
+.research-stat-item {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Jarak antara angka dan label */
+}
+
+.research-stat-number {
+  color: #00305b; /* Biru gelap PPI */
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.research-stat-label {
+  color: #55687a; /* Warna abu-abu kebiruan untuk teks kecil */
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* ================== MEDIA QUERIES (RESPONSIVE) ================== */
+@media (max-width: 991px) {
+  .ppic-research-stats-container {
+    gap: 50px;
+  }
+
+  .research-stat-number {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ppic-research-stats-container {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 575px) {
+  .ppic-research-stats-section {
+    padding: 50px 0;
+  }
+
+  .ppic-research-stats-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* Dibagi 2 kolom di HP */
+    gap: 30px 20px;
+  }
+
+  .research-stat-number {
+    font-size: 32px;
+  }
+
+  .research-stat-label {
+    font-size: 14px;
+  }
+}
