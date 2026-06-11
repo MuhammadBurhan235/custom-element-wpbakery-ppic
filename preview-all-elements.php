@@ -186,6 +186,40 @@ $sections = array(
             )
         ),
     ),
+    array(
+        'id' => 'kenapa-mosaic',
+        'title' => 'PPIC Kenapa Mosaic',
+        'html' => ppic_kenapa_mosaic_render(
+            array(
+                'fas_features' => ppic_preview_param_group(
+                    array(
+                        array( 'icon' => 'fas fa-plane', 'text' => '47 pesawat latih untuk pembelajaran operasional dan teknis.' ),
+                        array( 'icon' => 'fas fa-building', 'text' => 'Hanggar, lab, dan simulator untuk praktik intensif.' ),
+                        array( 'icon' => 'fas fa-bed', 'text' => 'Boarding school terintegrasi untuk pembinaan karakter.' ),
+                    )
+                ),
+                'ser_features' => ppic_preview_param_group(
+                    array(
+                        array( 'icon' => 'fas fa-globe-asia', 'text' => 'Pusat pelatihan berstandar ICAO yang diakui luas.' ),
+                        array( 'icon' => 'fas fa-check-double', 'text' => 'Kurikulum dan proses evaluasi selaras industri global.' ),
+                    )
+                ),
+                'keb_icons' => ppic_preview_param_group(
+                    array(
+                        array( 'icon' => 'fas fa-mosque', 'label' => 'Masjid' ),
+                        array( 'icon' => 'fas fa-church', 'label' => 'Gereja' ),
+                        array( 'icon' => 'fas fa-gopuram', 'label' => 'Pura' ),
+                    )
+                ),
+                'keb_features' => ppic_preview_param_group(
+                    array(
+                        array( 'icon' => 'fas fa-hands-praying', 'text' => 'Fasilitas ibadah lengkap untuk seluruh civitas.' ),
+                        array( 'icon' => 'fas fa-globe', 'text' => 'Taruna berasal dari berbagai provinsi di Indonesia.' ),
+                    )
+                ),
+            )
+        ),
+    ),
 );
 ?>
 <!DOCTYPE html>

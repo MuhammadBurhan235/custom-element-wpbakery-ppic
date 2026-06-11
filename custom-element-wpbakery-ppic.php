@@ -3,7 +3,7 @@
  * Plugin Name: Custom Element WP Bakery PPIC
  * Plugin URI:  https://ppicurug.ac.id/
  * Description: Plugin modular untuk elemen kustom WPBakery PPI Curug.
- * Version:     1.40.4
+ * Version:     1.54.1
  * Author:      IT Team PPI Curug
  * License:     GPL2
  */
@@ -30,7 +30,7 @@ function ppic_custom_elements_enqueue_styles() {
         'ppic-custom-elements-style', 
         PPIC_WPB_URL . 'assets/style.css', 
         array(), 
-        '1.40.4' 
+        '1.54.1' 
     );
 }
 
@@ -76,3 +76,17 @@ require_once PPIC_WPB_DIR . 'elements/ppic-ppid-daftar-informasi.php';
 require_once PPIC_WPB_DIR . 'elements/ppic-ppid-akuntabilitas-pelaporan.php';
 require_once PPIC_WPB_DIR . 'elements/ppic-ppid-transparansi-responsif.php';
 require_once PPIC_WPB_DIR . 'elements/ppic-ppid-butuh-informasi.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-kenapa-hero.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-kenapa-stats.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-kenapa-kehidupan-kampus.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-kenapa-lokasi-konektivitas.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-kenapa-fasilitas-sertifikasi-dll.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-kenapa-prestasi.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-kenapa-beasiswa-bantuan.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-kenapa-serapan-jejak.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-kenapa-statistik-alumni.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-pelatihan-hero.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-pelatihan-icao-tpp.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-pelatihan-icao-astc.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-pelatihan-katalog-unggulan.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-pelatihan-jadwal-mendatang.php';
