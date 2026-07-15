@@ -13,18 +13,11 @@ function ppic_director_greeting_render( $atts ) {
             'quote' => '“Kami berkomitmen mencetak sumber daya manusia unggul yang siap mengawaki industri penerbangan nasional dan global. Dengan fasilitas modern dan instruktur berpengalaman, PPI Curug menjadi rumah bagi calon-calon penerbang profesional.”',
             'name' => 'Capt. Megi H. Helmiadi',
             'position' => 'Direktur PPI Curug',
-            'cta_text' => 'Baca lengkap',
-            'cta_link' => 'url:overview.html%23sambutan|title:Baca lengkap',
             'el_id' => '',
             'el_class' => '',
         ),
         $atts
     );
-
-    $link = vc_build_link( $atts['cta_link'] );
-    $cta_href = ! empty( $link['url'] ) ? $link['url'] : '#';
-    $cta_title = ! empty( $link['title'] ) ? $link['title'] : $atts['cta_text'];
-    $cta_target = ! empty( $link['target'] ) ? ' target="' . trim( $link['target'] ) . '"' : '';
 
     $image_url = 'https://ppicurug.ac.id/wp-content/uploads/2026/02/WhatsApp-Image-2026-02-04-at-10.28.58.jpeg';
     if ( ! empty( $atts['image'] ) ) {
@@ -51,12 +44,6 @@ function ppic_director_greeting_render( $atts ) {
                     <strong><?php echo esc_html( $atts['name'] ); ?></strong>
                     <span> - <?php echo esc_html( $atts['position'] ); ?></span>
                 </p>
-                <div class="ppic-director-greeting-link">
-                    <a href="<?php echo esc_url( $cta_href ); ?>"<?php echo $cta_target; ?>>
-                        <?php echo esc_html( $cta_title ); ?>
-                        <span aria-hidden="true">&rarr;</span>
-                    </a>
-                </div>
             </div>
         </div>
     </section>
@@ -112,17 +99,6 @@ function ppic_director_greeting_map() {
                     'heading' => __( 'Jabatan', 'ppic-custom-element' ),
                     'param_name' => 'position',
                     'value' => 'Direktur PPI Curug',
-                ),
-                array(
-                    'type' => 'textfield',
-                    'heading' => __( 'Teks CTA', 'ppic-custom-element' ),
-                    'param_name' => 'cta_text',
-                    'value' => 'Baca lengkap',
-                ),
-                array(
-                    'type' => 'vc_link',
-                    'heading' => __( 'Link CTA', 'ppic-custom-element' ),
-                    'param_name' => 'cta_link',
                 ),
                 array(
                     'type' => 'el_id',

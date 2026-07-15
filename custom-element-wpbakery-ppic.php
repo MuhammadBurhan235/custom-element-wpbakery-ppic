@@ -3,7 +3,7 @@
  * Plugin Name: Custom Element WP Bakery PPIC
  * Plugin URI:  https://ppicurug.ac.id/
  * Description: Plugin modular untuk elemen kustom WPBakery PPI Curug.
- * Version:     1.60.1
+ * Version:     1.91.1
  * Author:      IT Team PPI Curug
  * License:     GPL2
  */
@@ -30,7 +30,7 @@ function ppic_custom_elements_enqueue_styles() {
         'ppic-custom-elements-style', 
         PPIC_WPB_URL . 'assets/style.css', 
         array(), 
-        '1.60.1' 
+        '1.91.1' 
     );
 }
 
@@ -96,3 +96,34 @@ require_once PPIC_WPB_DIR . 'elements/ppic-penelitian-jurnal-publikasi.php';
 require_once PPIC_WPB_DIR . 'elements/ppic-penelitian-e-repo.php';
 require_once PPIC_WPB_DIR . 'elements/ppic-penelitian-e-library.php';
 require_once PPIC_WPB_DIR . 'elements/ppic-penelitian-stats.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-berita-hero.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-post-for-all.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-ppid-daftar-info-hero.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-ppid-daftar-info-main-content.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-ppid-footer-butuh.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-ppid-laporan-hero.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-ppid-laporan-tahunan-statistik.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-ppid-layanan-hero.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-ppid-layanan-maklumat-standar.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-ppid-layanan-permintaan-informasi.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-ppid-layanan-alur-permintaan.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-ppid-layanan-keberatan.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-ppid-layanan-sengketa.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-ppid-profil-hero.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-ppid-profil-profil.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-ppid-profil-struktur-org.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-ppid-profil-visi-misi.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-ppid-profil-tugas-fungsi.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-rental-hero.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-rental-kategori.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-rental-harga-ketersediaan.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-survey-hero.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-survey-list.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-survey-quote.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-prodi-hero.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-prodi-nav.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-prodi-overview.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-prodi-kurikulum.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-prodi-fasilitas.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-prodi-profil-lulusan.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-prodi-sertifikasi.php';

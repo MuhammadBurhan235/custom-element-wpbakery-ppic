@@ -149,7 +149,7 @@ function ppic_why_section_render($atts) {
 
     // Parsing Link CTA
     $link = vc_build_link($atts['cta_link']);
-    $a_href = !empty($link['url']) ? $link['url'] : '/kenapa-ppic';
+    $a_href = !empty($link['url']) ? $link['url'] : '/kenapa-ppi-curug/';
     $a_title = !empty($link['title']) ? $link['title'] : 'Belum yakin? jelajahi kami lebih dalam.';
     $a_target = !empty($link['target']) ? ' target="'.trim($link['target']).'"' : '';
 

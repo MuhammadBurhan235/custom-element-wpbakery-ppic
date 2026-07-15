@@ -62,7 +62,7 @@ function ppic_register_ppid_akuntabilitas_pelaporan_element() {
 
     vc_map(
         array(
-            'name'     => __( 'PPIC PPID Akuntabilitas', 'ppic-custom-element' ),
+            'name'     => __( 'PPIC PPID Akuntabilitas dan Pelaporan', 'ppic-custom-element' ),
             'base'     => 'ppic_ppid_akuntabilitas_pelaporan',
             'category' => __( 'PPIC Elements', 'ppic-custom-element' ),
             'icon'     => 'dashicons dashicons-chart-bar',

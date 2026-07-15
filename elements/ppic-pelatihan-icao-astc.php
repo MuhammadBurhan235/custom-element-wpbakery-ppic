@@ -140,18 +140,26 @@ function ppic_register_pelatihan_astc_element() {
         return;
     }
 
+    // Penambahan Lengkap 6 Item Courses
     $dummy_courses = array(
-        array( 'icon' => 'fas fa-chalkboard-user', 'badge' => 'ASTC Course', 'title' => 'AVIATION SECURITY NATIONAL INSTRUCTORS', 'desc' => 'Pelatihan instruktur avsec nasional: metodologi pengajaran, sertifikasi pengajar, dan evaluasi kompetensi.' ),
-        array( 'icon' => 'fas fa-user-shield', 'badge' => 'ASTC Course', 'title' => 'AIRPORT SECURITY SUPERVISORS', 'desc' => 'Supervisi operasional keamanan bandara, manajemen tim screening, investigasi insiden.' ),
+        array( 'icon' => 'fas fa-chalkboard-user', 'badge' => 'ASTC Course', 'title' => 'AVIATION SECURITY NATIONAL INSTRUCTORS', 'desc' => 'Pelatihan instruktur avsec nasional: metodologi pengajaran, sertifikasi pengajar, dan evaluasi kompetensi sesuai ICAO.' ),
+        array( 'icon' => 'fas fa-user-shield', 'badge' => 'ASTC Course', 'title' => 'AIRPORT SECURITY SUPERVISORS', 'desc' => 'Supervisi operasional keamanan bandara, manajemen tim screening, investigasi insiden dan kepatuhan regulasi.' ),
         array( 'icon' => 'fas fa-box', 'badge' => 'ASTC Course', 'title' => 'AIR CARGO & MAIL SECURITY', 'desc' => 'Keamanan kargo dan pos udara: prosedur penerimaan, screening, dokumentasi, dan rantai suplai aman.' ),
-        array( 'icon' => 'fas fa-clipboard-list', 'badge' => 'ASTC Course', 'title' => 'AVIATION SECURITY NATIONAL INSPECTORS', 'desc' => 'Pelatihan inspektur keamanan penerbangan: teknik audit, inspeksi fasilitas, penegakan regulasi.' ),
+        array( 'icon' => 'fas fa-clipboard-list', 'badge' => 'ASTC Course', 'title' => 'AVIATION SECURITY NATIONAL INSPECTORS', 'desc' => 'Pelatihan inspektur keamanan penerbangan: teknik audit, inspeksi fasilitas, penegakan regulasi nasional & ICAO.' ),
+        array( 'icon' => 'fas fa-briefcase', 'badge' => 'ASTC Course', 'title' => 'AVIATION SECURITY MANAGERS', 'desc' => 'Manajemen strategis keamanan penerbangan, penyusunan kebijakan, dan pengawasan standar mutu operasional.' ),
+        array( 'icon' => 'fas fa-user-secret', 'badge' => 'ASTC Course', 'title' => 'BEHAVIOUR DETECTION', 'desc' => 'Deteksi perilaku mencurigakan, teknik observasi berbasis psikologi, dan profil untuk identifikasi ancaman.' ),
     );
 
+    // Penambahan Lengkap 8 Item Workshops
     $dummy_workshops = array(
         array( 'icon' => 'fas fa-file-alt', 'badge' => 'Workshop', 'title' => 'National Civil Aviation Security Quality Control Programme', 'desc' => 'Program pengendalian mutu keamanan penerbangan nasional.' ),
         array( 'icon' => 'fas fa-certificate', 'badge' => 'Workshop', 'title' => 'Aviation Security National Certification', 'desc' => 'Sertifikasi personel dan entitas avsec tingkat nasional.' ),
         array( 'icon' => 'fas fa-user-shield', 'badge' => 'Workshop', 'title' => 'National Civil Aviation Security Programme', 'desc' => 'Implementasi NCASP sesuai standar ICAO Annex 17.' ),
         array( 'icon' => 'fas fa-landmark', 'badge' => 'Workshop', 'title' => 'Security Culture', 'desc' => 'Pengembangan budaya sadar keamanan di lingkungan bandara.' ),
+        array( 'icon' => 'fas fa-plane', 'badge' => 'Workshop', 'title' => 'Airport Security Programme (ASP)', 'desc' => 'Penyusunan dan evaluasi program keamanan bandara individu.' ),
+        array( 'icon' => 'fas fa-laptop', 'badge' => 'Workshop', 'title' => 'National Civil Aviation Security Training Programme', 'desc' => 'Program pelatihan keamanan nasional berbasis kompetensi.' ),
+        array( 'icon' => 'fas fa-chart-line', 'badge' => 'Workshop', 'title' => 'Risk Management', 'desc' => 'Manajemen risiko keamanan & threat assessment.' ),
+        array( 'icon' => 'fas fa-ambulance', 'badge' => 'Workshop', 'title' => 'Crisis Management', 'desc' => 'Penanganan krisis, command center, dan koordinasi darurat.' ),
     );
 
     vc_map(

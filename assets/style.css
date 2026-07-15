@@ -20,7 +20,7 @@ h5 {
 .ppic-hero-section {
   background-color: #12283a; /* Biru gelap PPI */
   width: 100%;
-  padding: 180px 0 120px;
+  padding: 200px 0 40px;
 }
 /* =========================================================================
    GLOBAL HERO TOP SPACING
@@ -197,10 +197,6 @@ h5 {
 }
 
 @media (max-width: 575px) {
-  .ppic-hero-section {
-    padding-top: 140px;
-  }
-
   .ppic-hero-slider-arrow {
     width: 38px;
     height: 38px;
@@ -266,10 +262,6 @@ h5 {
 }
 
 @media (max-width: 575px) {
-  .ppic-stats-section {
-    padding: 44px 0;
-  }
-
   .ppic-stats-container {
     grid-template-columns: 1fr;
     gap: 22px;
@@ -371,10 +363,6 @@ h5 {
 }
 
 @media (max-width: 575px) {
-  .ppic-accreditation-section {
-    padding: 56px 0 60px;
-  }
-
   .ppic-accreditation-title {
     font-size: 31px;
   }
@@ -404,7 +392,7 @@ h5 {
    ========================================== */
 .ppic-director-greeting-section {
   background-color: #ffffff;
-  padding: 72px 0 82px;
+  padding: 120px 0 40px;
   width: 100%;
 }
 
@@ -472,10 +460,6 @@ h5 {
 }
 
 @media (max-width: 991px) {
-  .ppic-director-greeting-section {
-    padding: 60px 0 68px;
-  }
-
   .ppic-director-greeting-container {
     grid-template-columns: 1fr;
     gap: 28px;
@@ -512,10 +496,6 @@ h5 {
 }
 
 @media (max-width: 575px) {
-  .ppic-director-greeting-section {
-    padding: 48px 0 56px;
-  }
-
   .ppic-director-greeting-image img {
     height: auto;
   }
@@ -631,10 +611,6 @@ h5 {
 }
 
 @media (max-width: 991px) {
-  .ppic-featured-programs-section {
-    padding: 60px 0 70px;
-  }
-
   .ppic-featured-programs-title {
     font-size: 42px;
   }
@@ -651,10 +627,6 @@ h5 {
 }
 
 @media (max-width: 575px) {
-  .ppic-featured-programs-section {
-    padding: 48px 0 56px;
-  }
-
   .ppic-featured-programs-title {
     font-size: 32px;
   }
@@ -739,6 +711,12 @@ h5 {
   aspect-ratio: 1 / 1;
   box-shadow: 0 12px 26px rgba(18, 40, 58, 0.1);
   isolation: isolate;
+
+  /* Tambahan untuk memaksa gambar selalu di tengah */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f1f5f9; /* Abu-abu muda jika gambar transparan/belum meload */
 }
 
 .ppic-instagram-card.is-embed {
@@ -760,6 +738,7 @@ h5 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center; /* Memaksa titik fokus potongan/crop selalu di tengah */
   transition: transform 0.35s ease;
 }
 
@@ -828,10 +807,6 @@ h5 {
 }
 
 @media (max-width: 991px) {
-  .ppic-instagram-section {
-    padding: 46px 0 24px;
-  }
-
   .ppic-instagram-header {
     flex-direction: column;
     align-items: flex-start;
@@ -1260,7 +1235,7 @@ h5 {
 
 .ppic-explore-wrapper {
   background-color: #0d263c;
-  padding: 180px 0 120px;
+  padding: 200px 0 40px;
   text-align: center;
   width: 100%;
   box-sizing: border-box;
@@ -1339,7 +1314,7 @@ h5 {
 .ppic-rpl-section {
   background-color: #f8fafc !important;
   background-image: none !important;
-  padding: 180px 0 120px;
+  padding: 120px 0 40px;
   text-align: center;
   width: 100%;
   box-sizing: border-box;
@@ -1431,7 +1406,7 @@ h5 {
    ========================================================================= */
 /* --- Wrapper Utama --- */
 .ppic-about-wrapper {
-  padding: 180px 20px 80px; /* Atas 180px, Kiri-Kanan 20px, Bawah 80px */
+  padding: 120px 0 40px; /* Atas 180px, Kiri-Kanan 0px, Bawah 40px */
   background-color: #0f2133; /* Warna biru gelap */
   text-align: center;
   font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -1504,12 +1479,12 @@ h5 {
 }
 
 /* =========================================================================
-   12. ELEMENT: PPIC TIMELANE
+   12. ELEMENT: PPIC TIMELINE
    ========================================================================= */
 
 /* --- Wrapper & Header --- */
 .ppic-timeline-wrapper {
-  padding: 180px 20px 80px; /* Atas 180px, Kiri-Kanan 20px, Bawah 80px */
+  padding: 120px 0 40px; /* Atas 180px, Kiri-Kanan 0px, Bawah 40px */
   background-color: #f4f6f9; /* Warna abu-abu kebiruan sangat terang */
   font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   color: #44546a; /* Warna teks kebiruan redup */
@@ -1673,7 +1648,7 @@ h5 {
 .ppic-vm-wrapper {
   max-width: 900px;
   margin: 0 auto;
-  padding: 180px 20px 20px; /* Atas 180px, Kiri-Kanan 20px, Bawah 20px */
+  padding: 120px 0 40px; /* Atas 180px, Kiri-Kanan 0px, Bawah 40px */
   font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   display: flex;
   flex-direction: column;
@@ -1769,7 +1744,7 @@ h5 {
 .ppic-exc-wrapper {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 180px 20px 60px; /* Atas 180px, Kiri-Kanan 20px, Bawah 60px */
+  padding: 120px 0 40px; /* Atas 180px, Kiri-Kanan 0px, Bawah 40px */
   font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
@@ -2096,10 +2071,6 @@ h5 {
 }
 
 @media (max-width: 575px) {
-  .ppic-akademik-grid-home__container {
-    padding: 0 16px;
-  }
-
   .ppic-akademik-grid-home__title {
     font-size: 29px;
   }
@@ -2375,10 +2346,6 @@ h5 {
 }
 
 @media (max-width: 991px) {
-  .ppic-courses-section {
-    padding: 64px 0 72px;
-  }
-
   .ppic-courses-slider__track {
     gap: 14px;
   }
@@ -2405,10 +2372,6 @@ h5 {
 }
 
 @media (max-width: 575px) {
-  .ppic-courses-container {
-    padding: 0 16px;
-  }
-
   .ppic-courses-slider__track {
     gap: 12px;
   }
@@ -2941,10 +2904,6 @@ h5 {
 }
 
 @media (max-width: 991px) {
-  .ppic-dosen-hero-section {
-    padding: 76px 0 70px;
-  }
-
   .ppic-dosen-directory__container {
     grid-template-columns: 1fr;
   }
@@ -2968,11 +2927,6 @@ h5 {
 }
 
 @media (max-width: 575px) {
-  .ppic-dosen-hero__container,
-  .ppic-dosen-directory__container {
-    padding: 0 16px;
-  }
-
   .ppic-dosen-hero__description {
     font-size: 16px;
   }
@@ -3382,10 +3336,6 @@ h5 {
 
 /* Sidebar pindah ke atas pada mode Tablet */
 @media (max-width: 991px) {
-  .ppic-training-catalog-section {
-    padding: 40px 0 68px; /* Disesuaikan agar tidak terlalu renggang di atas */
-  }
-
   .ppic-training-catalog__container {
     grid-template-columns: 1fr;
   }
@@ -3404,10 +3354,6 @@ h5 {
 
 /* Optimasi font dan spasi untuk layar yang sangat kecil */
 @media (max-width: 575px) {
-  .ppic-training-catalog__container {
-    padding: 0 16px;
-  }
-
   .ppic-training-card,
   .ppic-training-catalog__sidebar,
   .contact-missing {
@@ -3449,7 +3395,6 @@ h5 {
 .ppic-gallery-hero-section {
   position: relative;
   overflow: hidden;
-  padding: 80px 0 60px;
   background: #f8f9fa; /* Warna background abu-abu sangat terang menyerupai gambar */
 }
 
@@ -3627,7 +3572,7 @@ h5 {
    23. ELEMENT: PPIC KEPEMIMPINAN & STRUKTUR
 ======================================================= */
 .ppic-leadership-section {
-  padding: 180px 0 80px;
+  padding: 120px 0 40px;
   background-color: #f4f7f9; /* Background luar abu-abu sangat muda/kebiruan */
 }
 
@@ -3647,7 +3592,7 @@ h5 {
 .ppic-training-hero-section,
 .ppic-gallery-hero-section,
 .ppic-sipencatar-hero {
-  padding-top: 180px;
+  padding: 200px 0 40px; /* Spacing atas yang konsisten untuk semua hero */
 }
 
 /* Tambahkan baris ini untuk mewarnai teks "Struktur Organisasi" */
@@ -3907,7 +3852,7 @@ h5 {
    24. ELEMEN: PPIC FUNGSI UTAMA / MAIN FUNCTIONS
 ======================================================= */
 .tugasfungsi-section {
-  padding: 180px 0 80px;
+  padding: 120px 0 40px;
   background-color: #ffffff;
 }
 
@@ -4016,7 +3961,7 @@ h5 {
    25. ELEMEN: PPIC RAIH MASA DEPAN (KEUNGGULAN)
 ======================================================= */
 .raih-masa-depan-section {
-  padding: 180px 0 80px; /* Atas 180px, Kiri-Kanan 0, Bawah 80px */
+  padding: 120px 0 40px; /* Atas 180px, Kiri-Kanan 0, Bawah 80px */
   background: linear-gradient(105deg, #ffffff 0%, #fef7e8 100%);
   border-top: 2px solid rgba(245, 176, 27, 0.2);
   border-bottom: 2px solid rgba(245, 176, 27, 0.2);
@@ -4188,7 +4133,7 @@ h5 {
 ======================================================= */
 .ppic-sipencatar-hero {
   position: relative;
-  padding: 180px 0 120px;
+  padding: 200px 0 40px;
   background-color: #0b1f38; /* Warna fallback biru gelap PPI */
   background-size: cover;
   background-position: center;
@@ -4306,7 +4251,7 @@ h5 {
    27. ELEMEN: PPIC JALUR SIPENCATAR
 ======================================================= */
 .ppic-jalur-section {
-  padding: 180px 0 120px;
+  padding: 120px 0 40px;
   background-color: #ffffff; /* Sesuai mockup, background putih */
 }
 
@@ -4439,7 +4384,7 @@ h5 {
    28. ELEMEN: PPIC PERSYARATAN UMUM SIPENCATAR
 ======================================================= */
 .ppic-persyaratan-section {
-  padding: 180px 0 120px;
+  padding: 120px 0 40px;
   background-color: #f4f7f9; /* Background luar abu-abu sangat muda (seragam dengan section lain) */
 }
 
@@ -4571,7 +4516,7 @@ h5 {
    29. ELEMEN: PPIC CARA PENDAFTARAN SIPENCATAR
 ======================================================= */
 .ppic-pendaftaran-section {
-  padding: 180px 0 120px;
+  padding: 120px 0 40px;
   background-color: #ffffff; /* Sesuai mockup, background putih bersih */
 }
 
@@ -4696,7 +4641,7 @@ h5 {
    30. ELEMEN: PPIC BIAYA PENDIDIKAN SIPENCATAR
 ======================================================= */
 .ppic-biaya-section {
-  padding: 180px 0 120px;
+  padding: 120px 0 40px;
   background-color: #f4f7f9; /* Background abu-abu muda (f9fafc di mockup) */
 }
 
@@ -4826,7 +4771,7 @@ h5 {
    31. ELEMEN: PPIC FAQ SIPENCATAR
 ======================================================= */
 .ppic-faq-section {
-  padding: 180px 0 120px;
+  padding: 120px 0 40px;
   background-color: #ffffff; /* Background putih sesuai mockup */
 }
 
@@ -4932,7 +4877,7 @@ h5 {
 
 /* Container Utama */
 .ppic-study-programs-section {
-  padding: 180px 0 120px;
+  padding: 120px 0 40px;
   background-color: #fafbfc; /* Warna latar sangat terang (opsional) */
   font-family:
     "Inter", sans-serif; /* Ganti jika tema Anda punya font utama lain */
@@ -5088,7 +5033,7 @@ h5 {
 
 /* Container Utama */
 .ppic-gt-section {
-  padding: 180px 0 120px;
+  padding: 120px 0 40px;
   background-color: #ffffff;
   font-family: "Inter", sans-serif;
 }
@@ -5275,17 +5220,18 @@ h5 {
 .ppic-ppid-hero {
   position: relative;
   width: 100%;
-  height: 85vh; /* Menyesuaikan tinggi hero */
-  min-height: 500px;
+  /* Gunakan min-height, jangan height statis agar tidak memotong teks panjang */
+  min-height: 85vh;
   overflow: hidden;
   background-color: #0d233a;
   font-family: "Inter", sans-serif;
-  padding-top: 180px;
+  padding: 80px 0 20px;
 }
 
 .ppic-ppid-hero-slides {
   display: flex;
   width: 100%;
+  /* height 100% otomatis mengikuti parent */
   height: 100%;
   transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
@@ -5294,13 +5240,16 @@ h5 {
 .ppic-ppid-hero-slide {
   flex: 0 0 100%;
   width: 100%;
-  height: 100%;
+  min-height: 85vh; /* Menyesuaikan min-height hero */
   position: relative;
   background-size: cover;
   background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
+  /* Padding dipindah ke dalam slide untuk mencegah tabrakan dengan menu atas & dots bawah */
+  padding: 140px 20px 100px;
+  box-sizing: border-box;
 }
 
 /* Overlay Gelap Untuk Kontras Teks (Sesuai Gambar) */
@@ -5319,7 +5268,7 @@ h5 {
   position: relative;
   z-index: 2;
   max-width: 900px;
-  padding: 0 30px;
+  width: 100%;
   text-align: center;
   color: #ffffff;
 }
@@ -5352,6 +5301,7 @@ h5 {
   align-items: center;
   justify-content: center;
   min-height: 48px;
+  min-width: 220px; /* Memberi batas minimal agar rapi */
   padding: 12px 30px;
   font-size: 16px;
   font-weight: 700;
@@ -5451,30 +5401,57 @@ h5 {
   transform: scale(1.2);
 }
 
-/* Responsif */
+/* =========================================================================
+   MEDIA QUERIES (RESPONSIVE)
+   ========================================================================= */
 @media (max-width: 768px) {
-  .ppic-ppid-hero {
-    height: 70vh;
-    min-height: 400px;
+  .ppic-ppid-hero,
+  .ppic-ppid-hero-slide {
+    min-height: 100vh; /* Agar tinggi cukup lega di layar HP */
+    height: auto; /* Teks yang memanjang otomatis akan mendorong frame, tak akan overflow */
+  }
+
+  .ppic-ppid-hero-slide {
+    /* Padding ekstra atas untuk menghindari menu navbar yang tertutup transparan */
+    padding: 160px 24px 100px;
   }
 
   .ppic-ppid-hero-container h1 {
-    font-size: 32px;
+    font-size: 28px;
+    margin-bottom: 15px;
   }
 
   .ppic-ppid-hero-container p {
     font-size: 15px;
+    margin-bottom: 25px;
   }
 
+  /* Susun tombol ke bawah dan atur lebarnya */
+  .ppic-ppid-hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .ppic-ppid-hero-btn {
+    width: auto; /* Menghilangkan width 100% yang sebelumnya bikin panjang */
+    min-width: 260px; /* Panjang ideal untuk menampung teks tanpa mentok layar */
+    max-width: 100%;
+  }
+
+  /* Atur panah agak mengecil dan masuk ke pinggir */
   .ppic-ppid-hero-arrow {
     width: 40px;
     height: 40px;
     font-size: 16px;
   }
 
-  .ppic-ppid-hero-btn {
-    width: 100%;
-    margin-bottom: 5px;
+  .ppic-ppid-hero-arrow-left {
+    left: 10px;
+  }
+
+  .ppic-ppid-hero-arrow-right {
+    right: 10px;
   }
 }
 
@@ -5482,7 +5459,7 @@ h5 {
    34. PPIC PPID MENGENAL (TWO COLUMN SECTION)
    ========================================================================= */
 .ppic-ppid-mengenal-section {
-  padding: 180px 0 120px;
+  padding: 120px 0 40px;
   background-color: #ffffff;
   font-family: "Inter", sans-serif;
 }
@@ -5599,10 +5576,6 @@ h5 {
 }
 
 @media (max-width: 575px) {
-  .ppic-ppid-mengenal-section {
-    padding: 50px 0;
-  }
-
   .ppic-ppid-mengenal-title {
     font-size: 28px;
   }
@@ -5618,7 +5591,7 @@ h5 {
    35. PPIC PPID LAYANAN INFORMASI
    ========================================================================= */
 .ppic-ppid-layanan-section {
-  padding: 180px 0 120px;
+  padding: 120px 0 40px;
   background-color: #f7f9fa; /* Background abu-abu sangat terang */
   font-family: "Inter", sans-serif;
 }
@@ -5780,10 +5753,6 @@ h5 {
 }
 
 @media (max-width: 575px) {
-  .ppic-ppid-layanan-section {
-    padding: 40px 0 60px;
-  }
-
   .ppic-ppid-layanan-title {
     font-size: 26px;
   }
@@ -5805,7 +5774,7 @@ h5 {
    36. PPIC PPID DAFTAR INFORMASI
    ========================================================================= */
 .ppic-ppid-daftar-section {
-  padding: 180px 0 120px;
+  padding: 120px 0 40px;
   background-color: #ffffff;
   font-family: "Inter", sans-serif;
 }
@@ -5960,10 +5929,6 @@ h5 {
 }
 
 @media (max-width: 575px) {
-  .ppic-ppid-daftar-section {
-    padding: 40px 0 60px;
-  }
-
   .ppic-ppid-daftar-card {
     padding: 25px 20px;
   }
@@ -5973,7 +5938,7 @@ h5 {
    37. PPIC PPID AKUNTABILITAS DAN PELAPORAN
    ========================================================================= */
 .ppic-ppid-akun-section {
-  padding: 180px 0 120px;
+  padding: 120px 0 40px;
   background-color: #f7f9fa; /* Warna background abu-abu sangat terang */
   font-family: "Inter", sans-serif;
 }
@@ -6089,10 +6054,6 @@ h5 {
 }
 
 @media (max-width: 575px) {
-  .ppic-ppid-akun-section {
-    padding: 50px 0;
-  }
-
   .ppic-ppid-akun-title {
     font-size: 28px;
   }
@@ -6111,7 +6072,7 @@ h5 {
    38. PPIC PPID TRANSPARANSI RESPONSIF (CTA BOX)
    ========================================================================= */
 .ppic-ppid-transparansi-section {
-  padding: 180px 0 120px;
+  padding: 120px 0 40px;
   background-color: #ffffff;
   font-family: "Inter", sans-serif;
 }
@@ -6166,10 +6127,6 @@ h5 {
 }
 
 @media (max-width: 575px) {
-  .ppic-ppid-transparansi-section {
-    padding: 40px 0;
-  }
-
   .ppic-ppid-transparansi-box {
     padding: 40px 20px;
     border-radius: 16px;
@@ -6189,7 +6146,7 @@ h5 {
    39. PPIC PPID BUTUH INFORMASI (FOOTER CTA)
    ========================================================================= */
 .ppic-ppid-butuh-info-section {
-  padding: 180px 0 120px;
+  padding: 120px 0 40px;
   background-color: #00305b; /* Biru gelap khas PPI Curug */
   font-family: "Inter", sans-serif;
   text-align: center;
@@ -6282,10 +6239,6 @@ h5 {
 }
 
 @media (max-width: 575px) {
-  .ppic-ppid-butuh-info-section {
-    padding: 50px 0;
-  }
-
   .ppic-ppid-butuh-info-buttons {
     flex-direction: column;
     width: 100%;
@@ -6302,7 +6255,7 @@ h5 {
    40. PPIC KENAPA HERO SECTION
    ========================================================================= */
 .ppic-kenapa-hero-section {
-  padding: 180px 0 120px;
+  padding: 200px 0 40px;
   background-color: #0d233a; /* Biru gelap background utama */
   font-family: "Inter", sans-serif;
   text-align: center;
@@ -6391,10 +6344,6 @@ h5 {
 }
 
 @media (max-width: 575px) {
-  .ppic-kenapa-hero-section {
-    padding: 60px 0;
-  }
-
   .ppic-kenapa-hero-title {
     font-size: 34px;
   }
@@ -6412,7 +6361,7 @@ h5 {
    41. PPIC KENAPA STATS PROGRAM SECTION
    ========================================================================= */
 .ppic-kenapa-stats-program-section {
-  padding: 180px 0 120px;
+  padding: 120px 0 40px;
   background-color: #ffffff;
   font-family: "Inter", sans-serif;
 }
@@ -6473,10 +6422,6 @@ h5 {
 }
 
 @media (max-width: 575px) {
-  .ppic-kenapa-stats-program-section {
-    padding: 40px 0;
-  }
-
   .ppic-kenapa-stats-program-container {
     flex-direction: column; /* Mengubah susunan menjadi atas-bawah di HP */
     gap: 40px;
@@ -6495,7 +6440,7 @@ h5 {
    42. PPIC KENAPA - KEHIDUPAN KAMPUS (TWO COLUMNS)
    ========================================================================= */
 .ppic-kenapa-kampus-section {
-  padding: 180px 0 120px;
+  padding: 120px 0 40px;
   background-color: #ffffff;
   font-family: "Inter", sans-serif;
 }
@@ -6645,10 +6590,6 @@ h5 {
 }
 
 @media (max-width: 575px) {
-  .ppic-kenapa-kampus-section {
-    padding: 50px 0;
-  }
-
   .ppic-kenapa-kampus-title {
     font-size: 28px;
   }
@@ -6666,7 +6607,7 @@ h5 {
    43. PPIC KENAPA - LOKASI STRATEGIS & MAP
    ========================================================================= */
 .ppic-lokasi-section {
-  padding: 180px 0 120px;
+  padding: 120px 0 40px;
   background-color: #f7f9fa; /* Background abu-abu muda */
   font-family: "Inter", sans-serif;
 }
@@ -6773,10 +6714,6 @@ h5 {
 }
 
 @media (max-width: 575px) {
-  .ppic-lokasi-section {
-    padding: 50px 0;
-  }
-
   .ppic-interactive-map {
     height: 320px;
   }
@@ -6792,7 +6729,7 @@ h5 {
    44. PPIC KENAPA - MOSAIC SECTIONS (Sesuai Mockup Final)
    ========================================================================= */
 .ppic-mosaic-wrapper {
-  padding: 180px 0 120px;
+  padding: 120px 0 40px;
   background-color: #fefaf0; /* Warna dasar Warm Cream */
   font-family: "Inter", sans-serif;
 }
@@ -7002,10 +6939,6 @@ h5 {
 }
 
 @media (max-width: 575px) {
-  .ppic-mosaic-wrapper {
-    padding: 50px 0;
-  }
-
   .mosaic-text-card {
     padding: 30px 20px;
   }
@@ -7023,7 +6956,7 @@ h5 {
    45. PPIC KENAPA - PRESTASI MEMBANGGAKAN
    ========================================================================= */
 .ppic-prestasi-section {
-  padding: 180px 0 120px;
+  padding: 120px 0 40px;
   background-color: #f8fafc; /* Latar belakang abu-abu sangat muda (seperti mockup bg-alt) */
   font-family: "Inter", sans-serif;
 }
@@ -7150,10 +7083,6 @@ h5 {
 }
 
 @media (max-width: 575px) {
-  .ppic-prestasi-section {
-    padding: 50px 0;
-  }
-
   .ppic-prestasi-card {
     padding: 30px 24px;
   }
@@ -7163,7 +7092,7 @@ h5 {
    46. PPIC KENAPA - BEASISWA & BANTUAN PENDIDIKAN
    ========================================================================= */
 .ppic-beasiswa-section {
-  padding: 180px 0 120px;
+  padding: 120px 0 40px;
   background-color: #f8fafc; /* Latar belakang abu-abu sangat muda (bg-alt) */
   font-family: "Inter", sans-serif;
 }
@@ -7296,10 +7225,6 @@ h5 {
 }
 
 @media (max-width: 575px) {
-  .ppic-beasiswa-section {
-    padding: 50px 0;
-  }
-
   .ppic-beasiswa-card {
     padding: 35px 25px;
   }
@@ -7314,7 +7239,7 @@ h5 {
    47. PPIC KENAPA - SERAPAN ALUMNI & JEJAK KARIER
    ========================================================================= */
 .ppic-serapan-section {
-  padding: 180px 0 120px;
+  padding: 120px 0 40px;
   background-color: #ffffff; /* Latar belakang putih bersih */
   font-family: "Inter", sans-serif;
 }
@@ -7443,10 +7368,6 @@ h5 {
 }
 
 @media (max-width: 575px) {
-  .ppic-serapan-section {
-    padding: 50px 0;
-  }
-
   .ppic-serapan-card {
     padding: 35px 25px;
   }
@@ -7461,7 +7382,7 @@ h5 {
    48. PPIC KENAPA - STATISTIK & CTA ALUMNI
    ========================================================================= */
 .ppic-stats-alumni-section {
-  padding: 180px 0 120px;
+  padding: 120px 0 40px;
   background-color: transparent; /* Putih atau transparan mengikuti background page */
   font-family: "Inter", sans-serif;
 }
@@ -7598,7 +7519,7 @@ h5 {
 .ppic-pelatihan-hero {
   /* Warna biru gelap navy sesuai mockup */
   background-color: #0b1e36;
-  padding: 100px 0;
+  padding: 200px 0 40px;
   text-align: center;
   font-family: "Inter", sans-serif;
 }
@@ -7633,10 +7554,6 @@ h5 {
    MEDIA QUERIES (RESPONSIVE)
    ========================================================================= */
 @media (max-width: 991px) {
-  .ppic-pelatihan-hero {
-    padding: 80px 0;
-  }
-
   .ppic-pelatihan-hero-title {
     font-size: 42px;
   }
@@ -7647,10 +7564,6 @@ h5 {
 }
 
 @media (max-width: 575px) {
-  .ppic-pelatihan-hero {
-    padding: 60px 0;
-  }
-
   .ppic-pelatihan-hero-title {
     font-size: 34px;
   }
@@ -7665,7 +7578,7 @@ h5 {
    50. PPIC PELATIHAN - ICAO TPP SECTION
    ========================================================================= */
 .ppic-tpp-section {
-  padding: 80px 0;
+  padding: 120px 0 40px;
   background-color: #ffffff; /* Latar belakang putih bersih */
   font-family: "Inter", sans-serif;
 }
@@ -7776,10 +7689,6 @@ h5 {
 }
 
 @media (max-width: 575px) {
-  .ppic-tpp-section {
-    padding: 50px 0;
-  }
-
   .ppic-tpp-card {
     padding: 30px 20px;
     border-radius: 16px;
@@ -7795,7 +7704,7 @@ h5 {
    51. PPIC PELATIHAN - ICAO ASTC SECTION
    ========================================================================= */
 .ppic-astc-section {
-  padding: 80px 0;
+  padding: 120px 0 40px;
   background-color: #ffffff; /* Latar belakang putih */
   font-family: "Inter", sans-serif;
 }
@@ -7965,10 +7874,6 @@ h5 {
 
 /* Smartphone */
 @media (max-width: 575px) {
-  .ppic-astc-section {
-    padding: 50px 0;
-  }
-
   .ppic-astc-title {
     font-size: 28px;
   }
@@ -7988,7 +7893,7 @@ h5 {
    52. PPIC PELATIHAN - KATALOG UNGGULAN SECTION
    ========================================================================= */
 .ppic-katalog-section {
-  padding: 80px 0;
+  padding: 120px 0 40px;
   background-color: #ffffff; /* Latar belakang putih */
   font-family: "Inter", sans-serif;
 }
@@ -8180,10 +8085,6 @@ h5 {
 
 /* Smartphone */
 @media (max-width: 575px) {
-  .ppic-katalog-section {
-    padding: 50px 0;
-  }
-
   .ppic-katalog-title {
     font-size: 28px;
   }
@@ -8203,7 +8104,7 @@ h5 {
    53. PPIC PELATIHAN - JADWAL MENDATANG SECTION
    ========================================================================= */
 .ppic-jadwal-section {
-  padding: 80px 0;
+  padding: 120px 0 40px;
   background-color: #ffffff; /* Latar belakang putih */
   font-family: "Inter", sans-serif;
 }
@@ -8368,10 +8269,6 @@ h5 {
    MEDIA QUERIES (RESPONSIVE)
    ========================================================================= */
 @media (max-width: 575px) {
-  .ppic-jadwal-section {
-    padding: 50px 0;
-  }
-
   .ppic-jadwal-title {
     font-size: 28px;
   }
@@ -8400,7 +8297,7 @@ h5 {
    ========================================================================= */
 .ppic-penelitian-hero {
   background-color: #0b1e36; /* Warna biru gelap navy sesuai mockup */
-  padding: 100px 0;
+  padding: 200px 0 40px;
   text-align: center;
   font-family: "Inter", sans-serif;
 }
@@ -8472,10 +8369,6 @@ h5 {
    MEDIA QUERIES (RESPONSIVE)
    ========================================================================= */
 @media (max-width: 991px) {
-  .ppic-penelitian-hero {
-    padding: 80px 0;
-  }
-
   .ppic-penelitian-hero-title {
     font-size: 42px;
   }
@@ -8486,10 +8379,6 @@ h5 {
 }
 
 @media (max-width: 575px) {
-  .ppic-penelitian-hero {
-    padding: 60px 0;
-  }
-
   .ppic-penelitian-hero-title {
     font-size: 32px;
   }
@@ -8510,7 +8399,7 @@ h5 {
    55. PPIC PENELITIAN - PUSAT & PENGABDIAN MASYARAKAT (PusPPM)
    ========================================================================= */
 .ppic-pusppm-section {
-  padding: 100px 0;
+  padding: 120px 0 40px;
   background-color: #ffffff;
   font-family: "Inter", sans-serif;
 }
@@ -8636,10 +8525,6 @@ h5 {
 }
 
 @media (max-width: 575px) {
-  .ppic-pusppm-section {
-    padding: 60px 0;
-  }
-
   .ppic-pusppm-title {
     font-size: 28px;
     padding-left: 16px;
@@ -8660,7 +8545,7 @@ h5 {
    56. PPIC PENELITIAN - JURNAL & PUBLIKASI ILMIAH
    ========================================================================= */
 .ppic-jurnal-section {
-  padding: 80px 0;
+  padding: 120px 0 40px;
   background-color: #f9fafc; /* Latar abu-abu / biru sangat muda */
   font-family: "Inter", sans-serif;
 }
@@ -8839,10 +8724,6 @@ h5 {
 }
 
 @media (max-width: 575px) {
-  .ppic-jurnal-section {
-    padding: 60px 0;
-  }
-
   .ppic-jurnal-grid {
     grid-template-columns: 1fr; /* Jadi 1 Kolom */
     gap: 20px;
@@ -8857,7 +8738,7 @@ h5 {
    57. PPIC PENELITIAN - E-REPOSITORY SECTION
    ========================================================================= */
 .ppic-erepo-section {
-  padding: 100px 0;
+  padding: 120px 0 40px;
   background-color: #ffffff; /* Latar belakang putih bersih */
   font-family: "Inter", sans-serif;
 }
@@ -8983,10 +8864,6 @@ h5 {
 }
 
 @media (max-width: 575px) {
-  .ppic-erepo-section {
-    padding: 60px 0;
-  }
-
   .ppic-erepo-title {
     font-size: 28px;
     padding-left: 16px;
@@ -9007,7 +8884,7 @@ h5 {
    58. PPIC PENELITIAN - E-LIBRARY SECTION
    ========================================================================= */
 .ppic-elibrary-section {
-  padding: 100px 0;
+  padding: 120px 0 40px;
   background-color: #f9fafc; /* Latar belakang abu-abu / biru sangat muda */
   font-family: "Inter", sans-serif;
 }
@@ -9133,10 +9010,6 @@ h5 {
 }
 
 @media (max-width: 575px) {
-  .ppic-elibrary-section {
-    padding: 60px 0;
-  }
-
   .ppic-elibrary-title {
     font-size: 28px;
     padding-left: 16px;
@@ -9157,7 +9030,7 @@ h5 {
    59. PPIC PENELITIAN - STATISTIK SECTION
    ========================================================================= */
 .ppic-research-stats-section {
-  padding: 60px 0;
+  padding: 120px 0 40px;
   background-color: #f4f7fb; /* Warna biru-abu sangat muda sesuai mockup */
   font-family: "Inter", sans-serif;
 }
@@ -9214,10 +9087,6 @@ h5 {
 }
 
 @media (max-width: 575px) {
-  .ppic-research-stats-section {
-    padding: 50px 0;
-  }
-
   .ppic-research-stats-container {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr)); /* Dibagi 2 kolom di HP */
@@ -9230,5 +9099,5255 @@ h5 {
 
   .research-stat-label {
     font-size: 14px;
+  }
+}
+
+/* =========================================================================
+   60. PPIC BERITA & KEGIATAN - HERO SECTION
+   ========================================================================= */
+.ppic-berita-hero {
+  background-color: #0d233a; /* Warna biru gelap navy sesuai mockup */
+  padding: 120px 0 40px;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+}
+
+.ppic-berita-hero-container {
+  max-width: 900px; /* Dibatasi agar paragraf tidak memanjang ke ujung layar */
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Tipografi Judul */
+.ppic-berita-hero-title {
+  color: #ffffff; /* Teks putih murni */
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0 0 20px;
+  letter-spacing: -0.02em;
+  text-transform: uppercase; /* Sesuai mockup yang menggunakan kapital semua */
+}
+
+/* Teks Highlight Kuning */
+.ppic-berita-hero-title span {
+  color: #fdbb11; /* Warna kuning / orange khas PPI */
+}
+
+/* Tipografi Deskripsi */
+.ppic-berita-hero-desc {
+  color: #f1f5f9; /* Putih keabu-abuan agar nyaman dibaca */
+  font-size: 18px;
+  line-height: 1.7;
+  margin: 0 auto;
+  font-weight: 400;
+  max-width: 750px; /* Lebar teks dikunci agar patahan kalimatnya rapi */
+}
+
+/* =========================================================================
+   MEDIA QUERIES (RESPONSIVE)
+   ========================================================================= */
+@media (max-width: 991px) {
+  .ppic-berita-hero-title {
+    font-size: 46px;
+  }
+
+  .ppic-berita-hero-desc {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 575px) {
+  .ppic-berita-hero-title {
+    font-size: 36px;
+  }
+
+  .ppic-berita-hero-desc {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+}
+
+/* =========================================================================
+   61. PPIC FILTER POST (BERITA/KEGIATAN/SIARAN PERS)
+   ========================================================================= */
+.ppic-post-wrapper {
+  font-family: "Inter", sans-serif;
+  background-color: #ffffff;
+  padding: 120px 0 40px;
+}
+
+/* ================== SECTION POST ================== */
+.ppic-post-section {
+  padding: 60px 0 80px;
+}
+
+.ppic-post-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.ppic-post-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.ppic-post-header .section-title {
+  color: #00305b;
+  font-size: 38px;
+  font-weight: 800;
+  margin: 0 0 16px;
+}
+
+.ppic-post-header .section-sub {
+  color: #55687a;
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto 30px; /* Tambahan margin bawah sebelum filter */
+}
+
+/* ================== FILTER BAR (BARU) ================== */
+.filter-bar {
+  width: 100%;
+  margin-top: 30px;
+}
+
+.filter-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap; /* Dipaksa 1 baris */
+  gap: 12px;
+  overflow-x: auto; /* Bisa scroll ke samping */
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 10px;
+
+  /* Menyembunyikan scrollbar bawaan browser */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.filter-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Trik agar tombol tetap di tengah, tapi bisa di-scroll kalau kepanjangan */
+.filter-container::before,
+.filter-container::after {
+  content: "";
+  margin: auto;
+}
+
+.filter-btn {
+  background-color: #f4f7fb;
+  color: #00305b;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap; /* Teks tombol tidak patah ke bawah */
+  flex-shrink: 0; /* Tombol tidak gepeng meski kepanjangan */
+}
+
+.filter-btn:hover {
+  background-color: #e2e8f0;
+}
+
+.filter-btn.active {
+  background-color: #00305b;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 48, 91, 0.2);
+}
+
+/* ================== GRID & KARTU POST ================== */
+.post-grid-wrapper {
+  position: relative;
+  min-height: 300px;
+}
+
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px;
+}
+
+/* Pesan Kosong */
+.no-post-msg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #f8fafc;
+  border: 2px dashed #cbd5e1;
+  border-radius: 16px;
+  color: #64748b;
+  width: 100%;
+}
+
+.no-post-msg i {
+  font-size: 42px;
+  color: #94a3b8;
+  margin-bottom: 16px;
+}
+
+.no-post-msg p {
+  font-size: 16px;
+  margin: 0;
+}
+
+/* Kartu */
+.post-card {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(18, 40, 60, 0.05);
+  border: 1px solid #f1f5f9;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px rgba(18, 40, 60, 0.08);
+  border-color: #fdbb11;
+}
+
+/* Gambar Kartu */
+.post-image {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f1f5f9;
+}
+
+.post-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.post-card:hover .post-image img {
+  transform: scale(1.05);
+}
+
+/* Konten Kartu */
+.post-content {
+  padding: 30px 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* Badge Kategori Kuning */
+.content-badge {
+  display: inline-block;
+  background-color: #fdbb11;
+  color: #00305b;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 6px 14px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 20px;
+  align-self: flex-start;
+}
+
+/* Judul Post */
+.post-content h4 {
+  color: #00305b;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.4;
+  margin: 0 0 12px;
+}
+
+.post-content .date {
+  color: #829ab1;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.post-content p {
+  color: #4a5b6d;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0 0 20px;
+}
+
+.read-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #00305b;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.read-link i {
+  transition: transform 0.3s ease;
+}
+
+.read-link:hover {
+  color: #fdbb11;
+  text-decoration: none;
+}
+
+.read-link:hover i {
+  transform: translateX(4px);
+}
+
+/* Tag Bawah */
+.card-tags {
+  margin-top: auto;
+  padding-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.card-tags .tag {
+  background-color: #f1f5f9;
+  color: #4a5b6d;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 6px;
+}
+
+.card-tags .tag i {
+  color: #fdbb11;
+  margin-right: 4px;
+}
+
+/* ================== TOMBOL CTA BAWAH ================== */
+.view-all-btn {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.btn-outline-post {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: transparent;
+  color: #00305b;
+  font-size: 16px;
+  font-weight: 800;
+  padding: 14px 34px;
+  border-radius: 999px;
+  border: 2px solid #00305b;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-post:hover {
+  background-color: #00305b;
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 48, 91, 0.15);
+  text-decoration: none;
+}
+
+/* =========================================================================
+   MEDIA QUERIES (RESPONSIVE)
+   ========================================================================= */
+@media (max-width: 991px) {
+  .post-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .ppic-post-header .section-title {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 575px) {
+  .post-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .filter-container {
+    padding-bottom: 5px;
+  }
+
+  .btn-outline-post {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* =========================================================================
+   62. PPIC DAFTAR INFORMASI PUBLIK - HERO SECTION
+   ========================================================================= */
+.ppic-dafinfo-hero {
+  background-color: #0d233a; /* Warna biru gelap navy sesuai mockup */
+  padding: 120px 0 40px;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+}
+
+.ppic-dafinfo-hero-container {
+  max-width: 900px; /* Dibatasi agar paragraf tidak memanjang ke ujung layar */
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Tipografi Judul */
+.ppic-dafinfo-hero-title {
+  color: #ffffff; /* Teks putih murni */
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0 0 20px;
+  letter-spacing: -0.02em;
+}
+
+/* Tipografi Deskripsi */
+.ppic-dafinfo-hero-desc {
+  color: #f1f5f9; /* Putih keabu-abuan agar nyaman dibaca / tidak menyilaukan */
+  font-size: 18px;
+  line-height: 1.7;
+  margin: 0 auto;
+  font-weight: 400;
+  max-width: 800px; /* Lebar teks dikunci agar patahan kalimatnya rapi */
+}
+
+/* =========================================================================
+   MEDIA QUERIES (RESPONSIVE)
+   ========================================================================= */
+@media (max-width: 991px) {
+  .ppic-dafinfo-hero-title {
+    font-size: 42px;
+  }
+
+  .ppic-dafinfo-hero-desc {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 575px) {
+  .ppic-dafinfo-hero-title {
+    font-size: 34px;
+  }
+
+  .ppic-dafinfo-hero-desc {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+}
+
+/* =========================================================================
+   63. PPIC DAFTAR INFORMASI PUBLIK - MAIN CONTENT
+   ========================================================================= */
+.ppic-daf-section {
+  padding: 120px 0 40px;
+  background-color: #ffffff;
+  font-family: "Inter", sans-serif;
+}
+
+.ppic-daf-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ================== ACCORDION ITEM ================== */
+.daf-accordion-item {
+  border: 1px solid #eef2f6;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 15px rgba(18, 40, 60, 0.03);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.daf-accordion-item:hover {
+  box-shadow: 0 8px 25px rgba(18, 40, 60, 0.06);
+}
+
+.daf-accordion-header {
+  padding: 24px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  background-color: #ffffff;
+  transition: background-color 0.3s ease;
+}
+
+.daf-accordion-header h3 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 800;
+  color: #00305b;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.daf-accordion-header h3 i {
+  color: #fdbb11;
+  font-size: 24px;
+}
+
+.daf-accordion-header .arrow-icon {
+  color: #fdbb11;
+  font-size: 18px;
+  transition: transform 0.4s ease;
+}
+
+.daf-accordion-item.active .daf-accordion-header {
+  border-bottom: 1px solid #eef2f6;
+  background-color: #fcfdfe;
+}
+
+.daf-accordion-content {
+  padding: 30px;
+  display: none;
+  background-color: #ffffff;
+}
+
+.daf-desc {
+  color: #4a5b6d;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0 0 25px;
+}
+
+/* ================== FILTER HORIZONTAL (INFORMASI BERKALA) ================== */
+.berkala-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.filter-sidebar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 20px;
+}
+
+.filter-btn {
+  background-color: #f1f5f9;
+  color: #4a5b6d;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 999px; /* Bentuk pill bulat sesuai mockup */
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-btn i {
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.filter-btn:hover {
+  background-color: #e2e8f0;
+}
+
+.filter-btn.active {
+  background-color: #00305b;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 48, 91, 0.2);
+}
+
+.filter-btn.active i {
+  color: #00cc88; /* Aksen hijau kebiruan pada icon aktif seperti mockup */
+}
+
+/* ================== TABEL & DATATABLES ================== */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* DataTables Top Bar (Tampilkan & Cari) */
+.datatables-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: #4a5b6d;
+}
+
+.datatables-top-bar select,
+.datatables-top-bar input {
+  padding: 6px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  outline: none;
+  font-family: inherit;
+  color: #1a2f44;
+}
+
+.datatables-top-bar input {
+  margin-left: 8px;
+}
+
+/* DataTables Bottom Bar (Info & Paginate) */
+.datatables-bottom-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  font-size: 14px;
+  color: #4a5b6d;
+}
+
+.dataTables_paginate {
+  display: flex;
+  gap: 5px;
+}
+
+.paginate_button {
+  padding: 6px 12px;
+  border: 1px solid #cbd5e1;
+  background-color: #ffffff;
+  color: #4a5b6d;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.paginate_button:hover:not(.disabled) {
+  background-color: #f1f5f9;
+}
+
+.paginate_button.current {
+  background-color: #f1f5f9;
+  font-weight: bold;
+}
+
+.paginate_button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Desain Tabel Utama */
+.daf-info-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+.daf-info-table th {
+  background-color: #ffffff; /* Mockup menggunakan background putih */
+  color: #1a2f44;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 16px 20px;
+  text-align: left;
+  white-space: nowrap;
+  border-bottom: 2px solid #eef2f6; /* Garis bawah tebal pada header */
+}
+
+/* Icon Sorting DataTables */
+.daf-info-table th.sorting {
+  cursor: pointer;
+  position: relative;
+  padding-right: 25px;
+}
+
+.daf-info-table th.sorting::after {
+  content: "\f0dc"; /* FontAwesome sort icon */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  right: 8px;
+  color: #cbd5e1;
+}
+
+.daf-info-table td {
+  padding: 16px 20px;
+  border-bottom: 1px solid #eef2f6;
+  color: #4a5b6d;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.daf-info-table tr.even td {
+  background-color: #fafbfc; /* Striping zebra halus */
+}
+
+.daf-info-table tr:hover td {
+  background-color: #f1f5f9;
+}
+
+/* ================== BADGES & TOMBOL AKSI ================== */
+.daf-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.badge-green {
+  background-color: #e6f4ea;
+  color: #1e8e3e;
+}
+
+.badge-yellow {
+  background-color: #fef7e0;
+  color: #e65100;
+}
+
+.badge-red {
+  background-color: #fce8e6;
+  color: #c5221f;
+}
+
+.action-icons-group {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.daf-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%; /* Membulat sesuai mockup */
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.preview-btn {
+  background-color: #eef2f6;
+  color: #00305b;
+}
+
+.preview-btn:hover {
+  background-color: #00305b;
+  color: #ffffff;
+}
+
+.download-btn {
+  background-color: #fdbb11;
+  color: #00305b;
+}
+
+.download-btn:hover {
+  background-color: #e5a80f;
+}
+
+/* ================== ELEMEN PELENGKAP ================== */
+.daf-small-note {
+  font-size: 13px;
+  color: #64748b;
+  margin-top: 20px;
+}
+
+.daf-table-note {
+  font-size: 11px;
+  color: #64748b;
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+.daf-info-box {
+  margin-top: 25px;
+  padding: 16px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.daf-info-box i {
+  font-size: 18px;
+  margin-top: 2px;
+}
+
+.daf-info-box.warning {
+  background-color: #f8f9fa;
+  color: #4a5b6d;
+  border-left: 4px solid #94a3b8;
+}
+
+.daf-info-box.highlight {
+  background-color: #fffbef;
+  color: #5c4302;
+  border-left: 4px solid #fdbb11;
+}
+
+.daf-info-box.highlight i {
+  color: #fdbb11;
+}
+
+.daf-cta-wrapper {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.daf-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #fdbb11;
+  color: #00305b;
+  font-size: 15px;
+  font-weight: 800;
+  padding: 14px 30px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(253, 187, 17, 0.2);
+}
+
+.daf-btn-primary:hover {
+  background-color: #00305b;
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 48, 91, 0.15);
+}
+
+/* ================== MEDIA QUERIES ================== */
+@media (max-width: 768px) {
+  .datatables-top-bar,
+  .datatables-bottom-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 575px) {
+  .daf-accordion-header {
+    padding: 20px;
+  }
+
+  .daf-accordion-header h3 {
+    font-size: 18px;
+  }
+
+  .daf-accordion-content {
+    padding: 20px 15px;
+  }
+
+  .filter-sidebar {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 5px;
+  }
+
+  .filter-sidebar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-btn {
+    white-space: nowrap;
+  }
+
+  .daf-info-table th,
+  .daf-info-table td {
+    padding: 12px 15px;
+    font-size: 13px;
+  }
+
+  .daf-btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* =========================================================================
+   64. PPIC PPID FOOTER CTA SECTION
+   ========================================================================= */
+.ppic-footer-cta {
+  background-color: #0d233a; /* Warna biru navy gelap PPI */
+  padding: 120px 0 40px;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  color: #ffffff;
+}
+
+.ppic-footer-cta-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.ppic-footer-cta h2 {
+  font-size: 34px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 16px;
+  line-height: 1.3;
+}
+
+.ppic-footer-cta p {
+  font-size: 17px;
+  color: #e2e8f0; /* Putih keabu-abuan agar tidak menyilaukan */
+  line-height: 1.6;
+  margin: 0 0 35px;
+}
+
+/* Container untuk tombol */
+.cta-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+/* Tombol 1 (Primary Kuning Pill) */
+.btn-cta-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fdbb11;
+  color: #00305b;
+  font-size: 16px;
+  font-weight: 800;
+  padding: 14px 34px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid #fdbb11;
+}
+
+.btn-cta-primary:hover {
+  background-color: #e5a80f;
+  border-color: #e5a80f;
+  color: #00305b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(253, 187, 17, 0.2);
+}
+
+/* Tombol 2 & 3 (Teks Putih) Sesuai Mockup */
+.btn-cta-link {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Efek garis bawah halus saat dihover */
+.btn-cta-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #fdbb11;
+  transition: width 0.3s ease;
+}
+
+.btn-cta-link:hover {
+  color: #fdbb11;
+  text-decoration: none;
+}
+
+.btn-cta-link:hover::after {
+  width: 100%;
+}
+
+/* =========================================================================
+   MEDIA QUERIES (RESPONSIVE)
+   ========================================================================= */
+@media (max-width: 768px) {
+  .ppic-footer-cta {
+    padding: 60px 0;
+  }
+
+  .ppic-footer-cta h2 {
+    font-size: 28px;
+  }
+
+  .ppic-footer-cta p {
+    font-size: 15px;
+    margin-bottom: 30px;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .btn-cta-primary {
+    width: 100%;
+    min-width: 250px;
+  }
+}
+/* =========================================================================
+   65. PPIC LAPORAN LAYANAN INFORMASI - HERO SECTION
+   ========================================================================= */
+.ppic-laporan-hero {
+  background-color: #0d233a; /* Warna biru gelap navy sesuai mockup */
+  padding: 120px 0 40px;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+}
+
+.ppic-laporan-hero-container {
+  max-width: 900px; /* Dibatasi agar paragraf tidak memanjang ke ujung layar */
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Tipografi Judul */
+.ppic-laporan-hero-title {
+  color: #ffffff; /* Teks putih murni */
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0 0 20px;
+  letter-spacing: -0.02em;
+}
+
+/* Tipografi Deskripsi */
+.ppic-laporan-hero-desc {
+  color: #f1f5f9; /* Putih keabu-abuan agar nyaman dibaca / tidak menyilaukan */
+  font-size: 18px;
+  line-height: 1.7;
+  margin: 0 auto;
+  font-weight: 400;
+  max-width: 800px; /* Lebar teks dikunci agar patahan kalimatnya rapi */
+}
+
+/* =========================================================================
+   MEDIA QUERIES (RESPONSIVE)
+   ========================================================================= */
+@media (max-width: 991px) {
+  .ppic-laporan-hero-title {
+    font-size: 42px;
+  }
+
+  .ppic-laporan-hero-desc {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 575px) {
+  .ppic-laporan-hero-title {
+    font-size: 34px;
+  }
+
+  .ppic-laporan-hero-desc {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+}
+
+/* =========================================================================
+   66. PPIC LAPORAN TAHUNAN & STATISTIK GRID
+   ========================================================================= */
+.ppic-lapstat-section {
+  padding: 120px 0 40px;
+  background-color: #f8fafc; /* Latar abu-abu sangat muda pemisah section */
+  font-family: "Inter", sans-serif;
+}
+
+.ppic-lapstat-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.lapstat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
+  align-items: stretch;
+}
+
+/* ================== KARTU UMUM ================== */
+.lapstat-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 45px 40px;
+  box-shadow: 0 8px 30px rgba(18, 40, 60, 0.04);
+  border: 1px solid #f1f5f9;
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+/* Efek Hover Melayang (Floating) */
+.lapstat-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px rgba(18, 40, 60, 0.08);
+}
+
+.lapstat-title {
+  color: #00305b;
+  font-size: 24px;
+  font-weight: 800;
+  margin: 0 0 12px;
+  line-height: 1.3;
+}
+
+.lapstat-desc {
+  color: #4a5b6d;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0 0 25px;
+}
+
+/* ================== KARTU 1: TABEL LAPORAN ================== */
+/* Icon Kotak Kuning Khas */
+.lapstat-icon {
+  background-color: #fdbb11;
+  color: #ffffff;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin-bottom: 25px;
+}
+
+.lapstat-table-wrapper {
+  overflow-x: auto;
+  margin-bottom: 30px;
+  flex-grow: 1; /* Mendorong tombol arsip ke paling bawah */
+}
+
+.lapstat-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.lapstat-table th {
+  color: #00305b;
+  font-size: 14px;
+  font-weight: 800;
+  padding: 12px 10px;
+  text-align: left;
+  border-bottom: 2px solid #eef2f6;
+  white-space: nowrap;
+}
+
+.lapstat-table td {
+  padding: 18px 10px;
+  border-bottom: 1px solid #eef2f6;
+  vertical-align: middle;
+}
+
+.lapstat-table tr:last-child td {
+  border-bottom: none;
+}
+
+.col-tahun {
+  color: #4a5b6d;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.col-judul {
+  color: #1a2f44;
+  font-size: 14px;
+}
+
+/* Tombol Download PDF Kecil di Tabel */
+.btn-pdf-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #f1f5f9;
+  color: #00305b;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 6px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.btn-pdf-download:hover {
+  background-color: #e2e8f0;
+  color: #00305b;
+}
+
+/* Tombol Arsip Lengkap */
+.lapstat-footer-action {
+  margin-top: auto;
+}
+
+.btn-arsip-lengkap {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #00305b;
+  background-color: transparent;
+  border: 2px solid #00305b;
+  padding: 12px 26px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-arsip-lengkap:hover {
+  background-color: #00305b;
+  color: #ffffff;
+}
+
+/* ================== KARTU 2: STATISTIK & GRAFIK ================== */
+.lapstat-stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.stat-item {
+  background-color: #f8fafc;
+  padding: 24px 15px;
+  border-radius: 16px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.stat-item:hover {
+  background-color: #f1f5f9;
+}
+
+.stat-number {
+  color: #00305b;
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.lapstat-chart-container {
+  position: relative;
+  height: 280px; /* Tinggi canvas chart terkontrol */
+  width: 100%;
+  margin-bottom: 15px;
+  flex-grow: 1;
+}
+
+.lapstat-chart-note {
+  color: #64748b;
+  font-size: 13px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lapstat-chart-note i {
+  color: #94a3b8;
+}
+
+/* ================== MEDIA QUERIES (RESPONSIVE) ================== */
+@media (max-width: 991px) {
+  .lapstat-grid {
+    grid-template-columns: 1fr; /* Turun jadi 1 kolom di Tablet */
+  }
+
+  .lapstat-card {
+    padding: 35px 30px;
+  }
+}
+
+@media (max-width: 575px) {
+  .lapstat-card {
+    padding: 30px 20px;
+  }
+
+  .lapstat-title {
+    font-size: 22px;
+  }
+
+  .lapstat-stats-row {
+    grid-template-columns: 1fr; /* Stat bertumpuk ke bawah di HP */
+    gap: 10px;
+  }
+
+  .stat-item {
+    padding: 20px;
+  }
+}
+
+/* =========================================================================
+   67. PPIC LAYANAN INFORMASI - HERO SECTION
+   ========================================================================= */
+.ppic-layanan-hero {
+  background-color: #0d233a; /* Biru Navy khas PPI Curug */
+  padding: 120px 0 40px;
+  font-family: "Inter", sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.layanan-hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr; /* Teks lebih lebar sedikit dibanding kartu */
+  gap: 60px;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ================== KOLOM KIRI: KONTEN TEKS ================== */
+.layanan-hero-content h1 {
+  color: #ffffff;
+  font-size: 46px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0 0 20px;
+  letter-spacing: -0.02em;
+}
+
+.layanan-hero-content p {
+  color: #e2e8f0;
+  font-size: 18px;
+  line-height: 1.7;
+  margin: 0;
+  font-weight: 400;
+  max-width: 90%;
+}
+
+/* ================== KOLOM KANAN: KARTU JADWAL ================== */
+.layanan-schedule-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+.layanan-schedule-card h3 {
+  color: #00305b;
+  font-size: 20px;
+  font-weight: 800;
+  margin: 0 0 30px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-left: 16px;
+  position: relative;
+}
+
+/* Garis Kuning di Sebelah Kiri Judul Kartu */
+.layanan-schedule-card h3::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 24px;
+  background-color: #fdbb11;
+  border-radius: 4px;
+}
+
+.layanan-schedule-card h3 i {
+  color: #fdbb11;
+  font-size: 22px;
+}
+
+/* List Jadwal */
+.schedule-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.schedule-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-bottom: 20px;
+  border-bottom: 1px dashed #e2e8f0;
+}
+
+.schedule-list .schedule-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.schedule-day {
+  color: #00305b;
+  font-weight: 800;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.schedule-day i {
+  color: #fdbb11;
+  font-size: 16px;
+  width: 18px;
+  text-align: center;
+}
+
+.schedule-time,
+.break-time {
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.schedule-time i,
+.break-time i {
+  color: #94a3b8;
+  font-size: 14px;
+  width: 18px;
+  text-align: center;
+}
+
+.break-time i {
+  color: #7dd3fc; /* Biru muda kotak */
+  font-size: 12px;
+}
+
+/* Status Tutup */
+.schedule-time.closed {
+  color: #5b21b6; /* Warna ungu/indigo sesuai mockup */
+  font-weight: 700;
+}
+
+.schedule-time.closed i {
+  color: #5b21b6;
+  font-size: 16px;
+}
+
+/* Catatan Bawah */
+.schedule-note {
+  margin-top: 30px;
+  background-color: #fff6f0; /* Latar orange super pudar */
+  color: #b45309; /* Teks orange gelap */
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-size: 13px;
+  line-height: 1.5;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  text-align: center;
+}
+
+.schedule-note i {
+  color: #f59e0b;
+  font-size: 16px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+/* ================== MEDIA QUERIES (RESPONSIVE) ================== */
+@media (max-width: 991px) {
+  .layanan-hero-grid {
+    grid-template-columns: 1fr; /* Tumpuk atas bawah di Tablet */
+    gap: 40px;
+  }
+
+  .layanan-hero-content {
+    text-align: center;
+  }
+
+  .layanan-hero-content p {
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  .layanan-schedule-card {
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 575px) {
+  .layanan-hero-content h1 {
+    font-size: 34px;
+  }
+
+  .layanan-hero-content p {
+    font-size: 16px;
+  }
+
+  .layanan-schedule-card {
+    padding: 30px 20px;
+  }
+
+  .schedule-note {
+    text-align: left;
+  }
+}
+
+/* =========================================================================
+   68. PPIC MAKLUMAT PELAYANAN & STANDAR BIAYA SECTION
+   ========================================================================= */
+.ppic-maklumat-section {
+  background-color: #f8fafc; /* Latar abu-abu sangat muda / light */
+  padding: 120px 0 40px;
+  font-family: "Inter", sans-serif;
+}
+
+.ppic-maklumat-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ================== HEADER TEKS ================== */
+.ppic-maklumat-header {
+  margin-bottom: 50px;
+  text-align: left;
+}
+
+.ppic-maklumat-header .section-title {
+  color: #00305b;
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0 0 12px;
+  line-height: 1.3;
+}
+
+.title-accent {
+  width: 60px;
+  height: 4px;
+  background-color: #fdbb11;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.ppic-maklumat-header .section-sub {
+  color: #64748b;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 700px;
+}
+
+/* ================== GRID & KARTU GAMBAR ================== */
+.ppic-maklumat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
+}
+
+.maklumat-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(18, 40, 60, 0.04);
+  border: 1px solid #f1f5f9;
+  text-align: center;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.maklumat-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px rgba(18, 40, 60, 0.08);
+}
+
+/* Bagian Gambar (Sertifikat) */
+.maklumat-image {
+  width: 100%;
+  padding: 30px 30px 10px; /* Jarak agar gambar piagam terlihat proporsional di dalam kartu */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.maklumat-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px; /* Memberikan sedikit lengkungan jika gambarnya kaku */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03); /* Opsional, membuat gambar lebih terpisah dari background putih card */
+}
+
+/* Bagian Teks Kartu */
+.maklumat-content {
+  padding: 10px 30px 35px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.maklumat-content h3 {
+  color: #00305b;
+  font-size: 20px;
+  font-weight: 800;
+  margin: 0 0 8px;
+}
+
+.maklumat-content p {
+  color: #64748b;
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ================== MEDIA QUERIES (RESPONSIVE) ================== */
+@media (max-width: 991px) {
+  .ppic-maklumat-grid {
+    grid-template-columns: 1fr; /* Tumpuk 1 kolom di Tablet & HP */
+    gap: 40px;
+  }
+
+  .maklumat-image {
+    padding: 30px 40px 10px;
+  }
+}
+
+@media (max-width: 575px) {
+  .ppic-maklumat-header .section-title {
+    font-size: 26px;
+  }
+
+  .maklumat-image {
+    padding: 25px 20px 10px;
+  }
+
+  .maklumat-content {
+    padding: 10px 20px 30px;
+  }
+
+  .maklumat-content h3 {
+    font-size: 18px;
+  }
+}
+
+/* =========================================================================
+   69. PPIC PERMINTAAN INFORMASI SECTION
+   ========================================================================= */
+.ppic-permintaan-section {
+  padding: 120px 0 40px;
+  background-color: #ffffff;
+  font-family: "Inter", sans-serif;
+}
+
+.ppic-permintaan-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.permintaan-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
+  align-items: stretch;
+}
+
+/* ================== KARTU UMUM ================== */
+.permintaan-card {
+  border-radius: 20px;
+  padding: 45px 40px;
+  box-shadow: 0 8px 30px rgba(18, 40, 60, 0.04);
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Efek Hover Melayang (Floating) */
+.permintaan-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px rgba(18, 40, 60, 0.08);
+}
+
+.permintaan-title {
+  font-size: 24px;
+  font-weight: 800;
+  margin: 0 0 16px;
+  line-height: 1.3;
+}
+
+/* Ikon Kotak */
+.permintaan-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin-bottom: 25px;
+}
+
+.icon-yellow {
+  background-color: #fdbb11;
+  color: #ffffff;
+}
+
+.icon-yellow-transparent {
+  background-color: rgba(253, 187, 17, 0.15); /* Kuning tipis */
+  color: #fdbb11;
+}
+
+/* ================== CARD KIRI (PUTIH) ================== */
+.card-light {
+  background-color: #ffffff;
+  border: 1px solid #f1f5f9;
+}
+
+.card-light .permintaan-title {
+  color: #00305b;
+}
+
+.permintaan-desc {
+  color: #4a5b6d;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0 0 30px;
+}
+
+/* List Langkah-Langkah (Kiri) */
+.permintaan-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.permintaan-steps li {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.step-number {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  background-color: #fdbb11;
+  color: #00305b;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 800;
+  margin-top: 2px;
+}
+
+.step-text {
+  color: #1a2f44;
+  font-size: 14.5px;
+  line-height: 1.5;
+}
+
+/* ================== CARD KANAN (BIRU NAVY) ================== */
+.card-dark {
+  background-color: #00305b;
+  color: #ffffff;
+  border: none;
+  justify-content: space-between; /* Membuat footer selalu di bawah */
+}
+
+.text-white {
+  color: #ffffff !important;
+}
+
+/* List Catatan Penting (Kanan) */
+.permintaan-notes {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 25px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.permintaan-notes li {
+  color: #e2e8f0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* Footer Card Kanan (QR & CTA) */
+.card-dark-footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.qr-box {
+  background-color: transparent;
+}
+
+.qr-box img {
+  width: 90px;
+  height: 90px;
+  border-radius: 8px;
+  background-color: #fff;
+  padding: 4px;
+  display: block;
+}
+
+.qr-box p {
+  color: #e2e8f0;
+  font-size: 11px;
+  margin: 8px 0 0;
+}
+
+/* Tombol CTA Kuning */
+.btn-cta-kuning {
+  background-color: #fdbb11;
+  color: #00305b;
+  font-size: 14px;
+  font-weight: 800;
+  padding: 14px 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.btn-cta-kuning:hover {
+  background-color: #e5a80f;
+  color: #00305b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(253, 187, 17, 0.2);
+}
+
+/* ================== MEDIA QUERIES (RESPONSIVE) ================== */
+@media (max-width: 991px) {
+  .permintaan-grid {
+    grid-template-columns: 1fr; /* Tumpuk atas bawah di layar Tablet/HP */
+    gap: 30px;
+  }
+}
+
+@media (max-width: 575px) {
+  .permintaan-card {
+    padding: 35px 25px;
+  }
+
+  .card-dark-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+  }
+
+  .btn-cta-kuning {
+    width: 100%;
+  }
+}
+
+/* =========================================================================
+   70. PPIC ALUR PERMINTAAN INFORMASI SECTION
+   ========================================================================= */
+.ppic-alur-section {
+  background-color: #f8fafc; /* Latar abu-abu sangat muda pemisah section */
+  padding: 120px 0 40px;
+  font-family: "Inter", sans-serif;
+}
+
+.ppic-alur-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ================== HEADER TEKS ================== */
+.ppic-alur-header {
+  margin-bottom: 50px;
+  text-align: left;
+}
+
+.ppic-alur-header .section-title {
+  color: #00305b;
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0 0 12px;
+  line-height: 1.3;
+}
+
+.ppic-alur-header .title-accent {
+  width: 60px;
+  height: 4px;
+  background-color: #fdbb11; /* Garis kuning khas PPI */
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.ppic-alur-header .section-sub {
+  color: #64748b;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 700px;
+}
+
+/* ================== GRID & KARTU ATAS ================== */
+.alur-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
+  align-items: stretch;
+}
+
+.alur-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 45px 40px;
+  box-shadow: 0 8px 30px rgba(18, 40, 60, 0.04);
+  border: 1px solid #f1f5f9;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Efek Hover Melayang (Floating) */
+.alur-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px rgba(18, 40, 60, 0.08);
+}
+
+.alur-title {
+  color: #00305b;
+  font-size: 22px;
+  font-weight: 800;
+  margin: 0 0 25px;
+  line-height: 1.3;
+}
+
+/* Ikon Styling */
+.alur-icon {
+  margin-bottom: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Kartu 1: Icon Kuning tanpa background Solid */
+.icon-transparent i {
+  color: #fdbb11;
+  font-size: 32px;
+}
+
+/* Kartu 2: Background Kuning Solid, Icon Putih */
+.icon-solid {
+  background-color: #fdbb11;
+  color: #ffffff;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 20px;
+}
+
+/* ================== LIST KARTU 1 (ANGKA) ================== */
+.alur-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.alur-steps li {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.step-number {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  background-color: #fdbb11;
+  color: #00305b;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 800;
+  margin-top: 2px;
+}
+
+.step-text {
+  color: #1a2f44;
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+
+/* ================== LIST KARTU 2 (BULLET) ================== */
+.alur-bullets {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.alur-bullets li {
+  color: #4a5b6d;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.alur-bullets li strong {
+  color: #1a2f44;
+  font-weight: 700;
+}
+
+/* ================== GAMBAR DIAGRAM BAWAH ================== */
+.alur-image-wrapper {
+  margin-top: 50px;
+  border-radius: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 10px 25px rgba(18, 40, 60, 0.05); /* Shadow halus agar terlihat seperti kartu */
+  border: 1px solid #f1f5f9;
+  overflow: hidden;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.alur-image-wrapper img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain; /* Menjaga agar gambar alur yang melebar tidak terpotong */
+  display: block;
+  border-radius: 8px;
+}
+
+/* ================== MEDIA QUERIES (RESPONSIVE) ================== */
+@media (max-width: 991px) {
+  .alur-grid {
+    grid-template-columns: 1fr; /* Tumpuk 1 kolom di Tablet & HP */
+    gap: 30px;
+  }
+}
+
+@media (max-width: 575px) {
+  .ppic-alur-header .section-title {
+    font-size: 26px;
+  }
+
+  .alur-card {
+    padding: 35px 25px;
+  }
+
+  .alur-title {
+    font-size: 18px;
+  }
+
+  .alur-image-wrapper {
+    padding: 10px; /* Kurangi padding untuk layar kecil agar gambar lebih penuh */
+  }
+}
+
+/* =========================================================================
+   71. PPIC PROSEDUR KEBERATAN SECTION
+   ========================================================================= */
+.ppic-keberatan-section {
+  background-color: #ffffff; /* Latar putih murni */
+  padding: 120px 0 40px;
+  font-family: "Inter", sans-serif;
+}
+
+.ppic-keberatan-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ================== HEADER TEKS ================== */
+.ppic-keberatan-header {
+  margin-bottom: 50px;
+  text-align: left;
+}
+
+.ppic-keberatan-header .section-title {
+  color: #00305b;
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0 0 12px;
+  line-height: 1.3;
+}
+
+.ppic-keberatan-header .title-accent {
+  width: 60px;
+  height: 4px;
+  background-color: #fdbb11;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.ppic-keberatan-header .section-sub {
+  color: #64748b;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 700px;
+}
+
+/* ================== GRID LAYOUT ================== */
+.keberatan-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr; /* Kolom kiri (gambar) sedikit lebih lebar */
+  gap: 40px;
+  align-items: start; /* Menyusun dari atas */
+}
+
+/* ================== KOLOM KIRI (GAMBAR) ================== */
+.keberatan-image-wrapper {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(18, 40, 60, 0.05);
+  border: 1px solid #f1f5f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+  position: sticky;
+  top: 100px; /* Membuat gambar tetap terlihat saat scroll ke bawah di layar besar */
+}
+
+.keberatan-image-wrapper:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(18, 40, 60, 0.08);
+}
+
+.keberatan-image-wrapper img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+}
+
+/* ================== KOLOM KANAN (STACK KARTU) ================== */
+.keberatan-stack-col {
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* Jarak antar kartu */
+}
+
+.keberatan-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 40px 35px;
+  box-shadow: 0 8px 30px rgba(18, 40, 60, 0.04);
+  border: 1px solid #f1f5f9;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.keberatan-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px rgba(18, 40, 60, 0.08);
+}
+
+.keberatan-icon {
+  margin-bottom: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background-color: rgba(253, 187, 17, 0.15); /* Background transparan kuning */
+}
+
+.keberatan-icon i {
+  color: #fdbb11;
+  font-size: 22px;
+}
+
+.keberatan-card-title {
+  color: #00305b;
+  font-size: 20px;
+  font-weight: 800;
+  margin: 0 0 25px;
+  line-height: 1.3;
+}
+
+/* ================== DAFTAR LANGKAH (KARTU 1) ================== */
+.keberatan-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.keberatan-steps li {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.keberatan-steps .step-number {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  background-color: #fdbb11;
+  color: #00305b;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 800;
+  margin-top: 2px;
+}
+
+.keberatan-steps .step-text {
+  color: #1a2f44;
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+
+.keberatan-steps .step-text strong {
+  color: #00305b;
+  font-weight: 700;
+}
+
+/* ================== DAFTAR BULLET (KARTU 2) ================== */
+.keberatan-bullets {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.keberatan-bullets li {
+  color: #4a5b6d;
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+
+/* Tombol CTA */
+.keberatan-btn-wrapper {
+  margin-top: 30px;
+}
+
+.btn-cta-kuning {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fdbb11;
+  color: #00305b;
+  font-size: 14px;
+  font-weight: 800;
+  padding: 14px 26px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.btn-cta-kuning:hover {
+  background-color: #e5a80f;
+  color: #00305b;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(253, 187, 17, 0.2);
+}
+
+/* ================== MEDIA QUERIES (RESPONSIVE) ================== */
+@media (max-width: 991px) {
+  .keberatan-grid {
+    grid-template-columns: 1fr; /* Tumpuk atas bawah di layar sedang/kecil */
+    gap: 40px;
+  }
+
+  .keberatan-image-wrapper {
+    position: static; /* Hilangkan sticky di mobile */
+  }
+}
+
+@media (max-width: 575px) {
+  .ppic-keberatan-header .section-title {
+    font-size: 26px;
+  }
+
+  .keberatan-card {
+    padding: 30px 20px;
+  }
+
+  .keberatan-card-title {
+    font-size: 18px;
+  }
+
+  .btn-cta-kuning {
+    width: 100%;
+  }
+}
+
+/* =========================================================================
+   72. PPIC PROSEDUR SENGKETA SECTION
+   ========================================================================= */
+.ppic-sengketa-section {
+  background-color: #f8fafc; /* Latar light / abu-abu muda */
+  padding: 120px 0 40px;
+  font-family: "Inter", sans-serif;
+}
+
+.ppic-sengketa-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ================== HEADER TEKS ================== */
+.ppic-sengketa-header {
+  margin-bottom: 50px;
+  text-align: left;
+}
+
+.ppic-sengketa-header .section-title {
+  color: #00305b;
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0 0 12px;
+  line-height: 1.3;
+}
+
+.ppic-sengketa-header .title-accent {
+  width: 60px;
+  height: 4px;
+  background-color: #fdbb11;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.ppic-sengketa-header .section-sub {
+  color: #64748b;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 700px;
+}
+
+/* ================== GRID LAYOUT ================== */
+.sengketa-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr; /* Kolom kiri (gambar) sedikit lebih lebar */
+  gap: 40px;
+  align-items: start;
+}
+
+/* ================== KOLOM KIRI (GAMBAR) ================== */
+.sengketa-image-wrapper {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(18, 40, 60, 0.05);
+  border: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+  position: sticky;
+  top: 100px; /* Gambar tetap diam saat scroll */
+}
+
+.sengketa-image-wrapper:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(18, 40, 60, 0.08);
+}
+
+.sengketa-image-wrapper img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+}
+
+/* ================== KOLOM KANAN (STACK KARTU) ================== */
+.sengketa-stack-col {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.sengketa-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 40px 35px;
+  box-shadow: 0 8px 30px rgba(18, 40, 60, 0.04);
+  border: 1px solid #e2e8f0;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.sengketa-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px rgba(18, 40, 60, 0.08);
+}
+
+.sengketa-icon {
+  margin-bottom: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background-color: rgba(253, 187, 17, 0.15); /* Kuning tipis */
+}
+
+.sengketa-icon i {
+  color: #fdbb11;
+  font-size: 22px;
+}
+
+.sengketa-card-title {
+  color: #00305b;
+  font-size: 20px;
+  font-weight: 800;
+  margin: 0 0 25px;
+  line-height: 1.3;
+}
+
+/* ================== DAFTAR LANGKAH (KARTU 1) ================== */
+.sengketa-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sengketa-steps li {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.sengketa-steps .step-number {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  background-color: #fdbb11;
+  color: #00305b;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 800;
+  margin-top: 2px;
+}
+
+.sengketa-steps .step-text {
+  color: #1a2f44;
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+
+.sengketa-steps .step-text strong {
+  color: #00305b;
+  font-weight: 700;
+}
+
+/* ================== PARAGRAF ALAMAT (KARTU 2) ================== */
+.sengketa-address {
+  color: #4a5b6d;
+  font-size: 15px;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.sengketa-address strong {
+  color: #1a2f44;
+  font-weight: 700;
+}
+
+/* ================== MEDIA QUERIES (RESPONSIVE) ================== */
+@media (max-width: 991px) {
+  .sengketa-grid {
+    grid-template-columns: 1fr; /* Tumpuk atas bawah di layar sedang/kecil */
+    gap: 40px;
+  }
+
+  .sengketa-image-wrapper {
+    position: static; /* Hilangkan sticky di mobile */
+  }
+}
+
+@media (max-width: 575px) {
+  .ppic-sengketa-header .section-title {
+    font-size: 26px;
+  }
+
+  .sengketa-card {
+    padding: 30px 20px;
+  }
+
+  .sengketa-card-title {
+    font-size: 18px;
+  }
+}
+
+/* =========================================================================
+   73. PPIC PROFIL - HERO SECTION
+   ========================================================================= */
+.ppic-profil-hero {
+  background-color: #0d233a; /* Warna biru gelap navy sesuai mockup */
+  padding: 120px 0 40px;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+}
+
+.ppic-profil-hero-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Tipografi Judul */
+.ppic-profil-hero-title {
+  color: #ffffff; /* Teks putih murni */
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0 0 20px;
+  letter-spacing: -0.02em;
+}
+
+/* Tipografi Deskripsi */
+.ppic-profil-hero-desc {
+  color: #f1f5f9; /* Putih keabu-abuan */
+  font-size: 18px;
+  line-height: 1.7;
+  margin: 0 auto;
+  font-weight: 400;
+  max-width: 800px; /* Lebar teks dikunci agar tidak melebar terlalu jauh */
+}
+
+/* =========================================================================
+   MEDIA QUERIES (RESPONSIVE)
+   ========================================================================= */
+@media (max-width: 991px) {
+  .ppic-profil-hero-title {
+    font-size: 42px;
+  }
+
+  .ppic-profil-hero-desc {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 575px) {
+  .ppic-profil-hero-title {
+    font-size: 34px;
+  }
+
+  .ppic-profil-hero-desc {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+}
+
+/* =========================================================================
+   74. PPIC PROFIL PPID (KONTEN) SECTION
+   ========================================================================= */
+.ppic-profil-section {
+  padding: 120px 0 40px;
+  background-color: #ffffff; /* Latar putih */
+  font-family: "Inter", sans-serif;
+}
+
+.ppic-profil-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.profil-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px;
+  align-items: stretch;
+}
+
+/* ================== KARTU UMUM ================== */
+.profil-card {
+  border-radius: 20px;
+  padding: 45px 40px;
+  box-shadow: 0 8px 30px rgba(18, 40, 60, 0.04);
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Efek Hover Melayang */
+.profil-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px rgba(18, 40, 60, 0.08);
+}
+
+/* ================== KARTU KIRI (PUTIH) ================== */
+.card-light {
+  background-color: #ffffff;
+  border: 1px solid #f1f5f9;
+}
+
+.profil-title {
+  color: #00305b;
+  font-size: 28px;
+  font-weight: 800;
+  margin: 0 0 25px;
+  line-height: 1.3;
+}
+
+.profil-text-content {
+  color: #334155;
+  font-size: 15.5px;
+  line-height: 1.8;
+}
+
+.profil-text-content p {
+  margin-bottom: 20px;
+}
+
+.profil-text-content p:last-child {
+  margin-bottom: 0;
+}
+
+.profil-text-content em {
+  font-style: italic;
+}
+
+/* ================== KARTU KANAN (BIRU NAVY) ================== */
+.card-dark {
+  background-color: #00305b;
+  color: #ffffff;
+  border: none;
+  justify-content: space-between; /* Pisahkan konten atas dan tombol bawah */
+}
+
+.profil-icon {
+  margin-bottom: 25px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+}
+
+.icon-yellow-transparent {
+  background-color: rgba(253, 187, 17, 0.15); /* Kuning transparan */
+  color: #fdbb11;
+  font-size: 24px;
+}
+
+.card-dark-title {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 800;
+  margin: 0 0 25px;
+  line-height: 1.3;
+}
+
+/* List Checkmark Dasar Hukum */
+.profil-check-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.profil-check-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: #e2e8f0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.profil-check-list li i {
+  color: #ffffff;
+  font-size: 13px;
+  margin-top: 5px; /* Selaraskan posisi ikon dengan baris pertama teks */
+  flex-shrink: 0;
+}
+
+/* Tombol CTA Bawah */
+.card-dark-footer {
+  margin-top: 40px;
+}
+
+.btn-cta-kuning {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fdbb11;
+  color: #00305b;
+  font-size: 14.5px;
+  font-weight: 800;
+  padding: 14px 28px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.btn-cta-kuning:hover {
+  background-color: #e5a80f;
+  color: #00305b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(253, 187, 17, 0.2);
+}
+
+/* ================== MEDIA QUERIES (RESPONSIVE) ================== */
+@media (max-width: 991px) {
+  .profil-grid {
+    grid-template-columns: 1fr; /* Tumpuk atas bawah di layar sedang/kecil */
+    gap: 30px;
+  }
+}
+
+@media (max-width: 575px) {
+  .profil-card {
+    padding: 35px 25px;
+  }
+
+  .profil-title {
+    font-size: 24px;
+  }
+
+  .card-dark-title {
+    font-size: 22px;
+  }
+
+  .btn-cta-kuning {
+    width: 100%;
+  }
+}
+
+/* =========================================================================
+   75. PPIC STRUKTUR ORGANISASI SECTION
+   ========================================================================= */
+.ppic-struktur-section {
+  background-color: #f8fafc; /* Latar abu-abu sangat muda (light) */
+  padding: 120px 0 40px;
+  font-family: "Inter", sans-serif;
+}
+
+.ppic-struktur-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ================== HEADER TEKS ================== */
+.ppic-struktur-header {
+  margin-bottom: 50px;
+  text-align: left;
+}
+
+.ppic-struktur-header .section-title {
+  color: #00305b;
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0 0 12px;
+  line-height: 1.3;
+}
+
+.ppic-struktur-header .title-accent {
+  width: 60px;
+  height: 4px;
+  background-color: #fdbb11;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.ppic-struktur-header .section-sub {
+  color: #64748b;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 700px;
+}
+
+/* ================== GRID KARTU PROFIL ================== */
+.struktur-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px;
+  align-items: stretch;
+}
+
+.struktur-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  overflow: hidden; /* Penting agar background oranye melengkung ikuti card */
+  box-shadow: 0 8px 30px rgba(18, 40, 60, 0.05);
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+}
+
+.struktur-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px rgba(18, 40, 60, 0.08);
+}
+
+/* Bagian Foto dengan Background Oranye */
+.profile-photo-wrapper {
+  background-color: #f68b33; /* Warna Oranye sesuai Mockup */
+  width: 100%;
+  padding-top: 30px; /* Jarak atas kepala ke batas card */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; /* Supaya badan/baju nempel di batas bawah blok oranye */
+}
+
+.profile-photo-wrapper img {
+  max-width: 85%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  /* Tambahkan efek shadow pada orangnya agar terlihat lebih pop-up */
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.15));
+}
+
+/* Fallback jika tidak ada foto */
+.photo-placeholder {
+  width: 100%;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 80px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Bagian Teks di bawah foto */
+.profile-info {
+  background-color: #ffffff;
+  padding: 30px 20px 40px;
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.profile-role {
+  color: #00305b;
+  font-size: 18px;
+  font-weight: 800;
+  margin: 0 0 20px;
+}
+
+.profile-name {
+  color: #00305b;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.profile-position {
+  color: #64748b;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+/* ================== TOMBOL ACCORDION BAGAN ================== */
+.struktur-accordion-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background-color: #00305b; /* Biru Navy */
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 16px 30px;
+  border-radius: 999px; /* Bentuk Pill */
+  border: none;
+  width: 100%;
+  max-width: 900px;
+  margin: 50px auto 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.struktur-accordion-btn:hover {
+  background-color: #0a3d6d;
+}
+
+.transition-icon {
+  transition: transform 0.3s ease;
+}
+
+/* ================== GAMBAR BAGAN STRUKTUR (HIDDEN DEFAULT) ================== */
+.struktur-image-collapse {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition:
+    max-height 0.6s ease-in-out,
+    opacity 0.4s ease-in-out;
+  padding-top: 0;
+}
+
+/* Class 'show' dipicu via JavaScript */
+.struktur-image-collapse.show {
+  max-height: 2000px; /* Dibuat besar untuk antisipasi gambar tinggi */
+  opacity: 1;
+  padding-top: 30px;
+}
+
+.struktur-image-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(18, 40, 60, 0.05);
+  border: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: center;
+}
+
+.struktur-image-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+}
+
+/* ================== MEDIA QUERIES (RESPONSIVE) ================== */
+@media (max-width: 991px) {
+  .struktur-grid {
+    grid-template-columns: repeat(
+      2,
+      minmax(0, 1fr)
+    ); /* Jadi 2 kolom di tablet */
+  }
+}
+
+@media (max-width: 768px) {
+  .struktur-grid {
+    grid-template-columns: 1fr; /* Jadi 1 kolom bertumpuk di HP */
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 575px) {
+  .ppic-struktur-header .section-title {
+    font-size: 26px;
+  }
+
+  .struktur-image-card {
+    padding: 20px 15px;
+  }
+
+  .struktur-accordion-btn {
+    font-size: 14.5px;
+  }
+}
+
+/* =========================================================================
+   76. PPIC VISI & MISI SECTION
+   ========================================================================= */
+.ppic-visimisi-section {
+  background-color: #f8fafc; /* Latar abu-abu terang */
+  padding: 120px 0 40px;
+  font-family: "Inter", sans-serif;
+}
+
+.ppic-visimisi-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.visimisi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px;
+  align-items: stretch; /* Memastikan kedua card tingginya sejajar */
+}
+
+/* ================== KARTU UMUM ================== */
+.visimisi-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 45px 40px;
+  box-shadow: 0 8px 30px rgba(18, 40, 60, 0.04);
+  border: 1px solid #e2e8f0;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.visimisi-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px rgba(18, 40, 60, 0.08);
+}
+
+.visimisi-icon {
+  margin-bottom: 25px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgba(253, 187, 17, 0.15); /* Latar kuning transparan */
+}
+
+.visimisi-icon i {
+  color: #fdbb11;
+  font-size: 24px;
+}
+
+.visimisi-title {
+  color: #00305b;
+  font-size: 22px;
+  font-weight: 800;
+  margin: 0 0 20px;
+  line-height: 1.3;
+}
+
+/* ================== TEKS & LIST ================== */
+.visimisi-text {
+  color: #334155;
+  font-size: 15.5px;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.visimisi-text em {
+  font-style: italic;
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.visimisi-list {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.visimisi-list li {
+  color: #334155;
+  font-size: 15.5px;
+  line-height: 1.7;
+}
+
+.visimisi-list li em {
+  font-style: italic;
+  font-weight: 500;
+  color: #1e293b;
+}
+
+/* ================== MEDIA QUERIES (RESPONSIVE) ================== */
+@media (max-width: 991px) {
+  .visimisi-grid {
+    grid-template-columns: 1fr; /* Tumpuk atas bawah di layar sedang/kecil */
+    gap: 30px;
+  }
+}
+
+@media (max-width: 575px) {
+  .visimisi-card {
+    padding: 35px 25px;
+  }
+
+  .visimisi-title {
+    font-size: 20px;
+  }
+}
+
+/* =========================================================================
+   77. PPIC TUGAS DAN FUNGSI PPID SECTION
+   ========================================================================= */
+.ppic-tugas-section {
+  background-color: #ffffff; /* Latar putih murni */
+  padding: 120px 0 40px;
+  font-family: "Inter", sans-serif;
+}
+
+.ppic-tugas-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ================== HEADER TEKS ================== */
+.ppic-tugas-header {
+  margin-bottom: 50px;
+  text-align: left;
+}
+
+.ppic-tugas-header .section-title {
+  color: #00305b;
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0 0 16px;
+  line-height: 1.3;
+}
+
+.ppic-tugas-header .section-sub {
+  color: #64748b;
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 0;
+  max-width: 800px;
+}
+
+/* ================== GRID & KARTU ================== */
+.tugas-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px;
+  align-items: stretch; /* Memastikan kartu kiri dan kanan sejajar tingginya */
+}
+
+.tugas-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 45px 40px;
+  box-shadow: 0 8px 30px rgba(18, 40, 60, 0.04);
+  border: 1px solid #f1f5f9;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.tugas-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px rgba(18, 40, 60, 0.08);
+}
+
+/* Styling Ikon Kuning */
+.tugas-icon {
+  margin-bottom: 25px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.tugas-icon i {
+  color: #fdbb11;
+  font-size: 36px; /* Ikon diperbesar sesuai dengan mockup */
+}
+
+.tugas-title {
+  color: #00305b;
+  font-size: 22px;
+  font-weight: 800;
+  margin: 0 0 20px;
+  line-height: 1.3;
+}
+
+/* ================== LIST BULLET ================== */
+.tugas-list {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tugas-list li {
+  color: #334155;
+  font-size: 15.5px;
+  line-height: 1.7;
+}
+
+/* ================== MEDIA QUERIES (RESPONSIVE) ================== */
+@media (max-width: 991px) {
+  .tugas-grid {
+    grid-template-columns: 1fr; /* Tumpuk atas bawah di layar sedang/kecil */
+    gap: 30px;
+  }
+}
+
+@media (max-width: 575px) {
+  .ppic-tugas-header .section-title {
+    font-size: 26px;
+  }
+
+  .tugas-card {
+    padding: 35px 25px;
+  }
+
+  .tugas-title {
+    font-size: 20px;
+  }
+}
+
+/* =========================================================================
+   78. PPIC RENTAL - HERO SECTION
+   ========================================================================= */
+.hero-rental {
+  background-color: #0d233a; /* Biru Navy gelap sesuai mockup */
+  padding: 120px 0 40px;
+  font-family: "Inter", sans-serif;
+  overflow: hidden;
+}
+
+.hero-rental-container {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr; /* Teks mendapat porsi ruang sedikit lebih lebar */
+  gap: 60px;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ================== KOLOM KIRI (TEKS) ================== */
+.hero-rental-text h1 {
+  color: #ffffff;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0 0 20px;
+  letter-spacing: -0.02em;
+}
+
+.hero-rental-text h1 span {
+  color: #fdbb11; /* Warna kuning khas PPI */
+  display: block; /* Memaksa teks ini turun ke baris baru */
+}
+
+.hero-rental-text p {
+  color: #e2e8f0; /* Warna putih keabuan agar tidak menyilaukan */
+  font-size: 17px;
+  line-height: 1.7;
+  margin: 0 0 35px;
+  font-weight: 400;
+  max-width: 90%;
+}
+
+.btn-rental-cta {
+  display: inline-block;
+  background-color: #fdbb11;
+  color: #00305b;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 14px 28px;
+  border-radius: 999px; /* Tombol bentuk Pill */
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.btn-rental-cta:hover {
+  background-color: #e5a80f;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(253, 187, 17, 0.25);
+  color: #00305b;
+}
+
+/* ================== KOLOM KANAN (GAMBAR) ================== */
+.hero-rental-image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-rental-image img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 16px; /* Sesuai mockup, gambar membulat ujungnya */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25); /* Efek melayang */
+  object-fit: cover;
+  display: block;
+}
+
+/* ================== MEDIA QUERIES (RESPONSIVE) ================== */
+@media (max-width: 991px) {
+  .hero-rental-container {
+    grid-template-columns: 1fr; /* Tumpuk teks dan gambar di layar sedang/kecil */
+    gap: 50px;
+    text-align: center;
+  }
+
+  .hero-rental-text p {
+    margin: 0 auto 30px;
+    max-width: 100%;
+  }
+
+  .hero-rental-image img {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 575px) {
+  .hero-rental-text h1 {
+    font-size: 36px;
+  }
+
+  .hero-rental-text p {
+    font-size: 16px;
+  }
+
+  .btn-rental-cta {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* =========================================================================
+   79. PPIC RENTAL - KATEGORI SEWA SECTION
+   ========================================================================= */
+.kategori-section {
+  background-color: #f8fafc; /* Latar abu-abu terang */
+  padding: 120px 0 40px;
+  font-family: "Inter", sans-serif;
+}
+
+.kategori-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ================== HEADER TEKS ================== */
+.kategori-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.kategori-header .section-title {
+  color: #00305b;
+  font-size: 34px;
+  font-weight: 800;
+  margin: 0 0 16px;
+  line-height: 1.3;
+}
+
+.kategori-header .section-sub {
+  color: #64748b;
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+/* ================== GRID KATEGORI ================== */
+.category-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Memusatkan sisa kartu di bawah */
+  gap: 30px;
+  align-items: stretch; /* Memastikan semua card sama tingginya */
+}
+
+/* ================== KARTU KATEGORI ================== */
+.category-card {
+  width: calc(33.333% - 20px); /* Menentukan lebar 3 kolom */
+  background-color: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(18, 40, 60, 0.04);
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+  display: flex;
+  flex-direction: column; /* Struktur flex kolom untuk menempatkan tombol di bawah */
+  border: 1px solid #eef2f6;
+}
+
+.category-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 45px rgba(18, 40, 60, 0.08);
+}
+
+/* Bagian Gambar (Atas) */
+.card-img {
+  height: 220px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background-color: #e2e8f0;
+}
+
+.card-img img {
+  width: 100% !important; /* Tambahkan !important di sini */
+  height: 100% !important; /* Tambahkan !important di sini untuk keamanan */
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  display: block; /* Mencegah spasi kosong di bawah gambar bawaan browser */
+}
+
+.category-card:hover .card-img img {
+  transform: scale(1.05); /* Efek zoom tipis saat card di-hover */
+}
+
+/* Placeholder jika gambar kosong */
+.card-img-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 800;
+  color: #cbd5e1;
+}
+
+/* Bagian Konten Teks (Bawah) */
+.card-content {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Mendorong tombol WhatsApp ke ruang terbawah yang tersedia */
+}
+
+.card-icon {
+  margin-bottom: 16px;
+}
+
+.card-icon i {
+  color: #fdbb11; /* Ikon kuning */
+  font-size: 26px;
+}
+
+.card-content h3 {
+  color: #00305b;
+  font-size: 21px;
+  font-weight: 800;
+  margin: 0 0 12px;
+  line-height: 1.3;
+}
+
+.card-content p {
+  color: #64748b;
+  font-size: 14.5px;
+  line-height: 1.6;
+  margin: 0 0 25px;
+  flex-grow: 1; /* Area teks mengisi ruang kosong sisa */
+}
+
+/* ================== TOMBOL WHATSAPP ================== */
+.btn-wa {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  background-color: #25d366; /* Warna hijau khas WhatsApp */
+  color: #ffffff;
+  font-size: 14.5px;
+  font-weight: 700;
+  padding: 14px 20px;
+  border-radius: 999px; /* Pill shape */
+  text-decoration: none;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.btn-wa:hover {
+  background-color: #1ebc59;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.25);
+  color: #ffffff;
+}
+
+.btn-wa i {
+  font-size: 18px;
+}
+
+@media (max-width: 991px) {
+  .category-card {
+    width: calc(50% - 15px); /* Menjadi 2 kolom di layar Tablet */
+  }
+}
+
+@media (max-width: 767px) {
+  .category-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .category-card {
+    width: 100%; /* Menjadi 1 kolom di layar Mobile */
+    max-width: 450px;
+  }
+}
+
+@media (max-width: 575px) {
+  .kategori-header .section-title {
+    font-size: 28px;
+  }
+
+  .card-img {
+    height: 200px;
+  }
+}
+
+/* =========================================================================
+   80. PPIC RENTAL - HARGA & KETERSEDIAAN (CTA)
+   ========================================================================= */
+.rental-cta-section {
+  padding: 120px 0 40px;
+  background-color: #ffffff; /* Sesuai mockup, sekitarnya putih */
+  font-family: "Inter", sans-serif;
+}
+
+.rental-cta-box {
+  background-color: #f4f6f9; /* Abu-abu kebiruan sangat muda */
+  border-radius: 24px;
+  padding: 60px 40px;
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Tipografi */
+.cta-title {
+  color: #00305b;
+  font-size: 28px;
+  font-weight: 800;
+  margin: 0 0 15px;
+  line-height: 1.3;
+}
+
+.cta-desc {
+  color: #334155;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0 auto 35px;
+  max-width: 700px;
+}
+
+/* ================== TOMBOL CTA ================== */
+.cta-buttons-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+/* Tombol PDF (Kuning) */
+.btn-cta-pdf {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #fdbb11;
+  color: #00305b;
+  font-size: 15px;
+  font-weight: 800;
+  padding: 14px 28px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-cta-pdf:hover {
+  background-color: #e5a80f;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(253, 187, 17, 0.25);
+  color: #00305b;
+}
+
+/* Tombol WA & Email (Biru Navy) */
+.btn-cta-navy {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #00305b;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 14px 28px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-cta-navy:hover {
+  background-color: #00427a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 48, 91, 0.25);
+  color: #ffffff;
+}
+
+.cta-buttons-wrapper i {
+  font-size: 16px;
+}
+
+/* ================== INFO FOOTER ================== */
+.cta-footer-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  color: #4a5b6d;
+  font-size: 14px;
+}
+
+.cta-footer-info span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cta-footer-info .separator {
+  color: #cbd5e1; /* Garis pemisah abu-abu muda */
+}
+
+/* ================== MEDIA QUERIES ================== */
+@media (max-width: 768px) {
+  .rental-cta-box {
+    padding: 40px 20px;
+    border-radius: 20px;
+  }
+
+  .cta-title {
+    font-size: 24px;
+  }
+
+  .cta-buttons-wrapper {
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 25px;
+  }
+
+  .btn-cta-pdf,
+  .btn-cta-navy {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .cta-footer-info {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .cta-footer-info .separator {
+    display: none; /* Sembunyikan separator jika ditumpuk */
+  }
+}
+
+/* ==========================================
+   81. PPIC SURVEY - HERO SECTION
+   ========================================== */
+.survey-hero {
+  /* Gradient biru dongker persis seperti gambar */
+  background: linear-gradient(135deg, #0a1928 0%, #162f46 100%);
+  padding: 120px 0 40px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.survey-hero-container {
+  max-width: 800px; /* Dibatasi agar teks tidak terlalu melebar ke samping */
+  margin: 0 auto;
+}
+
+.survey-hero h1 {
+  font-size: 48px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 24px 0;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.survey-hero h1 span {
+  /* Warna kuning cerah */
+  color: #ffc107;
+}
+
+.survey-hero p.sub {
+  font-size: 18px;
+  font-weight: 400;
+  color: #e2e8f0; /* Putih sedikit abu-abu agar nyaman dibaca */
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsif untuk layar Tablet & HP */
+@media (max-width: 768px) {
+  .survey-hero {
+    padding: 60px 20px;
+  }
+  .survey-hero h1 {
+    font-size: 36px;
+  }
+  .survey-hero p.sub {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .survey-hero {
+    padding: 50px 15px;
+  }
+  .survey-hero h1 {
+    font-size: 28px;
+  }
+  .survey-hero p.sub {
+    font-size: 15px;
+  }
+}
+
+/* ==========================================
+   82. PPIC SURVEY - LIST SECTION
+   ========================================== */
+.ppic-survey-grid-section {
+  background-color: #f8fafc;
+  padding: 120px 0 40px;
+  width: 100%;
+}
+
+.ppic-survey-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Intro Section */
+.ppic-survey-section-intro {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 50px auto;
+}
+
+.ppic-survey-section-intro h2 {
+  font-size: 32px;
+  font-weight: 800;
+  color: #002b49;
+  margin: 0 0 16px 0;
+}
+
+.ppic-survey-section-intro h2 span {
+  color: #ffb703;
+}
+
+.ppic-survey-section-intro p {
+  font-size: 15px;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Grid Layout 3 Kolom */
+.ppic-survey-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px;
+}
+
+/* Base Card & Transition Hover */
+.ppic-survey-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 40px 32px 36px;
+  box-shadow: 0 8px 24px rgba(0, 20, 40, 0.04);
+  border: 1px solid rgba(0, 49, 83, 0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Alignment kiri rata ikon dan tulisan */
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+    box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+    border-color 0.4s ease;
+}
+
+/* Efek Hover Mengangkat + Shadow Lembut Berwarna */
+.ppic-survey-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 38px rgba(0, 33, 65, 0.08);
+  border-color: rgba(0, 49, 83, 0.08);
+}
+
+/* Penambahan Border Warna Atas Halus saat Hover (Aksen Atas seperti Gambar 2) */
+.ppic-survey-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background-color: #ffb703;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.ppic-survey-card:hover::before {
+  opacity: 1;
+}
+
+/* Lingkaran Wadah Ikon */
+.ppic-card-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 24px;
+}
+
+/* Variasi Pewarnaan Ikon Bawaan */
+.ppic-card-icon.gold {
+  background-color: #fef3c7;
+  color: #d97706;
+}
+.ppic-card-icon.teal {
+  background-color: #ccfbf1;
+  color: #0d9488;
+}
+.ppic-card-icon.rose {
+  background-color: #ffe4e6;
+  color: #e11d48;
+}
+.ppic-card-icon.purple {
+  background-color: #f3e8ff;
+  color: #7c3aed;
+}
+.ppic-card-icon.orange {
+  background-color: #ffedd5;
+  color: #ea580c;
+}
+.ppic-card-icon.blue {
+  background-color: #e0f2fe;
+  color: #0284c7;
+}
+
+/* Tipografi Card */
+.ppic-survey-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #002b49;
+  margin: 0 0 8px 0;
+  line-height: 1.3;
+}
+
+/* Target Audience Badge */
+.ppic-survey-audience {
+  display: inline-block;
+  background-color: #f1f5f9;
+  color: #475569;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+  letter-spacing: 0.5px;
+}
+
+.ppic-survey-card p {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0 0 32px 0;
+  flex-grow: 1; /* Memaksa tombol CTA selalu sejajar di paling bawah */
+}
+
+/* Tombol CTA Biru Dongker Oval */
+.ppic-btn-survey {
+  width: 100%;
+  background-color: #00213d;
+  color: #ffffff !important;
+  text-align: center;
+  padding: 13px 24px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 999px;
+  text-decoration: none !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
+}
+
+.ppic-btn-survey i {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+/* Efek Interaksi Tombol di dalam Card */
+.ppic-btn-survey:hover {
+  background-color: #003666;
+}
+
+.ppic-btn-survey:hover i {
+  transform: translateX(4px); /* Efek panah bergeser manja saat di-hover */
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN (BREAKPOINTS)
+   ========================================== */
+@media (max-width: 991px) {
+  .ppic-survey-grid {
+    grid-template-columns: repeat(
+      2,
+      minmax(0, 1fr)
+    ); /* Layar tablet menjadi 2 kolom */
+    gap: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .ppic-survey-grid {
+    grid-template-columns: repeat(
+      1,
+      minmax(0, 1fr)
+    ); /* Layar HP menjadi 1 kolom penuh */
+  }
+
+  .ppic-survey-section-intro h2 {
+    font-size: 26px;
+  }
+
+  .ppic-survey-card {
+    padding: 32px 24px;
+  }
+}
+
+/* ==========================================
+   83. PPIC SURVEY QUOTE SECTION
+   ========================================== */
+.ppic-survey-quote-section {
+  background-color: #002b49; /* Warna background biru dongker */
+  padding: 120px 0 40px;
+  width: 100%;
+  text-align: center;
+  color: #ffffff;
+}
+
+.ppic-survey-quote-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.ppic-survey-quote-section blockquote {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.6;
+  margin: 0 0 24px 0;
+  padding: 0;
+  border: none;
+  position: relative;
+  color: #ffffff;
+}
+
+/* Mengatur ukuran dan posisi ikon kutipan FontAwesome */
+.ppic-survey-quote-section blockquote i {
+  color: #ffb703; /* Warna kuning emas */
+  font-size: 22px;
+  margin: 0 8px;
+  vertical-align: super;
+}
+
+/* Teks Sumber / Atribusi */
+.ppic-quote-attribution {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffb703; /* Warna kuning emas */
+  margin-bottom: 40px;
+}
+
+/* Catatan Kaki */
+.ppic-quote-note {
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.8;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ppic-quote-note p {
+  margin: 0;
+}
+
+/* Responsif Layar Kecil */
+@media (max-width: 768px) {
+  .ppic-survey-quote-section {
+    padding: 60px 20px;
+  }
+
+  .ppic-survey-quote-section blockquote {
+    font-size: 20px;
+  }
+
+  .ppic-quote-note {
+    font-size: 13px;
+    margin-top: 30px;
+    padding-top: 25px;
+  }
+}
+
+/* ==========================================
+   84. PPIC PRODI HERO SECTION
+   ========================================== */
+.ppic-prodi-hero-section {
+  background-color: #12314a; /* Warna dasar biru dongker */
+  position: relative;
+  overflow: hidden;
+  padding: 200px 0 40px;
+  width: 100%;
+}
+
+/* Dekorasi lingkaran besar di kanan seperti gambar referensi */
+.prodi-hero-decoration {
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(
+    circle,
+    rgba(32, 69, 102, 0.6) 0%,
+    rgba(18, 49, 74, 0) 70%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Sembunyikan dekorasi jika admin memakai gambar upload sendiri */
+.ppic-prodi-hero-section.has-bg-image .prodi-hero-decoration {
+  display: none;
+}
+
+.ppic-prodi-hero-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2; /* Agar teks berada di atas dekorasi */
+}
+
+/* Tipografi Judul */
+.ppic-prodi-hero-section h1 {
+  font-size: 52px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 20px 0;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.ppic-prodi-hero-section h1 span {
+  color: #ffb703; /* Warna kuning highlight */
+}
+
+/* Tipografi Subtitle */
+.prodi-subtitle {
+  font-size: 18px;
+  font-weight: 400;
+  color: #e2e8f0;
+  line-height: 1.6;
+  margin: 0 0 40px 0;
+  max-width: 750px; /* Membatasi lebar teks agar tidak terlalu panjang dibaca */
+}
+
+/* Badge Wrapper (Flexbox) */
+.prodi-badge-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+
+/* Desain Pill/Badge */
+.prodi-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: rgba(255, 255, 255, 0.12); /* Efek tembus pandang elegan */
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 999px; /* Bentuk kapsul */
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.prodi-badge i {
+  color: #ffb703; /* Ikon warna kuning */
+  font-size: 16px;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN (BREAKPOINTS)
+   ========================================== */
+@media (max-width: 991px) {
+  .ppic-prodi-hero-section h1 {
+    font-size: 42px;
+  }
+  .prodi-subtitle {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 575px) {
+  .ppic-prodi-hero-section h1 {
+    font-size: 32px;
+  }
+  .prodi-subtitle {
+    font-size: 15px;
+    margin-bottom: 30px;
+  }
+  .prodi-badge-wrapper {
+    gap: 12px;
+  }
+  .prodi-badge {
+    font-size: 13px;
+    padding: 8px 16px;
+  }
+}
+
+/* ==========================================
+   85. PPIC PRODI STICKY NAVIGATION
+   ========================================== */
+.ppic-prodi-nav {
+  background: #ffffff;
+  border-bottom: 2px solid #f1f5f9; /* Pengganti var(--gray-200) */
+  position: -webkit-sticky;
+  position: sticky;
+  /* top: 80px; -> Diatur secara dinamis via inline-style PHP */
+  z-index: 499;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.ppic-prodi-nav-container {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  overflow-x: auto; /* Memungkinkan horizontal scroll di layar kecil */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Sembunyikan scrollbar bawah agar terlihat bersih */
+.ppic-prodi-nav-container::-webkit-scrollbar {
+  display: none;
+}
+
+.prodi-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #64748b; /* Warna teks abu-abu pudar */
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none !important;
+  padding: 16px 0;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+  white-space: nowrap; /* Mencegah teks turun ke baris baru */
+}
+
+/* Warna ikon kuning mustard sesuai gambar desain */
+.prodi-nav-link i {
+  color: #ffb703;
+  font-size: 15px;
+  transition: transform 0.3s ease;
+}
+
+/* Efek Hover dan State Aktif (Teks menjadi biru tua) */
+.prodi-nav-link:hover,
+.prodi-nav-link.active {
+  color: #002b49;
+  border-bottom-color: #ffb703;
+}
+
+.prodi-nav-link:hover i {
+  transform: scale(1.1); /* Efek membesar sedikit saat di-hover */
+}
+
+/* ==========================================
+   86. PPIC PRODI OVERVIEW SECTION
+   ========================================== */
+.ppic-prodi-overview-section {
+  padding: 200px 0 40px;
+  background-color: #ffffff;
+  width: 100%;
+}
+
+.ppic-overview-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header Section */
+.ppic-section-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #002b49; /* Biru dongker gelap */
+  margin: 0 0 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ppic-section-title i {
+  color: #ffb703; /* Warna kuning ikon judul */
+}
+
+.ppic-section-sub {
+  font-size: 16px;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0 0 40px 0;
+  max-width: 800px;
+}
+
+/* Grid Tata Letak Utama (Kiri 2fr, Kanan 1fr) */
+.ppic-overview-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+/* KONTEN KIRI (Teks Kaya) */
+.ppic-overview-text {
+  color: #334155;
+}
+
+.ppic-rich-text p {
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 16px;
+  color: #2d3e4f;
+}
+
+.ppic-rich-text ul {
+  list-style: disc;
+  padding-left: 24px;
+  margin: 12px 0 20px;
+  color: #2d3e4f;
+  font-size: 15px;
+}
+
+.ppic-rich-text li {
+  margin-bottom: 8px;
+}
+
+/* Badge Akreditasi (Hijau) */
+.ppic-akreditasi-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #ecfdf5; /* Hijau pudar */
+  border: 1px solid #a7f3d0;
+  color: #065f46; /* Hijau tua */
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 24px;
+}
+
+.ppic-akreditasi-badge i {
+  font-size: 18px;
+}
+
+/* KONTEN KANAN (Sidebar Sekilas TMB) */
+.ppic-overview-side {
+  background-color: #f8fafc;
+  border-radius: 16px;
+  padding: 32px 24px;
+  border-left: 5px solid #ffb703; /* Garis kuning di kiri */
+}
+
+.ppic-overview-side h4 {
+  font-size: 16px;
+  font-weight: 800;
+  color: #002b49;
+  margin: 0 0 24px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ppic-overview-side h4 i {
+  color: #ffb703;
+  font-size: 18px;
+}
+
+.ppic-overview-side ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ppic-overview-side li {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.ppic-overview-side li:last-child {
+  margin-bottom: 0;
+}
+
+.ppic-overview-side li i {
+  color: #ffb703; /* Ikon kuning/orange */
+  font-size: 18px;
+  margin-top: 4px;
+  width: 20px;
+  text-align: center;
+}
+
+.ppic-overview-side li div {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.ppic-overview-side li div strong {
+  color: #002b49;
+  font-size: 14px;
+}
+
+/* ==========================================
+   VISI & MISI SECTION
+   ========================================== */
+.ppic-visi-misi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.ppic-vm-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+}
+
+.ppic-vm-card h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #002b49;
+  margin: 0 0 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ppic-vm-card h4 i {
+  color: #ffb703;
+}
+
+.visi-card p {
+  font-size: 15px;
+  color: #334155;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.misi-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.misi-card li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: #334155;
+  line-height: 1.6;
+}
+
+.misi-card li:last-child {
+  margin-bottom: 0;
+}
+
+.misi-card li i {
+  color: #ffb703; /* Ceklis warna kuning */
+  font-size: 14px;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+/* ==========================================
+   RESPONSIVE (MOBILE)
+   ========================================== */
+@media (max-width: 991px) {
+  .ppic-overview-grid {
+    grid-template-columns: 1fr; /* Sidebar turun ke bawah */
+    gap: 30px;
+  }
+
+  .ppic-visi-misi-grid {
+    grid-template-columns: 1fr; /* Visi Misi jadi atas bawah */
+  }
+}
+
+/* ==========================================
+   87. PPIC PRODI KURIKULUM SECTION
+   ========================================== */
+.ppic-kurikulum-section.alt {
+  background-color: #f8fafc; /* Latar abu-abu kebiruan terang */
+  padding: 200px 0 40px;
+  width: 100%;
+}
+
+.ppic-kurikulum-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Base styling Header mengikuti section sebelumnya */
+.ppic-section-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #002b49;
+  margin: 0 0 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ppic-section-title i {
+  color: #ffb703;
+}
+
+.ppic-section-sub {
+  font-size: 16px;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0 0 40px 0;
+  max-width: 800px;
+}
+
+/* ==========================================
+   WRAPPER & TOGGLE BAR
+   ========================================== */
+.ppic-kurikulum-wrapper {
+  width: 100%;
+}
+
+.ppic-kurikulum-info {
+  background-color: #00213d; /* Biru dongker pekat */
+  border-radius: 16px;
+  padding: 24px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0, 33, 61, 0.1);
+  position: relative;
+  z-index: 2;
+}
+
+.ppic-stat-group {
+  display: flex;
+  gap: 40px;
+}
+
+.ppic-kurikulum-info .stat {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ppic-kurikulum-info .stat i {
+  color: #ffb703;
+  font-size: 28px;
+}
+
+.ppic-kurikulum-info .stat .num {
+  font-size: 24px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-right: 6px;
+}
+
+.ppic-kurikulum-info .stat .label {
+  font-size: 14px;
+  color: #cbd5e1;
+  font-weight: 500;
+}
+
+.toggle-icon {
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffb703;
+  transition:
+    transform 0.4s ease,
+    background-color 0.3s ease;
+}
+
+.ppic-kurikulum-info:hover .toggle-icon {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ==========================================
+   COLLAPSIBLE CONTENT & GRID
+   ========================================== */
+.ppic-kurikulum-collapse {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Saat aktif (terbuka) diset dari JS, namun ini fallback CSS-nya */
+.ppic-kurikulum-collapse.active {
+  max-height: none; /* Dikontrol via JS agar transisi smooth */
+}
+
+.ppic-kurikulum-collapse-inner {
+  padding-top: 30px; /* Jarak antara toggle bar dengan grid */
+}
+
+.ppic-kurikulum-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
+}
+
+/* Card Semester */
+.ppic-kurikulum-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+  border: 1px solid #e2e8f0;
+}
+
+.ppic-kurikulum-card h4 {
+  font-size: 18px;
+  font-weight: 800;
+  color: #002b49;
+  margin: 0 0 20px 0;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #f1f5f9;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ppic-kurikulum-card h4 i {
+  color: #ffb703; /* Warna ikon angka */
+}
+
+.ppic-kurikulum-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ppic-kurikulum-card li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px dotted #cbd5e1; /* Garis pemisah titik-titik */
+  font-size: 14px;
+  color: #475569;
+}
+
+.ppic-kurikulum-card li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.ppic-kurikulum-card li .subject-name {
+  flex: 1;
+  padding-right: 15px;
+  line-height: 1.4;
+}
+
+.ppic-kurikulum-card li .sks {
+  font-weight: 700;
+  color: #002b49;
+  white-space: nowrap;
+}
+
+/* Catatan Kurikulum */
+.ppic-kurikulum-note {
+  font-size: 13px;
+  color: #64748b;
+  text-align: center;
+  margin: 30px 0 0 0;
+  font-style: italic;
+}
+
+/* ==========================================
+   RESPONSIVE LAYOUT
+   ========================================== */
+@media (max-width: 991px) {
+  .ppic-kurikulum-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .toggle-icon {
+    position: absolute;
+    top: 24px;
+    right: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ppic-kurikulum-grid {
+    grid-template-columns: 1fr; /* Jadi 1 kolom di Mobile */
+    gap: 24px;
+  }
+  .ppic-stat-group {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+/* ==========================================
+   88. PPIC PRODI PROFIL LULUSAN SECTION
+   ========================================== */
+.ppic-profil-lulusan-section {
+  padding: 200px 0 40px;
+  background-color: #ffffff;
+  width: 100%;
+}
+
+.ppic-profil-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Base styling Header mengikuti global pattern */
+.ppic-section-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #002b49;
+  margin: 0 0 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ppic-section-title i {
+  color: #ffb703;
+}
+
+.ppic-section-sub {
+  font-size: 16px;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0 0 40px 0;
+  max-width: 800px;
+}
+
+/* Grid Layout */
+.ppic-profil-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+/* Desain Kartu Profil */
+.ppic-profil-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 4px 16px rgba(0, 33, 61, 0.04);
+  border: 1px solid #f1f5f9;
+  border-left: 4px solid #ffb703; /* Aksen garis kuning khas di sebelah kiri */
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.ppic-profil-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 33, 61, 0.08);
+}
+
+.ppic-profil-card h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #002b49;
+  margin: 0 0 16px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  line-height: 1.4;
+}
+
+.ppic-profil-card h4 i {
+  color: #ffb703;
+  font-size: 18px;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.ppic-profil-card p {
+  font-size: 15px;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ==========================================
+   RESPONSIVE LAYOUT
+   ========================================== */
+@media (max-width: 768px) {
+  .ppic-profil-grid {
+    grid-template-columns: 1fr; /* Berubah menjadi 1 kolom di layar HP/Tablet kecil */
+  }
+
+  .ppic-profil-card {
+    padding: 24px;
+  }
+}
+
+/* ==========================================
+   89. PPIC PRODI SERTIFIKASI SECTION
+   ========================================== */
+.ppic-sertif-section.alt {
+  background-color: #f8fafc;
+  padding: 200px 0 40px;
+  width: 100%;
+}
+
+.ppic-sertif-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Base Title */
+.ppic-section-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #002b49;
+  margin: 0 0 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ppic-section-title i {
+  color: #ffb703;
+}
+
+.ppic-section-sub {
+  font-size: 16px;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0 0 40px 0;
+  max-width: 800px;
+}
+
+/* ==========================================
+   MAIN GRID (Kiri & Kanan)
+   ========================================== */
+.ppic-sertif-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.ppic-sertif-list-card,
+.ppic-sertif-image-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+  border: 1px solid #e2e8f0;
+}
+
+/* Bagian Kiri (Daftar Sertifikasi) */
+.ppic-sertif-list-card h4 {
+  font-size: 18px;
+  font-weight: 800;
+  color: #002b49;
+  margin: 0 0 24px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ppic-sertif-list-card h4 i {
+  color: #ffb703;
+}
+
+.ppic-sertif-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px 0;
+}
+
+.ppic-sertif-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: #334155;
+  line-height: 1.6;
+}
+
+.ppic-sertif-list li:last-child {
+  margin-bottom: 0;
+}
+
+.ppic-sertif-list li i {
+  color: #ffb703; /* Ceklis oranye/kuning */
+  font-size: 16px;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.ppic-sertif-note-box {
+  background-color: #f8fafc;
+  border-radius: 12px;
+  padding: 16px 20px;
+  border-left: 4px solid #ffb703;
+}
+
+.ppic-sertif-note-box p {
+  margin: 0;
+  font-size: 14.5px;
+  color: #2d3e4f;
+  line-height: 1.5;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.ppic-sertif-note-box p i {
+  color: #ffb703;
+  margin-top: 3px;
+}
+
+/* Bagian Kanan (Gambar Sertifikat) */
+.ppic-sertif-image-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.ppic-cert-img {
+  max-height: 260px;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 16px;
+}
+
+.ppic-cert-caption {
+  font-size: 14px;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.ppic-cert-caption i {
+  color: #ffb703;
+}
+
+.ppic-cert-img-note {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px;
+  width: 100%;
+  text-align: left;
+}
+
+.ppic-cert-img-note p {
+  margin: 0;
+  font-size: 14px;
+  color: #475569;
+  line-height: 1.6;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.ppic-cert-img-note p i {
+  color: #ffb703;
+  margin-top: 4px;
+}
+
+/* ==========================================
+   APPROVAL SECTION (Bawah)
+   ========================================== */
+.ppic-approval-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+  border: 1px solid #e2e8f0;
+}
+
+.ppic-approval-card h4 {
+  font-size: 18px;
+  font-weight: 800;
+  color: #002b49;
+  margin: 0 0 24px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ppic-approval-card h4 i {
+  color: #ffb703;
+}
+
+.ppic-approval-grid {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.ppic-approval-img-wrap img {
+  max-height: 140px;
+  width: auto;
+  object-fit: contain;
+}
+
+.ppic-approval-text {
+  color: #334155;
+}
+
+.ppic-approval-text .app-desc {
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0 0 16px 0;
+}
+
+.ppic-approval-text .app-meta {
+  font-size: 14px;
+  color: #64748b;
+  margin: 0 0 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ppic-approval-text .app-meta:last-child {
+  margin-bottom: 0;
+}
+
+.ppic-approval-text .app-meta i {
+  color: #ffb703;
+}
+
+.ppic-approval-text .app-meta strong {
+  color: #002b49;
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+@media (max-width: 991px) {
+  .ppic-sertif-grid {
+    grid-template-columns: 1fr; /* Jadi 1 kolom bertumpuk */
+  }
+}
+
+@media (max-width: 768px) {
+  .ppic-approval-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .ppic-approval-img-wrap {
+    margin-bottom: 20px;
+  }
+
+  .ppic-approval-text .app-meta {
+    justify-content: center;
+  }
+}
+
+/* ==========================================
+   90. PPIC PRODI FASILITAS SECTION
+   ========================================== */
+.ppic-fasilitas-section {
+  padding: 200px 0 40px;
+  background-color: #ffffff;
+  width: 100%;
+}
+
+.ppic-fasilitas-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Base Title (Mengikuti pola konsisten) */
+.ppic-section-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #002b49;
+  margin: 0 0 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ppic-section-title i {
+  color: #ffb703;
+}
+
+.ppic-section-sub {
+  font-size: 16px;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0 0 40px 0;
+  max-width: 800px;
+}
+
+/* ==========================================
+   WRAPPER & TOGGLE HEADER
+   ========================================== */
+.ppic-fasilitas-wrapper {
+  width: 100%;
+}
+
+.ppic-fasilitas-header {
+  background-color: #002b49; /* Biru Dongker Gelap */
+  border-radius: 12px;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0, 33, 61, 0.08);
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.ppic-fasilitas-header:hover {
+  background-color: #00365c;
+}
+
+.ppic-fasilitas-header .toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.ppic-fasilitas-header i {
+  color: #ffb703; /* Ikon chevron berwarna kuning */
+  font-size: 18px;
+}
+
+.ppic-fasilitas-header .toggle-icon i {
+  transition: transform 0.4s ease;
+}
+
+/* ==========================================
+   COLLAPSIBLE GRID CONTENT
+   ========================================== */
+.ppic-fasilitas-collapse {
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.ppic-fasilitas-collapse.collapsed {
+  max-height: 0;
+}
+
+.ppic-fasilitas-collapse-inner {
+  padding-top: 30px;
+}
+
+.ppic-fasilitas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 Kolom */
+  gap: 24px;
+}
+
+/* Desain Kartu Fasilitas */
+.ppic-fasilitas-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.ppic-fasilitas-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.ppic-fasilitas-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover; /* Memastikan foto seragam walau ukurannya beda */
+  display: block;
+}
+
+.ppic-fasilitas-card .fasilitas-caption {
+  padding: 20px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #002b49;
+  border-top: 1px solid #f1f5f9;
+}
+
+/* ==========================================
+   RESPONSIVE LAYOUT
+   ========================================== */
+@media (max-width: 991px) {
+  .ppic-fasilitas-grid {
+    grid-template-columns: repeat(
+      2,
+      minmax(0, 1fr)
+    ); /* Turun jadi 2 kolom di tablet */
+  }
+}
+
+@media (max-width: 640px) {
+  .ppic-fasilitas-grid {
+    grid-template-columns: 1fr; /* Jadi 1 kolom vertikal di HP */
+  }
+
+  .ppic-fasilitas-header {
+    padding: 16px 20px;
+  }
+
+  .ppic-fasilitas-header .toggle-label {
+    font-size: 15px;
   }
 }
