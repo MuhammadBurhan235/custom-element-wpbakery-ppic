@@ -69,6 +69,7 @@ $excluded_files = array(
     'datadosendekstop.html',
     'datadosenmobile.html',
     'daftarinfo.css',
+    'context.txt'
 );
 
 $excluded_directories = array(

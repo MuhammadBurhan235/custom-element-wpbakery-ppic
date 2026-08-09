@@ -1,0 +1,89 @@
+About the job
+Moodle with us!
+
+We're the world's most popular learning platform, and we’re on a mission to empower educators to improve our world.
+
+Are you passionate about technology, already building things with AI coding agents, and excited to kick-start your career in software development?
+
+
+
+At Moodle, we are looking for motivated and curious Junior Developers to join our Platform Solutions team. The Platform Solutions team plays an integral role in building, improving and maintaining the open-source Moodle LMS (Learning Management System), and is dedicated to creating a platform that all of Moodle's products can leverage while optimising the platform's performance and usability, and integrations with other software solutions and plugins.
+
+
+
+We're building a team that works with AI, not around it. If you've been teaching yourself to build with tools like Claude Code, Cursor, Copilot or the OpenAI/Anthropic APIs, and you can show us what you've made, we want to hear from you. It matters far more to us what you've built than where (or whether) you studied
+
+This is a fully remote role and can be offered as a permanent role in India, Indonesia, Vietnam or the Philippines.
+
+
+
+What your new job can look like..
+
+At Moodle, no two days will ever be the same, but will involve a mix of:
+
+Collaborating with experienced developers on designing, developing, and implementing software solutions.
+Using AI coding agents as part of your everyday workflow: scoping the task, writing a clear spec or prompt, then reviewing, testing and refining what comes back.
+Writing clean, scalable, and efficient code across various platforms and applications, and being able to explain and defend every line of it, whether you or an agent wrote it first.
+Building small automations and internal tools that make the wider team faster.
+Participating in code reviews, learning best practices and improving code quality.
+Contributing to the full software development lifecycle from concept to deployment and maintenance.
+Learning new technologies and tools while solving real-world problems.
+Contributing to projects that impact millions of users globally.
+
+
+We'd love to meet you..
+
+Especially if you can talk to us about your:
+
+Hands-on experience with agentic AI development tools (for example Claude Code, Cursor, GitHub Copilot, or agents you've built yourself with an LLM API). Self-taught absolutely counts: side projects, hackathons, open-source contributions and things you built for fun are all evidence.
+Working understanding of how to get good results from these tools: giving an agent the right context, breaking work into verifiable steps, and knowing when the output is wrong.
+Judgement about where AI helps and where it doesn't, and a healthy scepticism about code you didn't reason through yourself.
+Experience with or knowledge of PHP and JavaScript.
+Passion for problem-solving, keen attention to detail and the desire to continuously improve.
+Enthusiastic and approachable personality with the ability to build and maintain quality relationships with multiple stakeholders within a global team.
+Strong communication skills and the ability to work in a collaborative environment: increasingly, being a strong developer means being able to describe a problem precisely, to people and to machines.
+Eagerness to learn new technologies and adapt to new challenges quickly.
+
+
+Nice to have, not required: familiarity with MCP (Model Context Protocol), retrieval-augmented generation, prompt/context engineering, agent evaluation or testing, or having published a tool, plugin or agent of your own.
+
+You don't need a certification or a formal AI qualification for this role. A GitHub repo, a demo video or a blog post explaining something you built will tell us more than any course certificate.
+
+
+
+Find out more about us at https://moodle.com/careers/
+
+
+
+What life at Moodle is like..
+
+Moodle has a globally diverse team with over 280 team members in more than 25 countries around the world. We’ve built a passionate team of hard-working, driven and diverse people from all over the world, united by a shared belief in the ability of our platform to make a positive difference in our world. We respect our colleagues and value an open and innovative workplace filled with integrity and of course a strong focus on education (yes, these are our company values!)
+
+What else, you say?
+
+Our team can work from anywhere, with a flexible working environment that promotes true work-life balance.
+We believe in motivating performance rather than micromanaging it, empowering you to do what you do best.
+Gaining new skills by learning from highly skilled peers, along with your own learning and development allowance each year to support your growth.
+Work with a global team on a worldwide platform and make a real difference.
+As a certified B Corp, we are proud to be part of a global community of mission-driven companies dedicated to using business as a force for good.
+Other excellent benefits, like an extra time-off to recharge yourself, give back to a charity or community group, and enjoy a day off for your birthday, ‘choose your own’ benefit options, flexible public holidays, and many more!
+
+
+Learn more about your new workplace..
+
+Moodle is the world’s most trusted online learning solution, with a growing ecosystem of products and services, including Moodle Workplace, Moodle App, MoodleCloud, and more. The engine of our ecosystem is Moodle LMS, the secure and customisable open-source learning management platform used by well over 400 million learners worldwide.
+
+Find out more about us on our website.
+
+Does all this sound good? If so:
+
+Click on the following link to apply.
+Add your resume and anything else you'd like to add.
+Press send.
+
+
+At Moodle we are an equal opportunity employer that actively supports diversity and inclusion in the workplace and prohibits discrimination and harassment of any kind. We’re committed to fair recruitment and selection practices, ensuring we are drawing from a diverse range of sources to attract and select the very best person for the job. Learn more in our Diversity & Inclusion Charter.
+
+
+
+By applying for this role, you agree to Moodle processing your personal data for recruitment purposes. You have the right to access, correct, or request deletion of your personal data at any time by contacting privacy@moodle.com. For full details on how we handle your data, please review our Privacy Notice.
