@@ -10,7 +10,7 @@ function ppic_prodi_kurikulum_render( $atts ) {
             'section_id'     => 'kurikulum',
             'title'          => 'Kurikulum',
             'title_icon'     => 'fas fa-book-open',
-            'subtitle'       => 'Kurikulum dirancang berbasis kompetensi dengan perbandingan praktikum yang lebih besar daripada teori, sehingga lulusan benar-benar siap terjun ke dunia industri.',
+            'subtitle'       => 'Kurikulum TMB dirancang berbasis kompetensi dengan perbandingan praktikum yang lebih besar daripada teori, sehingga lulusan benar-benar siap terjun ke dunia industri.',
             'total_sks'      => '109',
             'total_semester' => '6',
             'semesters'      => '',
@@ -182,17 +182,37 @@ function ppic_register_prodi_kurikulum_element() {
         return;
     }
 
-    // Default data dummy yang disesuaikan dengan cara input Textarea
+    // Default data dummy yang disesuaikan dengan cara input Textarea dan mencakup seluruh 6 semester
     $dummy_semesters = array(
         array( 
             'title' => 'Semester I', 
             'icon'  => 'fas fa-1', 
-            'subjects' => "Pendidikan Agama | 2 SKS\nPendidikan Pancasila | 2 SKS\nBahasa Inggris Teknik | 2 SKS\nMatematika Teknik | 3 SKS\nFisika Terapan | 3 SKS\nGambar Teknik | 3 SKS" 
+            'subjects' => "Pendidikan Agama | 2 SKS\nPendidikan Pancasila | 2 SKS\nBahasa Inggris Teknik | 2 SKS\nMatematika Teknik | 3 SKS\nFisika Terapan | 3 SKS\nGambar Teknik | 3 SKS\nPengantar Teknik Mekanikal | 2 SKS\nPraktikum Gambar Teknik | 2 SKS" 
         ),
         array( 
             'title' => 'Semester II', 
             'icon'  => 'fas fa-2', 
-            'subjects' => "Bahasa Indonesia | 2 SKS\nKewarganegaraan | 2 SKS\nMekanika Teknik | 3 SKS\nTermodinamika Dasar | 3 SKS\nTeknologi Mekanik | 3 SKS\nKeselamatan Kerja | 2 SKS" 
+            'subjects' => "Bahasa Indonesia | 2 SKS\nKewarganegaraan | 2 SKS\nMekanika Teknik | 3 SKS\nTermodinamika Dasar | 3 SKS\nTeknologi Mekanik | 3 SKS\nPraktikum Teknologi Mekanik | 3 SKS\nKeselamatan Kerja | 2 SKS" 
+        ),
+        array( 
+            'title' => 'Semester III', 
+            'icon'  => 'fas fa-3', 
+            'subjects' => "Mekanika Fluida | 3 SKS\nSistem Refrigerasi Dasar | 3 SKS\nPraktikum AC 1 | 3 SKS\nSistem Pompa dan Pemipaan | 3 SKS\nPraktikum Water & Pump System | 3 SKS\nRangkaian Listrik | 2 SKS\nPraktikum Elektromekanikal | 2 SKS" 
+        ),
+        array( 
+            'title' => 'Semester IV', 
+            'icon'  => 'fas fa-4', 
+            'subjects' => "Air Conditioning Lanjutan | 3 SKS\nPraktikum AC 2 | 3 SKS\nTraction Equipment | 3 SKS\nAlat Berat & PKP-PK | 3 SKS\nPraktikum Alat Berat | 2 SKS\nPLC & Otomasi | 2 SKS\nPraktikum PLC | 2 SKS" 
+        ),
+        array( 
+            'title' => 'Semester V', 
+            'icon'  => 'fas fa-5', 
+            'subjects' => "Hidrolik & Pneumatik | 3 SKS\nPraktikum Hidrolik & Pneumatik | 2 SKS\nPerawatan & Perbaikan | 3 SKS\nAnalisis Kerusakan | 2 SKS\nPerencanaan & Evaluasi | 2 SKS\nEtika Profesi | 2 SKS\nKewirausahaan | 2 SKS" 
+        ),
+        array( 
+            'title' => 'Semester VI', 
+            'icon'  => 'fas fa-6', 
+            'subjects' => "Manajemen Pemeliharaan | 2 SKS\nAudit & Sertifikasi | 2 SKS\nTugas Akhir (TA) | 4 SKS\nPraktik Kerja Lapangan (PKL) | 4 SKS\nUji Kompetensi | 2 SKS" 
         ),
     );
 
@@ -230,7 +250,7 @@ function ppic_register_prodi_kurikulum_element() {
                     'type'        => 'textarea',
                     'heading'     => __( 'Teks Subtitle Pendek', 'ppic-custom-element' ),
                     'param_name'  => 'subtitle',
-                    'value'       => 'Kurikulum dirancang berbasis kompetensi dengan perbandingan praktikum yang lebih besar daripada teori, sehingga lulusan benar-benar siap terjun ke dunia industri.',
+                    'value'       => 'Kurikulum TMB dirancang berbasis kompetensi dengan perbandingan praktikum yang lebih besar daripada teori, sehingga lulusan benar-benar siap terjun ke dunia industri.',
                     'group'       => __( 'Header', 'ppic-custom-element' ),
                 ),
                 // STATISTIK BAR ATAS

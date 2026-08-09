@@ -7,30 +7,32 @@ add_shortcode( 'ppic_post_for_all', 'ppic_post_for_all_render' );
 function ppic_post_for_all_render( $atts ) {
     $atts = shortcode_atts(
         array(
-            'post_mode'   => 'semua', 
-            'category'    => '',      
-            'filter_cats' => '',      
-            'display_count'=> '3',     
-            'fetch_count' => '6',     
-            'title'       => 'Berita Terkini',
-            'desc'        => 'Informasi unggulan seputar prestasi, kerja sama, dan dinamika kampus kedirgantaraan.',
-            'btn_text'    => 'Lihat Semua Berita',
-            'btn_url'     => 'url:%2Fberita|title:Semua%20Berita',
-            'el_id'       => 'post-section',
-            'el_class'    => '',
+            'post_mode'    => 'semua', 
+            'category'     => '',      
+            'filter_cats'  => '',      
+            'display_count'=> '6',     // Default batas awal
+            'title'        => 'Berita Terkini',
+            'desc'         => 'Informasi unggulan seputar prestasi, kerja sama, dan dinamika kampus kedirgantaraan.',
+            'btn_text'     => 'Lihat Semua Berita',
+            'btn_url'      => 'url:%2Fberita|title:Semua%20Berita',
+            'el_id'        => 'post-section',
+            'el_class'     => '',
         ),
         $atts
     );
+
+    // Bikin ID unik agar JS tidak saling tabrak jika ada >1 elemen di halaman
+    $unique_id = 'ppic-post-uid-' . wp_rand(10000, 99999);
 
     $link = ( '||' !== $atts['btn_url'] ) ? vc_build_link( $atts['btn_url'] ) : '';
     $a_href   = ! empty( $link['url'] ) ? $link['url'] : '#';
     $a_target = ! empty( $link['target'] ) ? ' target="' . esc_attr( trim( $link['target'] ) ) . '"' : '';
 
-    $wrapper_id = ! empty( $atts['el_id'] ) ? ' id="' . esc_attr( $atts['el_id'] ) . '"' : '';
-    $wrapper_class = 'ppic-post-wrapper' . ( ! empty( $atts['el_class'] ) ? ' ' . esc_attr( trim( $atts['el_class'] ) ) : '' );
+    $section_id_attr = ! empty( $atts['el_id'] ) ? ' id="' . esc_attr( $atts['el_id'] ) . '"' : '';
+    $wrapper_class   = 'ppic-post-wrapper' . ( ! empty( $atts['el_class'] ) ? ' ' . esc_attr( trim( $atts['el_class'] ) ) : '' );
 
-    $display_limit = intval( $atts['display_count'] ) > 0 ? intval( $atts['display_count'] ) : 3;
-    $fetch_limit   = intval( $atts['fetch_count'] ) > 0 ? intval( $atts['fetch_count'] ) : 6;
+    $display_limit = intval( $atts['display_count'] ) > 0 ? intval( $atts['display_count'] ) : 6;
+    $fetch_limit   = 30; // Ditetapkan mutlak 30 dari sistem (Background limit)
 
     // KATEGORI UNTUK FILTER
     $active_categories = array();
@@ -59,28 +61,20 @@ function ppic_post_for_all_render( $atts ) {
     $fetched_posts = array();
 
     if ( $atts['post_mode'] === 'semua' ) {
-        foreach ( $cat_ids_to_query as $cid ) {
-            $posts_in_cat = get_posts( array(
-                'post_type'   => 'post',
-                'post_status' => 'publish',
-                'numberposts' => $fetch_limit,
-                'category'    => $cid,
-            ) );
-            
-            foreach ( $posts_in_cat as $p ) {
-                $fetched_posts[ $p->ID ] = $p;
-            }
-        }
-        usort( $fetched_posts, function($a, $b) {
-            return strtotime( $b->post_date ) > strtotime( $a->post_date ) ? 1 : -1;
-        });
-
+        $fetched_posts = get_posts( array(
+            'post_type'      => 'post',
+            'post_status'    => 'publish',
+            'numberposts'    => $fetch_limit,
+            'category__in'   => $cat_ids_to_query,
+            'orderby'        => 'date',
+            'order'          => 'DESC'
+        ) );
     } else {
         $cid = ! empty( $atts['category'] ) ? intval( $atts['category'] ) : 0;
         $fetched_posts = get_posts( array(
             'post_type'   => 'post',
             'post_status' => 'publish',
-            'numberposts' => $display_limit,
+            'numberposts' => $display_limit, // Mode spesifik mutlak sesuai limit awal
             'category'    => $cid,
         ) );
     }
@@ -118,6 +112,7 @@ function ppic_post_for_all_render( $atts ) {
             }
             $cat_string = implode(' ', $cat_slugs);
 
+            // MUTLAK DARI AWAL KARTU DI-HIDE: Mencegah render flash di browser
             $posts_html .= '
             <div class="post-card" data-categories="' . esc_attr( $cat_string ) . '" style="display:none;">
                 <div class="post-image">
@@ -141,8 +136,10 @@ function ppic_post_for_all_render( $atts ) {
     }
 
     ob_start(); ?>
-    <div<?php echo $wrapper_id; ?> class="<?php echo $wrapper_class; ?>" data-limit="<?php echo esc_attr( $display_limit ); ?>">
-        <section class="ppic-post-section">
+    
+    <!-- Wrapper Utama dengan ID Unik -->
+    <div id="<?php echo esc_attr( $unique_id ); ?>" class="<?php echo $wrapper_class; ?>" data-limit="<?php echo esc_attr( $display_limit ); ?>">
+        <section <?php echo $section_id_attr; ?> class="ppic-post-section">
             <div class="container">
                 <div class="ppic-post-header">
                     <h2 class="section-title"><?php echo esc_html( $atts['title'] ); ?></h2>
@@ -151,7 +148,6 @@ function ppic_post_for_all_render( $atts ) {
                     <?php endif; ?>
 
                     <?php 
-                    // FILTER BAR DIPINDAHKAN KE SINI (DI BAWAH SUBTITLE)
                     if ( $atts['post_mode'] === 'semua' && ! empty( $active_categories ) ) : 
                     ?>
                         <div class="filter-bar">
@@ -176,96 +172,145 @@ function ppic_post_for_all_render( $atts ) {
                 </div>
 
                 <?php if ( ! empty( $atts['btn_text'] ) ) : ?>
-                    <div class="view-all-btn">
-                        <a href="<?php echo esc_url( $a_href ); ?>" class="btn-outline-post"<?php echo $a_target; ?>>
-                            <?php echo esc_html( $atts['btn_text'] ); ?> <i class="fas fa-arrow-right"></i>
-                        </a>
+                    <div class="view-all-btn" style="text-align: center; margin-top: 40px;">
+                        <?php if ( $atts['post_mode'] === 'semua' ) : ?>
+                            <!-- Tombol Toggle Dinamis -->
+                            <button class="btn-outline-post toggle-expand-btn" data-text-expand="<?php echo esc_attr( $atts['btn_text'] ); ?>" data-text-collapse="Tampilkan Sedikit Berita">
+                                <span><?php echo esc_html( $atts['btn_text'] ); ?></span> <i class="fas fa-chevron-down"></i>
+                            </button>
+                        <?php else : ?>
+                            <!-- Tombol Link Statis (Mode Spesifik) -->
+                            <a href="<?php echo esc_url( $a_href ); ?>" class="btn-outline-post"<?php echo $a_target; ?>>
+                                <?php echo esc_html( $atts['btn_text'] ); ?> <i class="fas fa-arrow-right"></i>
+                            </a>
+                        <?php endif; ?>
                     </div>
                 <?php endif; ?>
             </div>
         </section>
     </div>
 
-    <?php
-    if ( $atts['post_mode'] === 'semua' && ! empty( $active_categories ) ) {
-        static $ppic_post_js_printed = false;
-        if ( ! $ppic_post_js_printed ) {
-            $ppic_post_js_printed = true;
-            ?>
-            <script>
-                document.addEventListener('DOMContentLoaded', function() {
-                    var wrappers = document.querySelectorAll('.ppic-post-wrapper');
-                    
-                    wrappers.forEach(function(wrapper) {
-                        var filterBtns = wrapper.querySelectorAll('.filter-btn');
-                        var postCards  = wrapper.querySelectorAll('.post-card');
-                        var grid       = wrapper.querySelector('.post-grid');
-                        var noMsg      = wrapper.querySelector('.no-post-msg');
-                        
-                        var displayLimit = parseInt(wrapper.getAttribute('data-limit')) || 3;
-
-                        if(filterBtns.length > 0) {
-                            filterBtns.forEach(function(btn) {
-                                btn.addEventListener('click', function() {
-                                    filterBtns.forEach(b => b.classList.remove('active'));
-                                    this.classList.add('active');
-
-                                    var filterValue  = this.getAttribute('data-filter');
-                                    var visibleCount = 0;
-
-                                    postCards.forEach(function(card) {
-                                        var isMatch = false;
-
-                                        if (filterValue === 'all') {
-                                            isMatch = true;
-                                        } else {
-                                            var categories = card.getAttribute('data-categories');
-                                            if (categories && categories.split(' ').indexOf(filterValue) > -1) {
-                                                isMatch = true;
-                                            }
-                                        }
-
-                                        if (isMatch && visibleCount < displayLimit) {
-                                            card.style.display = 'flex';
-                                            visibleCount++;
-                                        } else {
-                                            card.style.display = 'none';
-                                        }
-                                    });
-
-                                    if(visibleCount === 0) {
-                                        grid.style.display = 'none';
-                                        if(noMsg) noMsg.style.display = 'flex';
-                                    } else {
-                                        grid.style.display = 'grid';
-                                        if(noMsg) noMsg.style.display = 'none';
-                                    }
-                                });
-                            });
-
-                            var activeBtn = wrapper.querySelector('.filter-btn.active');
-                            if (activeBtn) {
-                                activeBtn.click();
-                            }
-                        }
-                    });
-                });
-            </script>
-            <?php
-        }
-    } else if ( $atts['post_mode'] === 'spesifik' ) {
-        ?>
+    <!-- SCRIPT JS TERISOLASI BERDASARKAN ID UNIK -->
+    <?php if ( $atts['post_mode'] === 'semua' && ! empty( $active_categories ) ) : ?>
         <script>
             document.addEventListener('DOMContentLoaded', function() {
-                var specificCards = document.querySelectorAll('.ppic-post-wrapper[data-limit] .post-card');
-                specificCards.forEach(function(card) {
-                    card.style.display = 'flex';
-                });
+                // Hanya menargetkan elemen dengan ID Unik ini
+                var wrapper = document.getElementById('<?php echo esc_js( $unique_id ); ?>');
+                if (!wrapper) return;
+                
+                var filterBtns = wrapper.querySelectorAll('.filter-btn');
+                var postCards  = Array.from(wrapper.querySelectorAll('.post-card'));
+                var grid       = wrapper.querySelector('.post-grid');
+                var noMsg      = wrapper.querySelector('.no-post-msg');
+                var expandBtn  = wrapper.querySelector('.toggle-expand-btn');
+                
+                var baseLimit  = parseInt(wrapper.getAttribute('data-limit')) || 6;
+                var isExpanded = false; // State awal selalu tertutup
+
+                function renderCards() {
+                    var activeBtn = wrapper.querySelector('.filter-btn.active');
+                    var filterValue = activeBtn ? activeBtn.getAttribute('data-filter') : 'all';
+                    
+                    var visibleCount = 0;
+                    var matchCount   = 0;
+                    var currentLimit = isExpanded ? Infinity : baseLimit;
+
+                    postCards.forEach(function(card) {
+                        var isMatch = false;
+
+                        if (filterValue === 'all') {
+                            isMatch = true;
+                        } else {
+                            var categories = card.getAttribute('data-categories');
+                            if (categories && categories.split(' ').indexOf(filterValue) > -1) {
+                                isMatch = true;
+                            }
+                        }
+
+                        if (isMatch) {
+                            matchCount++;
+                            // KUNCI UTAMA: Terapkan limit
+                            if (visibleCount < currentLimit) {
+                                card.style.setProperty('display', 'flex', 'important');
+                                visibleCount++;
+                            } else {
+                                card.style.setProperty('display', 'none', 'important');
+                            }
+                        } else {
+                            card.style.setProperty('display', 'none', 'important');
+                        }
+                    });
+
+                    // Pesan kosong jika tidak ada data
+                    if (matchCount === 0) {
+                        grid.style.setProperty('display', 'none', 'important');
+                        if (noMsg) noMsg.style.setProperty('display', 'flex', 'important');
+                    } else {
+                        grid.style.setProperty('display', 'grid', 'important');
+                        if (noMsg) noMsg.style.setProperty('display', 'none', 'important');
+                    }
+
+                    // Logika tombol Expand / Collapse
+                    if (expandBtn) {
+                        if (matchCount <= baseLimit) {
+                            expandBtn.style.setProperty('display', 'none', 'important');
+                        } else {
+                            expandBtn.style.setProperty('display', 'inline-flex', 'important');
+                            if (isExpanded) {
+                                expandBtn.querySelector('span').innerText = expandBtn.getAttribute('data-text-collapse');
+                                expandBtn.querySelector('i').className = 'fas fa-chevron-up';
+                            } else {
+                                expandBtn.querySelector('span').innerText = expandBtn.getAttribute('data-text-expand');
+                                expandBtn.querySelector('i').className = 'fas fa-chevron-down';
+                            }
+                        }
+                    }
+                }
+
+                if (filterBtns.length > 0) {
+                    filterBtns.forEach(function(btn) {
+                        btn.addEventListener('click', function() {
+                            filterBtns.forEach(b => b.classList.remove('active'));
+                            this.classList.add('active');
+                            
+                            isExpanded = false; // Reset jadi tertutup jika pindah kategori
+                            renderCards();
+                        });
+                    });
+
+                    if (expandBtn) {
+                        expandBtn.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            isExpanded = !isExpanded;
+                            renderCards();
+
+                            // Scroll halus kembali ke atas grid saat ditutup
+                            if (!isExpanded) {
+                                grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            }
+                        });
+                    }
+
+                    // Panggil render PERTAMA KALI saat DOM dimuat
+                    renderCards(); 
+                }
             });
         </script>
-        <?php
-    }
+    <?php else : ?>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var wrapper = document.getElementById('<?php echo esc_js( $unique_id ); ?>');
+                if (wrapper) {
+                    var specificCards = wrapper.querySelectorAll('.post-card');
+                    specificCards.forEach(function(card) {
+                        card.style.setProperty('display', 'flex', 'important');
+                    });
+                }
+            });
+        </script>
+    <?php endif; ?>
 
+    <?php
     return ob_get_clean();
 }
 
@@ -323,20 +368,11 @@ function ppic_register_post_for_all_element() {
                 ),
                 array(
                     'type'        => 'textfield',
-                    'heading'     => __( 'Jumlah Maksimal Ditampilkan', 'ppic-custom-element' ),
+                    'heading'     => __( 'Jumlah Maksimal Ditampilkan Awal', 'ppic-custom-element' ),
                     'param_name'  => 'display_count',
-                    'value'       => '3',
-                ),
-                array(
-                    'type'        => 'textfield',
-                    'heading'     => __( 'Jumlah Data Ditarik (Sistem)', 'ppic-custom-element' ),
-                    'param_name'  => 'fetch_count',
                     'value'       => '6',
-                    'dependency'  => array(
-                        'element' => 'post_mode',
-                        'value'   => 'semua',
-                    ),
                 ),
+                // FITUR "Jumlah Maksimal Data Ditarik" DIHAPUS DI SINI
                 array(
                     'type'       => 'textfield',
                     'heading'    => __( 'Judul Utama', 'ppic-custom-element' ),
@@ -353,14 +389,14 @@ function ppic_register_post_for_all_element() {
                 ),
                 array(
                     'type'       => 'textfield',
-                    'heading'    => __( 'Teks Tombol Bawah', 'ppic-custom-element' ),
+                    'heading'    => __( 'Teks Tombol', 'ppic-custom-element' ),
                     'param_name' => 'btn_text',
                     'value'      => 'Lihat Semua Berita',
                     'group'      => __( 'Tombol', 'ppic-custom-element' ),
                 ),
                 array(
                     'type'       => 'vc_link',
-                    'heading'    => __( 'Link URL Tombol', 'ppic-custom-element' ),
+                    'heading'    => __( 'Link URL Tombol (Hanya untuk Mode Spesifik)', 'ppic-custom-element' ),
                     'param_name' => 'btn_url',
                     'value'      => 'url:%2Fberita|title:Semua%20Berita',
                     'group'      => __( 'Tombol', 'ppic-custom-element' ),

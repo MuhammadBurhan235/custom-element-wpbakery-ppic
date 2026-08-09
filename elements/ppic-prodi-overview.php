@@ -131,7 +131,7 @@ function ppic_register_prodi_overview_element() {
         return;
     }
 
-    // Default Content Utama
+    // Default Content Utama (Identik dengan Gambar)
     $default_content = '<p><strong>Program Studi Teknik Mekanikal Bandar Udara</strong> merupakan salah satu program studi vokasi yang berada di Politeknik Penerbangan Indonesia Curug. Kekhususan program studi ini adalah untuk menghasilkan lulusan yang memiliki kompetensi bidang mekanikal bandar udara sesuai dengan <strong>Peraturan Menteri Perhubungan Nomor 37 Tahun 2021</strong>, meliputi fasilitas:</p>
 <ul>
 <li>Traction Equipment;</li>
@@ -142,7 +142,7 @@ function ppic_register_prodi_overview_element() {
 <p>Untuk mewujudkan lulusan yang diharapkan, program studi menyusun kurikulum dengan mempertimbangkan regulasi dari <strong>Kementerian Pendidikan Tinggi, Sains, dan Teknologi</strong> serta <strong>Kementerian Perhubungan</strong>, masukan dari <em>stakeholder</em> (industri penerbangan/bandara), asosiasi profesi, ikatan alumni, dan program studi sejenis.</p>
 <p>Lulusan program studi akan mendapatkan <strong>ijazah</strong> yang diakui oleh Kementerian Pendidikan Tinggi, Sains, dan Teknologi serta <strong>sertifikat kompetensi</strong> yang diakui oleh Kementerian Perhubungan (yang menjadi persyaratan personel bandar udara).</p>';
 
-    // Default Data Sidebar
+    // Data Sidebar Identik Mockup
     $dummy_sidebar = array(
         array( 'icon' => 'fas fa-layer-group', 'label' => 'Jenjang', 'value' => 'Diploma III (DIII)' ),
         array( 'icon' => 'fas fa-clock', 'label' => 'Masa Studi', 'value' => '6 Semester (3 Tahun)' ),
@@ -152,7 +152,7 @@ function ppic_register_prodi_overview_element() {
         array( 'icon' => 'fas fa-award', 'label' => 'Akreditasi', 'value' => 'UNGGUL (LAM-TEKNIK)' ),
     );
 
-    // Default Data Misi
+    // Data Misi Identik Mockup
     $dummy_misi = array(
         array( 'text' => 'Menyelenggarakan pendidikan vokasi khususnya diploma Teknik Mekanikal Bandar Udara yang mampu berkompetisi secara mantap dalam hal pelayanan jasa di dunia penerbangan;' ),
         array( 'text' => 'Mengembangkan ilmu pengetahuan dan teknologi di bidang Teknik Mekanikal Bandar Udara melalui penelitian yang inovatif;' ),

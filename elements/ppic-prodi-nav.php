@@ -7,7 +7,6 @@ add_shortcode( 'ppic_prodi_nav', 'ppic_prodi_nav_render' );
 function ppic_prodi_nav_render( $atts ) {
     $atts = shortcode_atts(
         array(
-            'sticky_offset' => '80', // Jarak default dari atas (menyesuaikan tinggi navbar utama)
             'nav_items'     => '',
             'el_id'         => '',
             'el_class'      => '',
@@ -24,13 +23,9 @@ function ppic_prodi_nav_render( $atts ) {
     $wrapper_id = ! empty( $atts['el_id'] ) ? ' id="' . esc_attr( $atts['el_id'] ) . '"' : ' id="prodiNav"';
     $wrapper_class = 'ppic-prodi-nav' . ( ! empty( $atts['el_class'] ) ? ' ' . esc_attr( trim( $atts['el_class'] ) ) : '' );
     
-    // Inject custom sticky top offset
-    $sticky_top = intval( $atts['sticky_offset'] );
-    $inline_style = 'style="top: ' . $sticky_top . 'px;"';
-
     ob_start(); ?>
     
-    <nav<?php echo $wrapper_id; ?> class="<?php echo $wrapper_class; ?>" <?php echo $inline_style; ?>>
+    <nav<?php echo $wrapper_id; ?> class="<?php echo $wrapper_class; ?>">
         <div class="ppic-prodi-nav-container">
             <?php if ( ! empty( $menus ) ) : ?>
                 <?php foreach ( $menus as $index => $menu ) : 
@@ -40,12 +35,10 @@ function ppic_prodi_nav_render( $atts ) {
                     
                     if ( empty( $label ) || empty( $target ) ) continue;
                     
-                    // Pastikan target diawali dengan '#'
                     if ( strpos( $target, '#' ) !== 0 ) {
                         $target = '#' . $target;
                     }
                     
-                    // Beri class active pada item pertama secara default
                     $active_class = ( $index === 0 ) ? ' active' : '';
                 ?>
                     <a href="<?php echo esc_attr( $target ); ?>" class="prodi-nav-link<?php echo $active_class; ?>">
@@ -53,14 +46,12 @@ function ppic_prodi_nav_render( $atts ) {
                     </a>
                 <?php endforeach; ?>
             <?php else : ?>
-                <!-- Fallback jika kosong -->
                 <a href="#overview" class="prodi-nav-link active"><i class="fas fa-home"></i> Overview</a>
             <?php endif; ?>
         </div>
     </nav>
 
     <?php
-    // Memastikan JavaScript Scroll & ScrollSpy hanya di-load sekali
     static $ppic_prodi_nav_js_loaded = false;
     if ( ! $ppic_prodi_nav_js_loaded ) {
         $ppic_prodi_nav_js_loaded = true;
@@ -72,7 +63,69 @@ function ppic_prodi_nav_render( $atts ) {
             
             if (!navBar || navLinks.length === 0) return;
 
-            // 1. Fitur Smooth Scroll
+            // FUNGSI INTI: Kalkulasi Jarak Sticky yang Tepat dan Kuat
+            function calculateAutoStickyOffset() {
+                let currentOffset = 0;
+                
+                // 1. Deteksi WP Admin Bar (Hitam di atas)
+                const wpAdminBar = document.getElementById('wpadminbar');
+                if (wpAdminBar && window.getComputedStyle(wpAdminBar).position === 'fixed') {
+                    currentOffset += wpAdminBar.offsetHeight;
+                }
+
+                // 2. Deteksi Header Utama 
+                // Mengambil elemen header yang teridentifikasi sticky pada inspeksi elemen
+                const mainHeader = document.querySelector('header.header');
+                
+                if (mainHeader) {
+                    const rect = mainHeader.getBoundingClientRect();
+                    const style = window.getComputedStyle(mainHeader);
+                    
+                    // Verifikasi apakah header benar-benar menempel (fixed/sticky) dan berada di area atas layar
+                    if ((style.position === 'fixed' || style.position === 'sticky') && rect.top <= (currentOffset + 5)) {
+                        // Langsung ambil batas bawah dari header
+                        currentOffset = Math.max(currentOffset, rect.bottom);
+                    } else if (mainHeader.classList.contains('sticky')) {
+                        // Fallback jika CSS telat ter-render: ambil tingginya langsung saat state 'sticky' aktif
+                        currentOffset += mainHeader.offsetHeight;
+                    }
+                }
+                
+                // Aplikasikan nilai yang telah dihitung ke navigasi prodi
+                navBar.style.setProperty('--dynamic-sticky-top', currentOffset + 'px');
+                navBar.style.top = currentOffset + 'px';
+                
+                return currentOffset;
+            }
+
+            // Jalankan kalkulasi awal
+            let dynamicStickyOffset = calculateAutoStickyOffset();
+
+            // Dengarkan perubahan layar dan scroll (menggunakan requestAnimationFrame untuk performa)
+            let isScrolling = false;
+            window.addEventListener('scroll', function() {
+                if (!isScrolling) {
+                    window.requestAnimationFrame(function() {
+                        dynamicStickyOffset = calculateAutoStickyOffset();
+                        updateScrollSpy();
+                        isScrolling = false;
+                    });
+                    isScrolling = true;
+                }
+            }, {passive: true});
+
+            window.addEventListener('resize', calculateAutoStickyOffset);
+
+            // Fitur Mutation Observer: Otomatis deteksi saat class .sticky ditambahkan/dihapus oleh tema
+            const headerToWatch = document.querySelector('header.header');
+            if (headerToWatch) {
+                const observer = new MutationObserver(function(mutations) {
+                    calculateAutoStickyOffset();
+                });
+                observer.observe(headerToWatch, { attributes: true, attributeFilter: ['class', 'style'] });
+            }
+
+            // Fitur Smooth Scroll
             navLinks.forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
@@ -82,10 +135,11 @@ function ppic_prodi_nav_render( $atts ) {
                     
                     const targetSection = document.querySelector(targetId);
                     if (targetSection) {
-                        // Kalkulasi posisi scroll: Posisi elemen dikurangi tinggi navbar utama (sticky offset) dikurangi tinggi navbar prodi ini sendiri
-                        const stickyOffset = parseInt(window.getComputedStyle(navBar).top, 10) || 80;
+                        const finalOffset = calculateAutoStickyOffset();
                         const navHeight = navBar.offsetHeight;
-                        const totalOffset = stickyOffset + navHeight + 20; // +20px breathing room
+                        
+                        // Jarak napas (breathing room)
+                        const totalOffset = finalOffset + navHeight + 20; 
                         
                         const elementPosition = targetSection.getBoundingClientRect().top;
                         const offsetPosition = elementPosition + window.pageYOffset - totalOffset;
@@ -98,12 +152,11 @@ function ppic_prodi_nav_render( $atts ) {
                 });
             });
 
-            // 2. Fitur ScrollSpy (Auto update active link saat user scroll)
-            window.addEventListener('scroll', function() {
+            // Fitur ScrollSpy terpisah untuk dipanggil efisien saat scroll
+            function updateScrollSpy() {
                 let current = '';
                 const scrollPosition = window.pageYOffset;
-                const stickyOffset = parseInt(window.getComputedStyle(navBar).top, 10) || 80;
-                const totalOffset = stickyOffset + navBar.offsetHeight + 50; // Toleransi pembacaan 50px
+                const totalOffset = dynamicStickyOffset + navBar.offsetHeight + 50; 
 
                 navLinks.forEach(link => {
                     const targetId = link.getAttribute('href');
@@ -128,7 +181,7 @@ function ppic_prodi_nav_render( $atts ) {
                         }
                     });
                 }
-            });
+            }
         });
         </script>
         <?php
@@ -143,7 +196,6 @@ function ppic_register_prodi_nav_element() {
         return;
     }
 
-    // Default data sesuai gambar dan HTML dari client
     $dummy_nav = array(
         array( 'icon' => 'fas fa-home', 'label' => 'Overview', 'target_id' => 'overview' ),
         array( 'icon' => 'fas fa-book-open', 'label' => 'Kurikulum', 'target_id' => 'kurikulum' ),
@@ -163,13 +215,6 @@ function ppic_register_prodi_nav_element() {
             'category' => __( 'PPIC Elements', 'ppic-custom-element' ),
             'icon'     => 'dashicons dashicons-menu-alt',
             'params'   => array(
-                array(
-                    'type'        => 'textfield',
-                    'heading'     => __( 'Jarak Sticky dari Atas (px)', 'ppic-custom-element' ),
-                    'param_name'  => 'sticky_offset',
-                    'value'       => '80',
-                    'description' => __( 'Ubah angka ini jika navbar tertimpa oleh header utama website. 80 biasanya cocok untuk tinggi header standar.', 'ppic-custom-element' ),
-                ),
                 array(
                     'type'        => 'param_group',
                     'heading'     => __( 'Daftar Menu Navigasi', 'ppic-custom-element' ),

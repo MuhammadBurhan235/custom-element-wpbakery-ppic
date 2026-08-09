@@ -60,7 +60,15 @@ $excluded_files = array(
     'profil-dosen.html',
     '.gitignore',
     'katalog-pelatihan.html',
-    'klinik.html'
+    'klinik.html',
+    'prodinav.css',
+    'megamenu.css',
+    'header.php',
+    'ambildata.html',
+    'dosen.css',
+    'datadosendekstop.html',
+    'datadosenmobile.html',
+    'daftarinfo.css',
 );
 
 $excluded_directories = array(

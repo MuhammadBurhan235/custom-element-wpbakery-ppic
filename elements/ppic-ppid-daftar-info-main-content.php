@@ -42,12 +42,13 @@ function ppic_ppid_daftar_info_main_render( $atts ) {
     <section<?php echo $wrapper_id; ?> class="<?php echo $wrapper_class; ?>">
         <div class="container ppic-daf-container">
             
-            <div class="daf-accordion-item active" id="berkala">
+            <!-- Tambahkan ID untuk hash link: #berkala -->
+            <div class="daf-accordion-item" id="berkala">
                 <div class="daf-accordion-header" onclick="toggleDafAccordion(this)">
                     <h3><i class="fas fa-calendar-alt"></i> Informasi Berkala</h3>
-                    <i class="fas fa-chevron-up arrow-icon"></i>
+                    <i class="fas fa-chevron-down arrow-icon"></i>
                 </div>
-                <div class="daf-accordion-content" style="display:block;">
+                <div class="daf-accordion-content" style="display:none;">
                     <p class="daf-desc">Informasi yang wajib diumumkan secara rutin minimal 6 bulan sekali.</p>
                     
                     <div class="berkala-table-wrapper">
@@ -131,13 +132,13 @@ function ppic_ppid_daftar_info_main_render( $atts ) {
                 </div>
             </div>
 
-            <!-- 2. INFORMASI SETIAP SAAT -->
-            <div class="daf-accordion-item" id="setiap-saat">
+            <!-- Tambahkan ID untuk hash link: #setiapsaat -->
+            <div class="daf-accordion-item" id="setiapsaat">
                 <div class="daf-accordion-header" onclick="toggleDafAccordion(this)">
                     <h3><i class="fas fa-clock"></i> Informasi Setiap Saat</h3>
                     <i class="fas fa-chevron-down arrow-icon"></i>
                 </div>
-                <div class="daf-accordion-content">
+                <div class="daf-accordion-content" style="display:none;">
                     <p class="daf-desc">Informasi yang wajib tersedia dan dapat diakses publik setiap saat.</p>
                     <div class="table-responsive">
                         <table class="daf-info-table full-table">
@@ -176,13 +177,13 @@ function ppic_ppid_daftar_info_main_render( $atts ) {
                 </div>
             </div>
 
-            <!-- 3. INFORMASI SERTA MERTA -->
-            <div class="daf-accordion-item" id="serta-merta">
+            <!-- Tambahkan ID untuk hash link: #sertamerta -->
+            <div class="daf-accordion-item" id="sertamerta">
                 <div class="daf-accordion-header" onclick="toggleDafAccordion(this)">
                     <h3><i class="fas fa-bolt"></i> Informasi Serta Merta</h3>
                     <i class="fas fa-chevron-down arrow-icon"></i>
                 </div>
-                <div class="daf-accordion-content">
+                <div class="daf-accordion-content" style="display:none;">
                     <p class="daf-desc">Informasi yang dapat mengancam hajat hidup orang banyak, ketertiban umum, atau keadaan darurat.</p>
                     <div class="table-responsive">
                         <table class="daf-info-table full-table">
@@ -229,13 +230,13 @@ function ppic_ppid_daftar_info_main_render( $atts ) {
                 </div>
             </div>
 
-            <!-- 4. INFORMASI DIKECUALIKAN -->
+            <!-- Tambahkan ID untuk hash link: #dikecualikan -->
             <div class="daf-accordion-item" id="dikecualikan">
                 <div class="daf-accordion-header" onclick="toggleDafAccordion(this)">
                     <h3><i class="fas fa-lock"></i> Informasi Dikecualikan</h3>
                     <i class="fas fa-chevron-down arrow-icon"></i>
                 </div>
-                <div class="daf-accordion-content">
+                <div class="daf-accordion-content" style="display:none;">
                     <p class="daf-desc">Informasi yang bersifat rahasia dan tidak dapat diakses publik berdasarkan UU KIP Pasal 17.</p>
                     <div class="table-responsive">
                         <table class="daf-info-table full-table">
@@ -278,7 +279,7 @@ function ppic_ppid_daftar_info_main_render( $atts ) {
     if ( ! $ppic_daf_js_printed ) {
         $ppic_daf_js_printed = true;
         ?>
-<script>
+        <script>
             // Fungsi Buka/Tutup Accordion
             function toggleDafAccordion(element) {
                 var item = element.parentElement;
@@ -296,8 +297,46 @@ function ppic_ppid_daftar_info_main_render( $atts ) {
                 }
             }
 
-            // Fungsi Filtering, Searching, Sorting & Pagination Tabel Berkala
+            // Fungsi Untuk Memeriksa dan Membuka Accordion Berdasarkan Hash URL
+            function checkHashAndOpenAccordion() {
+                var hash = window.location.hash;
+                if (hash) {
+                    var targetElement = document.querySelector(hash);
+                    if (targetElement && targetElement.classList.contains('daf-accordion-item')) {
+                        // Buka accordion target
+                        if (!targetElement.classList.contains('active')) {
+                            var header = targetElement.querySelector('.daf-accordion-header');
+                            if (header) {
+                                toggleDafAccordion(header);
+                            }
+                        }
+                        
+                        // Opsional: Tutup accordion lain jika ingin mode "satu terbuka" (single-open)
+                        // document.querySelectorAll('.daf-accordion-item').forEach(function(item) {
+                        //     if (item !== targetElement && item.classList.contains('active')) {
+                        //         var otherHeader = item.querySelector('.daf-accordion-header');
+                        //         if (otherHeader) toggleDafAccordion(otherHeader);
+                        //     }
+                        // });
+
+                        // Scroll ke elemen dengan sedikit offset agar tidak tertutup header yang sticky
+                        setTimeout(function() {
+                            var offsetTop = targetElement.getBoundingClientRect().top + window.pageYOffset - 100; 
+                            window.scrollTo({
+                                top: offsetTop,
+                                behavior: 'smooth'
+                            });
+                        }, 100); // Sedikit delay agar DOM punya waktu update
+                    }
+                }
+            }
+
+            // Panggil saat DOM siap
             document.addEventListener('DOMContentLoaded', function() {
+                
+                checkHashAndOpenAccordion(); // Periksa URL hash
+
+                // [Script filter, search, paginasi lainnya tetap sama...]
                 var filterBtns = document.querySelectorAll('#filterSidebar .filter-btn');
                 var tbody = document.getElementById('berkala-tbody');
                 var searchInput = document.getElementById('daf-search-input');
@@ -402,15 +441,13 @@ function ppic_ppid_daftar_info_main_render( $atts ) {
                     }
                 }
 
-                // --- EVENT LISTENERS ---
-
                 if(filterBtns.length > 0) {
                     filterBtns.forEach(function(btn) {
                         btn.addEventListener('click', function() {
                             filterBtns.forEach(b => b.classList.remove('active'));
                             this.classList.add('active');
                             if(searchInput) searchInput.value = '';
-                            currentPage = 1; // Reset ke halaman 1 saat ganti kategori
+                            currentPage = 1; 
                             refreshTable();
                         });
                     });
@@ -418,14 +455,14 @@ function ppic_ppid_daftar_info_main_render( $atts ) {
 
                 if(searchInput) {
                     searchInput.addEventListener('input', function() {
-                        currentPage = 1; // Reset ke halaman 1 saat mencari
+                        currentPage = 1; 
                         refreshTable();
                     });
                 }
 
                 if(limitSelect) {
                     limitSelect.addEventListener('change', function() {
-                        currentPage = 1; // Reset ke halaman 1 saat batas data diubah
+                        currentPage = 1; 
                         refreshTable();
                     });
                 }
@@ -465,6 +502,9 @@ function ppic_ppid_daftar_info_main_render( $atts ) {
 
                 refreshTable();
             });
+
+            // Deteksi perubahan hash jika pengguna mengklik link dari halaman yang sama
+            window.addEventListener('hashchange', checkHashAndOpenAccordion);
         </script>
         <?php
     }
@@ -474,6 +514,7 @@ function ppic_ppid_daftar_info_main_render( $atts ) {
 
 add_action( 'vc_before_init', 'ppic_register_ppid_daftar_info_main_element' );
 function ppic_register_ppid_daftar_info_main_element() {
+    // ... [Bagian ini tetap sama seperti sebelumnya] ...
     if ( ! function_exists( 'vc_map' ) ) {
         return;
     }

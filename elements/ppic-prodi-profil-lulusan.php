@@ -5,13 +5,39 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_shortcode( 'ppic_prodi_profil_lulusan', 'ppic_prodi_profil_lulusan_render' );
 function ppic_prodi_profil_lulusan_render( $atts ) {
+    
+    // 1. KITA PINDAHKAN DATA DUMMY KE SINI AGAR FRONTEND BISA MEMBACANYA
+    $dummy_profil = array(
+        array( 
+            'icon'  => 'fas fa-user-tie', 
+            'title' => 'Personel Mekanikal Bandar Udara', 
+            'desc'  => 'Melakukan pengoperasian, pemeliharaan, perbaikan, analisa kerusakan, perencanaan, dan evaluasi peralatan mekanikal bandar udara.' 
+        ),
+        array( 
+            'icon'  => 'fas fa-bolt', 
+            'title' => 'Teknisi Gedung Bidang Mekanikal, Kelistrikan, Pompa dan Pemipaan (MEP)', 
+            'desc'  => 'Melakukan pengoperasian, pemeliharaan, perbaikan, analisa kerusakan, perencanaan, evaluasi dan desain di bidang mekanik, listrik, pompa dan pemipaan.' 
+        ),
+        array( 
+            'icon'  => 'fas fa-tractor', 
+            'title' => 'Teknisi Mekanik Alat Berat', 
+            'desc'  => 'Melakukan pemeliharaan dan gangguan penanganan kerusakan (troubleshooting) pada alat berat.' 
+        ),
+        array( 
+            'icon'  => 'fas fa-clipboard-check', 
+            'title' => 'Auditor Internal (Pelaksana Sertifikasi)', 
+            'desc'  => 'Melakukan pengukuran dan penilaian terhadap sistem dan prosedur keselamatan serta pelayanan bidang mekanikal.' 
+        ),
+    );
+
     $atts = shortcode_atts(
         array(
             'section_id' => 'profil-lulusan',
             'title'      => 'Profil Lulusan',
             'title_icon' => 'fas fa-users',
             'subtitle'   => 'Lulusan Program Studi Teknik Mekanikal Bandar Udara memiliki kompetensi yang siap pakai di dunia industri penerbangan dan bidang terkait.',
-            'items'      => '',
+            // 2. MASUKKAN DATA DUMMY SEBAGAI DEFAULT VALUE
+            'items'      => urlencode( wp_json_encode( $dummy_profil ) ),
             'el_class'   => '',
         ),
         $atts
@@ -55,7 +81,7 @@ function ppic_prodi_profil_lulusan_render( $atts ) {
                         <div class="ppic-profil-card">
                             <h4>
                                 <i class="<?php echo esc_attr( $icon ); ?>"></i> 
-                                <?php echo esc_html( $title ); ?>
+                                <span><?php echo esc_html( $title ); ?></span>
                             </h4>
                             <?php if ( ! empty( $desc ) ) : ?>
                                 <p><?php echo wp_kses_post( $desc ); ?></p>
@@ -79,7 +105,7 @@ function ppic_register_prodi_profil_lulusan_element() {
         return;
     }
 
-    // Default data dari HTML klien
+    // Data dummy di bawah sini tetap dipertahankan untuk editor backend WPBakery
     $dummy_profil = array(
         array( 
             'icon'  => 'fas fa-user-tie', 
@@ -110,7 +136,6 @@ function ppic_register_prodi_profil_lulusan_element() {
             'category' => __( 'PPIC Elements', 'ppic-custom-element' ),
             'icon'     => 'dashicons dashicons-businessman',
             'params'   => array(
-                // HEADER
                 array(
                     'type'        => 'textfield',
                     'heading'     => __( 'Section ID (Untuk Target Sticky Nav)', 'ppic-custom-element' ),
@@ -140,7 +165,6 @@ function ppic_register_prodi_profil_lulusan_element() {
                     'value'       => 'Lulusan Program Studi Teknik Mekanikal Bandar Udara memiliki kompetensi yang siap pakai di dunia industri penerbangan dan bidang terkait.',
                     'group'       => __( 'Header', 'ppic-custom-element' ),
                 ),
-                // REPEATER KARTU PROFIL
                 array(
                     'type'        => 'param_group',
                     'heading'     => __( 'Daftar Profil Profesi/Karier', 'ppic-custom-element' ),
@@ -167,7 +191,6 @@ function ppic_register_prodi_profil_lulusan_element() {
                         ),
                     ),
                 ),
-                // UMUM
                 array(
                     'type'        => 'textfield',
                     'heading'     => __( 'Extra class name', 'js_composer' ),

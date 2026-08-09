@@ -5,6 +5,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_shortcode( 'ppic_prodi_sertifikasi', 'ppic_prodi_sertifikasi_render' );
 function ppic_prodi_sertifikasi_render( $atts ) {
+    
+    // 1. PINDAHKAN DATA DUMMY KE SINI SEBAGAI FALLBACK FRONTEND
+    $dummy_jenis = array(
+        array( 'text' => '<strong>Ijazah Diploma III</strong> — diakui oleh Kementerian Pendidikan Tinggi, Sains, dan Teknologi' ),
+        array( 'text' => '<strong>Sertifikat Kompetensi (Serkom)</strong> — diakui oleh Kementerian Perhubungan RI' ),
+        array( 'text' => '<strong>Lisensi Personel Bandar Udara</strong> — sesuai regulasi Permenhub No. 37 Tahun 2021' ),
+    );
+
     $atts = shortcode_atts(
         array(
             'section_id'     => 'sertifikasi',
@@ -14,7 +22,7 @@ function ppic_prodi_sertifikasi_render( $atts ) {
             
             // KOLOM KIRI (Jenis Sertifikasi)
             'jenis_title'    => 'Jenis Sertifikasi',
-            'jenis_items'    => '',
+            'jenis_items'    => urlencode( wp_json_encode( $dummy_jenis ) ), // 2. SET DEFAULT VALUE
             'jenis_note'     => 'Sertifikat kompetensi menjadi <strong>syarat wajib</strong> bagi personel bandar udara di Indonesia.',
             
             // KOLOM KANAN (Gambar Sertifikat)
@@ -39,7 +47,20 @@ function ppic_prodi_sertifikasi_render( $atts ) {
 
     // Parse Jenis Sertifikasi
     $jenis_items = vc_param_group_parse_atts( $atts['jenis_items'] );
-    if ( ! is_array( $jenis_items ) ) $jenis_items = array();
+    
+    // 3. LOGIKA FALLBACK JIKA KOSONG
+    $has_valid_item = false;
+    if ( is_array( $jenis_items ) ) {
+        foreach ( $jenis_items as $item ) {
+            if ( ! empty( $item['text'] ) ) {
+                $has_valid_item = true;
+                break;
+            }
+        }
+    }
+    if ( ! $has_valid_item ) {
+        $jenis_items = $dummy_jenis;
+    }
 
     // Gambar Sertifikat Utama
     $cert_img_url = 'https://lh3.googleusercontent.com/d/1Tod-AK35VZOa3WZ6lwOsGmukFQNX1Dgf'; // Fallback

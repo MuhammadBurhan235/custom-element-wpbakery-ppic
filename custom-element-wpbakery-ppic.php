@@ -3,7 +3,7 @@
  * Plugin Name: Custom Element WP Bakery PPIC
  * Plugin URI:  https://ppicurug.ac.id/
  * Description: Plugin modular untuk elemen kustom WPBakery PPI Curug.
- * Version:     1.91.1
+ * Version:     2.3.17
  * Author:      IT Team PPI Curug
  * License:     GPL2
  */
@@ -30,7 +30,7 @@ function ppic_custom_elements_enqueue_styles() {
         'ppic-custom-elements-style', 
         PPIC_WPB_URL . 'assets/style.css', 
         array(), 
-        '1.91.1' 
+        '2.3.17' 
     );
 }
 
@@ -127,3 +127,19 @@ require_once PPIC_WPB_DIR . 'elements/ppic-prodi-kurikulum.php';
 require_once PPIC_WPB_DIR . 'elements/ppic-prodi-fasilitas.php';
 require_once PPIC_WPB_DIR . 'elements/ppic-prodi-profil-lulusan.php';
 require_once PPIC_WPB_DIR . 'elements/ppic-prodi-sertifikasi.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-prodi-fasilitas.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-prodi-prospek.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-prodi-kerjasama.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-prodi-kegiatan-taruna.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-prodi-testimoni.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-prodi-unduhan.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-prodi-ig-daftar.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-klinik-hero.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-klinik-akreditasi.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-klinik-layanan.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-klinik-fasilitas.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-klinik-tim-dokter.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-klinik-mitra-kontak.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-sisfo-hero.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-sisfo-list.php';
+require_once PPIC_WPB_DIR . 'elements/ppic-sisfo-cta.php';

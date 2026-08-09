@@ -257,7 +257,7 @@ function ppic_leadership_render( $atts ) {
                 </div>
 
                 <!-- 3. Dewan Pengawas -->
-                <div class="accordion-item active"> <!-- Active by default -->
+                <div class="accordion-item"> <!-- Active by default -->
                     <button class="accordion-header">Dewan Pengawas <i class="fas fa-chevron-down" style="transform: rotate(180deg);"></i></button>
                     <div class="accordion-content">
                         <div class="compact-grid">
