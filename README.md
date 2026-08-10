@@ -1,4 +1,4 @@
-# Custom Element WPBakery – PPIC
+# Custom Element WPBakery – PPIC (ppicurug.ac.id)
 
 **A modular WordPress/WPBakery element library built for Politeknik Penerbangan Indonesia Curug (PPIC), giving non-technical staff a drag-and-drop way to manage complex academic directories, catalogs, and institutional pages — without ever touching PHP.**
 
@@ -15,7 +15,7 @@
 
 ## 1. Project Overview
 
-This repository is a **WordPress mu/plugin-style extension for WPBakery Page Builder** that ships **100+ custom shortcode elements** tailored to the PPIC institutional website — everything from hero sliders and stats counters to a fully filterable lecturer directory, an accreditation grid, a training catalog, and PPID (public information) compliance pages.
+This repository is a **WordPress mu/plugin-style extension for WPBakery Page Builder** that ships **100+ custom shortcode elements** tailored to the PPIC institutional website ([ppicurug.ac.id](https://ppicurug.ac.id)) — everything from hero sliders and stats counters to a fully filterable lecturer directory, an accreditation grid, a training catalog, and PPID (public information) compliance pages.
 
 Rather than hardcoding institutional content into page templates, every element is registered through the WPBakery `vc_map` API as a **self-contained, drag-and-drop building block**. Editors compose entire pages — Home, Dosen (Lecturers), Klinik (Clinic), Prodi (Study Programs), PPID, Pelatihan (Training), and more — visually in the WordPress backend, while the plugin handles all rendering, data parsing, filtering, and responsive behavior behind the scenes.
 
