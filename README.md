@@ -107,6 +107,17 @@ This turns "design mockup → WPBakery element" into a structured, low-ambiguity
 
 ---
 
+## 5. Contribution Ranking
+
+[![Contributors](https://img.shields.io/github/contributors/MuhammadBurhan235/custom-element-wpbakery-ppic?style=flat)](https://github.com/MuhammadBurhan235/custom-element-wpbakery-ppic/graphs/contributors)
+[![Commit Activity](https://img.shields.io/github/commit-activity/t/MuhammadBurhan235/custom-element-wpbakery-ppic?style=flat)](https://github.com/MuhammadBurhan235/custom-element-wpbakery-ppic/graphs/commit-activity)
+
+[![Contributors Graph](https://contrib.rocks/image?repo=MuhammadBurhan235/custom-element-wpbakery-ppic)](https://github.com/MuhammadBurhan235/custom-element-wpbakery-ppic/graphs/contributors)
+
+Live, up-to-date commit and contributor rankings for this repository are always available on the [GitHub Insights → Contributors](https://github.com/MuhammadBurhan235/custom-element-wpbakery-ppic/graphs/contributors) page rather than a hardcoded snapshot here.
+
+---
+
 ## Repository Structure
 
 ```
