@@ -69,11 +69,15 @@ $excluded_files = array(
     'datadosendekstop.html',
     'datadosenmobile.html',
     'daftarinfo.css',
-    'context.txt'
+    'context.txt',
+    'jpkm.html',
+    'WJAInformation.html',
 );
 
 $excluded_directories = array(
     '.git',
+    'preview-data',
+    'evidence',
 );
 
 $iterator = new RecursiveIteratorIterator(

@@ -13,6 +13,25 @@
 
 ---
 
+## 🚀 Installation
+
+Only **three items** are actually required to run this plugin on a WordPress site with WPBakery Page Builder installed:
+
+```
+custom-element-wpbakery-ppic/
+├── assets/                            # required
+├── elements/                          # required
+└── custom-element-wpbakery-ppic.php   # required
+```
+
+1. Copy the `assets/`, `elements/`, and `custom-element-wpbakery-ppic.php` into a folder named `custom-element-wpbakery-ppic` inside your site's `wp-content/plugins/` directory.
+2. In the WordPress admin, go to **Plugins** and activate **Custom Element WP Bakery PPIC**.
+3. Open any page with **WPBakery Page Builder** — every `ppic-*` element will now be available in the "Add Element" panel, organized by section (Home, Dosen, Klinik, PPID, Prodi, Sipencatar, Pelatihan, Penelitian, etc.).
+
+Everything else in this repository — `preview-data/`, `preview-bootstrap.php`, `preview-all-elements.php`, `start-preview.cmd`, `download-plugin.php`, and the root-level `.css`/`.html` mockup files — is **development and preview tooling only**. It is not needed on the live site, and it's automatically stripped out when packaging a release ZIP via [`download-plugin.php`](download-plugin.php).
+
+---
+
 ## 1. Project Overview
 
 This repository is a **WordPress mu/plugin-style extension for WPBakery Page Builder** that ships **100+ custom shortcode elements** tailored to the PPIC institutional website ([ppicurug.ac.id](https://ppicurug.ac.id)) — everything from hero sliders and stats counters to a fully filterable lecturer directory, an accreditation grid, a training catalog, and PPID (public information) compliance pages.
