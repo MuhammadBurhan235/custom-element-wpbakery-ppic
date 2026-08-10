@@ -114,13 +114,13 @@ This turns "design mockup → WPBakery element" into a structured, low-ambiguity
 
 [![Contributors Graph](https://contrib.rocks/image?repo=MuhammadBurhan235/custom-element-wpbakery-ppic)](https://github.com/MuhammadBurhan235/custom-element-wpbakery-ppic/graphs/contributors)
 
-| Rank  | Contributor                                               | Commits |
-| :---: | :-------------------------------------------------------- | :-----: |
-| 🥇 #1 | [MuhammadBurhan235](https://github.com/MuhammadBurhan235) |   34    |
-| 🥈 #2 | [AndikaDzaki](https://github.com/AndikaDzaki)             |   12    |
-| 🥉 #3 | [nayla123-rgb](https://github.com/nayla123-rgb)           |    1    |
+| Rank  | Contributor                                               | Commits | Lines Added | Lines Removed |
+| :---: | :-------------------------------------------------------- | :-----: | :---------: | :-----------: |
+| 🥇 #1 | [MuhammadBurhan235](https://github.com/MuhammadBurhan235) |   34    |   +49,339   |    −6,070     |
+| 🥈 #2 | [AndikaDzaki](https://github.com/AndikaDzaki)             |   12    |   +1,532    |      −62      |
+| 🥉 #3 | [nayla123-rgb](https://github.com/nayla123-rgb)           |    1    |    +295     |       0       |
 
-This table is generated straight from git history via `git shortlog -sn --all`, so it stays accurate as the project grows — re-run that command anytime to refresh the numbers. Live, always-current rankings are also available on the [GitHub Insights → Contributors](https://github.com/MuhammadBurhan235/custom-element-wpbakery-ppic/graphs/contributors) page.
+This table is generated straight from git history via `git shortlog -sn --all` (commits) and `git log --author="<name>" --numstat` (lines added/removed), so it stays accurate as the project grows — re-run those commands anytime to refresh the numbers. Live, always-current rankings are also available on the [GitHub Insights → Contributors](https://github.com/MuhammadBurhan235/custom-element-wpbakery-ppic/graphs/contributors) page.
 
 ---
 
