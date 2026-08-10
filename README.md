@@ -21,6 +21,20 @@ Rather than hardcoding institutional content into page templates, every element 
 
 Each element lives in its own file under [`elements/`](elements/), is registered independently in [`custom-element-wpbakery-ppic.php`](custom-element-wpbakery-ppic.php), and ships with scoped CSS/JS so that adding or removing a block never risks breaking another part of the site.
 
+### 📸 Visual Impact: Before & After
+
+📁 **[View the full Before/After screenshot set on Google Drive](https://drive.google.com/drive/folders/1Ii3paiCxLpaD8X9lguBuQZn8lMMjaUwd)**
+
+The screenshot set above documents the tangible, user-facing difference these WPBakery elements made to [ppicurug.ac.id](https://ppicurug.ac.id) once they went live. Side-by-side comparisons show the site moving from a handful of static pages to a modern, information-dense institutional portal:
+
+- **New navigation & information architecture** — the header grew from a bare menu into a structured mega menu (`Beranda`, `Tentang PPIC`, `Akademik`, `Sipencatar`, `Pelatihan`, `Penelitian & Publikasi`, `Berita`, `Layanan`, `PPID`), with a dedicated utility bar (`PPID`, `Sipencatar`, `FAQ`, `Berita`, `Kalender`, `Kontak`) surfacing previously buried information above the fold.
+- **New, previously non-existent pages** — entire sections such as `Profil Akademisi` (the CSV-driven, filterable lecturer directory), `Katalog Pelatihan` (training catalog with category filtering), `Sipencatar PPI Curug` (admission info hub), and the full `PPID` transparency portal (public information requests, service reports, complaint channels) did not exist before this plugin — they are now first-class, editor-managed pages.
+- **Increased institutional transparency** — the PPID module alone exposes a public information request flow, service reports, and appeal/dispute channels that fulfill Indonesia's public-information-disclosure obligations, turning a compliance requirement into an accessible, well-designed self-service page.
+- **Richer, more discoverable content** — the footer expanded into four organized columns (`PPI Curug` contact block, `Quick Links`, `Layanan`, `Ikuti Kami` social links) and the homepage now surfaces a live Instagram feed grid, giving visitors far more entry points into the institution's content than the previous static layout.
+- **Consistent, on-brand visual language** — every new page inherits the same navy/gold PPIC design system (mega menu, cards, badges, accordions) instead of looking like a bolted-on addition, because each element was built to match the approved mockups pixel-for-pixel (see [Section 4](#4-ai-empowered-development-workflow)).
+
+In short: the before/after evidence shows this isn't just a code refactor — it directly expanded what information the public can find and how easily PPIC's own staff can keep that information up to date.
+
 ---
 
 ## 2. The "Why": Universal & Technical Objectives
@@ -121,22 +135,6 @@ This turns "design mockup → WPBakery element" into a structured, low-ambiguity
 | 🥉 #3 | [nayla123-rgb](https://github.com/nayla123-rgb)           |    1    |    +295     |       0       |
 
 This table is generated straight from git history via `git shortlog -sn --all` (commits) and `git log --author="<name>" --numstat` (lines added/removed), so it stays accurate as the project grows — re-run those commands anytime to refresh the numbers. Live, always-current rankings are also available on the [GitHub Insights → Contributors](https://github.com/MuhammadBurhan235/custom-element-wpbakery-ppic/graphs/contributors) page.
-
----
-
-## 6. Visual Impact: Before & After
-
-📁 **[View the full Before/After screenshot set on Google Drive](https://drive.google.com/drive/folders/1Ii3paiCxLpaD8X9lguBuQZn8lMMjaUwd)**
-
-The screenshot set above documents the tangible, user-facing difference these WPBakery elements made to [ppicurug.ac.id](https://ppicurug.ac.id) once they went live. Side-by-side comparisons show the site moving from a handful of static pages to a modern, information-dense institutional portal:
-
-- **New navigation & information architecture** — the header grew from a bare menu into a structured mega menu (`Beranda`, `Tentang PPIC`, `Akademik`, `Sipencatar`, `Pelatihan`, `Penelitian & Publikasi`, `Berita`, `Layanan`, `PPID`), with a dedicated utility bar (`PPID`, `Sipencatar`, `FAQ`, `Berita`, `Kalender`, `Kontak`) surfacing previously buried information above the fold.
-- **New, previously non-existent pages** — entire sections such as `Profil Akademisi` (the CSV-driven, filterable lecturer directory), `Katalog Pelatihan` (training catalog with category filtering), `Sipencatar PPI Curug` (admission info hub), and the full `PPID` transparency portal (public information requests, service reports, complaint channels) did not exist before this plugin — they are now first-class, editor-managed pages.
-- **Increased institutional transparency** — the PPID module alone exposes a public information request flow, service reports, and appeal/dispute channels that fulfill Indonesia's public-information-disclosure obligations, turning a compliance requirement into an accessible, well-designed self-service page.
-- **Richer, more discoverable content** — the footer expanded into four organized columns (`PPI Curug` contact block, `Quick Links`, `Layanan`, `Ikuti Kami` social links) and the homepage now surfaces a live Instagram feed grid, giving visitors far more entry points into the institution's content than the previous static layout.
-- **Consistent, on-brand visual language** — every new page inherits the same navy/gold PPIC design system (mega menu, cards, badges, accordions) instead of looking like a bolted-on addition, because each element was built to match the approved mockups pixel-for-pixel (see [Section 4](#4-ai-empowered-development-workflow)).
-
-In short: the before/after evidence shows this isn't just a code refactor — it directly expanded what information the public can find and how easily PPIC's own staff can keep that information up to date.
 
 ---
 
