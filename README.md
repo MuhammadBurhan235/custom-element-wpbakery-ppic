@@ -114,7 +114,13 @@ This turns "design mockup → WPBakery element" into a structured, low-ambiguity
 
 [![Contributors Graph](https://contrib.rocks/image?repo=MuhammadBurhan235/custom-element-wpbakery-ppic)](https://github.com/MuhammadBurhan235/custom-element-wpbakery-ppic/graphs/contributors)
 
-Live, up-to-date commit and contributor rankings for this repository are always available on the [GitHub Insights → Contributors](https://github.com/MuhammadBurhan235/custom-element-wpbakery-ppic/graphs/contributors) page rather than a hardcoded snapshot here.
+| Rank  | Contributor                                               | Commits |
+| :---: | :-------------------------------------------------------- | :-----: |
+| 🥇 #1 | [MuhammadBurhan235](https://github.com/MuhammadBurhan235) |   34    |
+| 🥈 #2 | [AndikaDzaki](https://github.com/AndikaDzaki)             |   12    |
+| 🥉 #3 | [nayla123-rgb](https://github.com/nayla123-rgb)           |    1    |
+
+This table is generated straight from git history via `git shortlog -sn --all`, so it stays accurate as the project grows — re-run that command anytime to refresh the numbers. Live, always-current rankings are also available on the [GitHub Insights → Contributors](https://github.com/MuhammadBurhan235/custom-element-wpbakery-ppic/graphs/contributors) page.
 
 ---
 
